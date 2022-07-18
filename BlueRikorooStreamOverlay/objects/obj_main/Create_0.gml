@@ -24,4 +24,5 @@ case 6: case 7: case 8:
 case 9: case 10: case 11:
     global.season = 1 break
 }
+global.tileLayer = Layer.blocks
 #endregion
