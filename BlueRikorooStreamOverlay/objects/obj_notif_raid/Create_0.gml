@@ -1,0 +1,3 @@
+username = ""
+raidAmount = 0
+

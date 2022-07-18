@@ -1,0 +1,40 @@
+{
+  "textureGroupId": {
+    "name": "Default",
+    "path": "texturegroups/Default",
+  },
+  "name": "tile_wall_grass_summer",
+  "spriteId": null,
+  "tileWidth": 32,
+  "tileHeight": 32,
+  "tilexoff": 0,
+  "tileyoff": 0,
+  "tilehsep": 1,
+  "tilevsep": 1,
+  "out_tilehborder": 3,
+  "out_tilevborder": 3,
+  "spriteNoExport": true,
+  "out_columns": 1,
+  "tile_count": 1,
+  "autoTileSets": [],
+  "tileAnimationFrames": [],
+  "tileAnimationSpeed": 15.0,
+  "tileAnimation": {
+    "FrameData": [
+      0,
+    ],
+    "SerialiseFrameCount": 1,
+  },
+  "macroPageTiles": {
+    "SerialiseWidth": 0,
+    "SerialiseHeight": 0,
+    "TileSerialiseData": [],
+  },
+  "parent": {
+    "name": "Tiles",
+    "path": "folders/Tiles.yy",
+  },
+  "resourceVersion": "1.0",
+  "tags": [],
+  "resourceType": "GMTileSet",
+}
