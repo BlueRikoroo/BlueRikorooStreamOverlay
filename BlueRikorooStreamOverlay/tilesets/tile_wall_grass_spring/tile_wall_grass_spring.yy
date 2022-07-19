@@ -1,9 +1,4 @@
 {
-  "textureGroupId": {
-    "name": "Default",
-    "path": "texturegroups/Default",
-  },
-  "name": "tile_wall_grass_spring",
   "spriteId": {
     "name": "spr_tile_wall_grass_spring",
     "path": "sprites/spr_tile_wall_grass_spring/spr_tile_wall_grass_spring.yy",
@@ -14,9 +9,13 @@
   "tileyoff": 0,
   "tilehsep": 1,
   "tilevsep": 1,
+  "spriteNoExport": false,
+  "textureGroupId": {
+    "name": "Default",
+    "path": "texturegroups/Default",
+  },
   "out_tilehborder": 3,
   "out_tilevborder": 3,
-  "spriteNoExport": true,
   "out_columns": 8,
   "tile_count": 72,
   "autoTileSets": [],
@@ -109,6 +108,7 @@
     "path": "folders/Tiles.yy",
   },
   "resourceVersion": "1.0",
+  "name": "tile_wall_grass_spring",
   "tags": [],
   "resourceType": "GMTileSet",
 }

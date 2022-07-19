@@ -128,21 +128,24 @@ if url == webhook_url{
 	ds_list_clear(currentCommandIDs)
 	*/
 	var notifications = json[? "Notifications"]
-	var l = ds_list_size(notifications)
-	for (var i = 0; i < l; i++){
-		var notif = notifications[|i]
-		var notifID = notif[|0]
-		if notifCount < notifID{
-			notifCount = notifID
-			var notifType = notif[|1]
-			switch(notifType){
-			case "raid":
-				var obj = instance_create_layer(0, 0, getLayerDepth(-1000), obj_notif_raid)
-				obj.username = notif[|2]
-				obj.raidAmount = notif[|3]
-				ds_list_add(obj_notifHandler.newNotifs, obj)
-				instance_deactivate_object(obj)
-				break
+	if !is_undefined(notifications){
+		var l = ds_list_size(notifications)
+		for (var i = 0; i < l; i++){
+			var notif = notifications[|i]
+			var notifID = notif[|0]
+			if notifCount < notifID{
+				notifCount = notifID
+				var notifType = notif[|1]
+				switch(notifType){
+				case "raid":
+					var obj = instance_create_layer(0, 0, getLayer(-1000), obj_notif_raid)
+					obj.username = notif[|2]
+					obj.raidAmount = notif[|3]
+					ds_list_add(obj_notifHandler.newNotifs, obj)
+					instance_deactivate_object(obj)
+					break
+				}
+			}
 		}
 	}
 }
