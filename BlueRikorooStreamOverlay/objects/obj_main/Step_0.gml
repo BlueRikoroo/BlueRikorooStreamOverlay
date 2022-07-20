@@ -12,6 +12,14 @@ if keyboard_check(vk_anykey) and mode == "normal"{
 		testing = !testing
 		keyboard_string = ""
 		break
+	case "player":
+		if testing{
+			keyboard_string = ""
+			var e = choose(Element.neutral, Element.fire, Element.metal,
+			  Element.earth, Element.nature, Element.storm, Element.water,
+			  Element.ice, Element.light, Element.shadow, Element.time, Element.ai)
+			createPlayer(camera_get_view_x(view_camera[0])+960,camera_get_view_y(view_camera[0])+540,e,"BlueRikorooTest")
+		}
 	}
 }
 
@@ -36,6 +44,35 @@ if keyboard_check_pressed(vk_lshift){
 			show_debug_message(error)
 		}
 		mode = "normal"
+	}
+}
+
+#endregion
+#region Camera Movement
+
+if cameraMoving{
+	var X = camera_get_view_x(view_camera[0])
+	var Y = camera_get_view_y(view_camera[0])
+	X += (cameraMoveToX-X)*0.1
+	Y += (cameraMoveToY-Y)*0.1
+	if point_distance(X, Y, cameraMoveToX, cameraMoveToY) < 0.1{
+		cameraMoving = false
+		X = cameraMoveToX
+		Y = cameraMoveToY
+	}
+	camera_set_view_pos(view_camera[0], X, Y)
+}
+
+if mode == "normal"{
+	if keyboard_check_pressed(vk_numpad1){
+		cameraMoving = true
+		cameraMoveToX = 1920
+		cameraMoveToY = 1080
+	}
+	if keyboard_check_pressed(vk_numpad2){
+		cameraMoving = true
+		cameraMoveToX = 1920
+		cameraMoveToY = 1032
 	}
 }
 

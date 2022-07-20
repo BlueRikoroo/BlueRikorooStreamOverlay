@@ -30,7 +30,24 @@ mode = "normal"
 if currentMap != ""{
 	load_map(currentMap)
 }
-
+cameraMoving = false
+cameraMoveToX = 1920
+cameraMoveToY = 1080
 testing = false
 
 #endregion
+
+enum Element{
+	neutral,
+	fire,
+	metal,
+	earth,
+	storm,
+	nature,
+	water,
+	ice,
+	light,
+	shadow,
+	ai,
+	time
+}

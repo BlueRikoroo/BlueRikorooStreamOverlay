@@ -4,8 +4,8 @@
   "visible": true,
   "managed": true,
   "spriteMaskId": {
-    "name": "spr_col_square_32x32",
-    "path": "sprites/spr_col_square_32x32/spr_col_square_32x32.yy",
+    "name": "spr_col_square_30x30_bc",
+    "path": "sprites/spr_col_square_30x30_bc/spr_col_square_30x30_bc.yy",
   },
   "persistent": false,
   "parentObjectId": null,
@@ -23,16 +23,17 @@
   "physicsShapePoints": [],
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "BlueRikorooStreamOverlay",
-    "path": "BlueRikorooStreamOverlay.yyp",
+    "name": "Player",
+    "path": "folders/Player.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_block",
+  "name": "obj_player",
   "tags": [],
   "resourceType": "GMObject",
 }
