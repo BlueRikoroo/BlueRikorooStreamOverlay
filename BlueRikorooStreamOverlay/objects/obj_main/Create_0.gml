@@ -1,6 +1,7 @@
 ini_open("Config/config.ini")
 
 webhook_url = ini_read_string("Website", "url", "")
+currentMap = ini_read_string("Carryover", "lastMap", "")
 
 ini_close()
 
@@ -24,6 +25,12 @@ case 6: case 7: case 8:
 case 9: case 10: case 11:
     global.season = 1 break
 }
-global.tileLayer = getLayer(Layer.blocks)
+global.tileMap = ds_map_create()
 mode = "normal"
+if currentMap != ""{
+	load_map(currentMap)
+}
+
+testing = false
+
 #endregion

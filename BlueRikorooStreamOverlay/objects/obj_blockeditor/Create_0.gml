@@ -6,3 +6,6 @@ enum BlockType{
 }
 
 saveState = 0
+
+lastMouseX = 0
+lastMouseY = 0

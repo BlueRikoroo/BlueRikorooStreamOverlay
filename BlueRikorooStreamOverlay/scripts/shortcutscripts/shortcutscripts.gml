@@ -15,3 +15,10 @@ function check_multiple() {
 function snap(value, snapTo) {
 	return round(value/snapTo)*snapTo
 }
+
+function getBlockshape(grid, X, Y){
+	var obj = ds_grid_get(grid, X, Y)
+	if !is_undefined(obj) and obj != 0
+		return obj.blockShape	
+	return -1
+}

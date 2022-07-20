@@ -8,4 +8,9 @@ if !collision_point(mouse_x, mouse_y, obj_block, false, false){
 		obj.tile = tile_wall_grass_summer
 		break
 	}
+	with(obj){
+		if place_meeting(x, y, obj_block){
+			instance_destroy()	
+		}
+	}
 }
