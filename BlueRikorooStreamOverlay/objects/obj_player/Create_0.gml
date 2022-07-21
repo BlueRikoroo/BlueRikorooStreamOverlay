@@ -14,7 +14,7 @@ anim_current = Anim.idle
 anim_idle = spr_player_neutral_idle
 anim_idleRandom = spr_player_neutral_idleRandom
 anim_run = spr_player_neutral_run
-anim_flyType = AnimFly.directional
+anim_flyType = AnimFly.directionalEyes
 anim_fly = spr_player_neutral_fly
 anim_flyEyes = spr_player_neutral_eyes
 
@@ -34,6 +34,7 @@ isKing = false
 nameObj = noone
 nameHeight = 0    // Where it is currently
 nameHeightTo = 0  // Where it is going to
+shiney = -1
 
 enum Anim{
 	idle,
@@ -43,6 +44,7 @@ enum Anim{
 }
 enum AnimFly{
 	directional,
+	directionalEyes,
 	animation,
 	gradual,
 	rotate,

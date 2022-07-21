@@ -72,20 +72,77 @@ function createPlayer(X, Y, element, Name){
 			anim_idle = spr_player_water_idle
 			anim_idle_speed = 0.1
 			anim_idle_max = 8
-			
+			anim_idleRandom = spr_player_water_idle
+			anim_idleRandom_speed = 0.1
+			anim_idleRandom_max = 8
 			anim_run = spr_player_water_run
 			anim_run_speed = 0.1
 			anim_idle_max = 7
+			anim_flyType = AnimFly.directional
+			anim_fly = spr_player_water_fly
+			anim_fly_speed = 0.1
+			anim_fly_max = 6
 			break
 		case Element.ice:
+			anim_idle = spr_player_ice_idle
+			anim_idle_speed = 0.1
+			anim_idle_max = 12
+			anim_idleRandom = spr_player_ice_idleRandom
+			anim_idleRandom_speed = 0.1
+			anim_idleRandom_max = 12
+			anim_run = spr_player_ice_run
+			anim_run_speed = 0.1
+			anim_run_max = 15
+			anim_flyType = AnimFly.animation
+			anim_fly = spr_player_ice_run
+			anim_fly_speed = 0.1
+			anim_fly_max = 15
 			break
 		case Element.light:
+			anim_idle = spr_player_light_idle
+			anim_idle_speed = 0.1
+			anim_idle_max = 9
+			anim_idleRandom = spr_player_light_idle
+			anim_idleRandom_speed = 0.1
+			anim_idleRandom_max = 9
+			anim_run = spr_player_light_run
+			anim_run_speed = 0.1
+			anim_run_max = 7
+			anim_flyType = AnimFly.gradual
+			anim_fly = spr_player_light_fly
 			break
 		case Element.shadow:
+			anim_idle = spr_player_shadow_idle
+			anim_idle_speed = 0.1
+			anim_idle_max = 7
+			anim_idleRandom = spr_player_shadow_idle
+			anim_idleRandom_speed = 0.1
+			anim_idleRandom_max = 7
+			anim_run = spr_player_shadow_run
+			anim_run_speed = 0.1
+			anim_run_max = 7
+			anim_fly = spr_player_shadow_fly
+			anim_fly_speed = 0.1
+			anim_fly_max = 7
+			anim_flyEyes = spr_player_shadow_eyes
 			break
 		case Element.ai:
+			anim_idle = spr_player_ai
+			anim_idle_speed = 0.1
+			anim_idle_max = 4
+			anim_idleRandom = spr_player_ai
+			anim_idleRandom_speed = 0.1
+			anim_idleRandom_max = 4
+			anim_run = spr_player_ai
+			anim_run_speed = 0.1
+			anim_run_max = 4
+			anim_flyType = AnimFly.animation
+			anim_fly = spr_player_ai
+			anim_fly_speed = 0.1
+			anim_fly_max = 4
 			break
 		case Element.time:
+			shiney = 0x8781BE
 			break
 		}
 		nameObj = instance_create_layer(x, y, layer, obj_player_namePlate)
