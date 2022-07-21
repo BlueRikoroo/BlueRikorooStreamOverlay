@@ -69,6 +69,13 @@ function createPlayer(X, Y, element, Name){
 			anim_fly_max = 360
 			break
 		case Element.water:
+			anim_idle = spr_player_water_idle
+			anim_idle_speed = 0.1
+			anim_idle_max = 8
+			
+			anim_run = spr_player_water_run
+			anim_run_speed = 0.1
+			anim_idle_max = 7
 			break
 		case Element.ice:
 			break
