@@ -30,6 +30,11 @@ anim_fly_max = 6
 
 facing = Facing.right
 
+isKing = false
+nameObj = noone
+nameHeight = 0    // Where it is currently
+nameHeightTo = 0  // Where it is going to
+
 enum Anim{
 	idle,
 	idleRandom,
@@ -38,6 +43,7 @@ enum Anim{
 }
 enum AnimFly{
 	directional,
+	animation,
 }
 enum Movement{
 	idle,

@@ -15,10 +15,12 @@ if keyboard_check(vk_anykey) and mode == "normal"{
 	case "player":
 		if testing{
 			keyboard_string = ""
-			var e = choose(Element.neutral, Element.fire, Element.metal,
-			  Element.earth, Element.nature, Element.storm, Element.water,
-			  Element.ice, Element.light, Element.shadow, Element.time, Element.ai)
-			createPlayer(camera_get_view_x(view_camera[0])+960,camera_get_view_y(view_camera[0])+540,e,"BlueRikorooTest")
+			var e = [Element.neutral, Element.fire, Element.earth,
+			  Element.metal, Element.nature, Element.storm, Element.water,
+			  Element.ice, Element.light, Element.shadow, Element.time, Element.ai]
+			for (var i = 0; i < array_length(e); i++){
+				createPlayer(camera_get_view_x(view_camera[0])+480 + 64*i,camera_get_view_y(view_camera[0])+540,e[i],"BlueRikorooTest")
+			}
 		}
 	}
 }

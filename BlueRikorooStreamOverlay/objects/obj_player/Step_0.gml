@@ -145,3 +145,22 @@ if on_ground{
 	anim_frame = 0
 }
 #endregion
+#region Nameplate
+
+with(nameObj){
+	x = other.x
+	y = other.y
+	var i = 0
+	while place_meeting(x, y, obj_player_namePlate){
+		y += 15
+		if i >= 6{
+			y = other.y
+			break
+		}
+	}
+}
+
+nameHeightTo = nameObj.y-y
+nameHeight += sign(nameHeightTo-nameHeight)
+
+#endregion
