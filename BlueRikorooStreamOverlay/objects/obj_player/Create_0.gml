@@ -44,6 +44,8 @@ enum Anim{
 enum AnimFly{
 	directional,
 	animation,
+	gradual,
+	rotate,
 }
 enum Movement{
 	idle,

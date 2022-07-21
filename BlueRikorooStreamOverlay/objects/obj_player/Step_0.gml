@@ -74,7 +74,13 @@ if hspeed < 0{
 else if hspeed > 0{
 	facing = Facing.right
 }
-
+if on_ground and hspeed != 0 and vspeed >= 0{
+	on_ground = place_meeting(x, y+1, obj_block)
+}
+if y > room_height{
+	y = 0
+	vspeed = 0
+}
 #endregion
 #region Flying Check
 
@@ -147,20 +153,22 @@ if on_ground{
 #endregion
 #region Nameplate
 
-with(nameObj){
-	x = other.x
-	y = other.y
-	var i = 0
-	while place_meeting(x, y, obj_player_namePlate){
-		y += 15
-		if i >= 6{
-			y = other.y
-			break
+if obj_main.show_nametags{
+	with(nameObj){
+		x = other.x
+		y = other.y
+		var i = 0
+		while place_meeting(x, y, obj_player_namePlate){
+			y += 15
+			if i >= 6{
+				y = other.y
+				break
+			}
 		}
 	}
-}
 
-nameHeightTo = nameObj.y-y
-nameHeight += sign(nameHeightTo-nameHeight)
+	nameHeightTo = nameObj.y-y
+	nameHeight += sign(nameHeightTo-nameHeight)
+}
 
 #endregion

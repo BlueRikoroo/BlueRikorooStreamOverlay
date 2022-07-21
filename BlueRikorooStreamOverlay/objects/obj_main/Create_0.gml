@@ -9,8 +9,6 @@ ini_close()
 if webhook_url != ""
 	alarm[0] = 10
 	
-	
-	
 #region Variables used to process data
 
 notifCount = -1  // Keeps track of which notification ID we are on so as not to repeat notifications
@@ -34,6 +32,8 @@ cameraMoving = false
 cameraMoveToX = 1920
 cameraMoveToY = 1080
 testing = false
+show_nametags = true
+userList = ds_list_create()  // Add and remove player objects from this list
 
 #endregion
 

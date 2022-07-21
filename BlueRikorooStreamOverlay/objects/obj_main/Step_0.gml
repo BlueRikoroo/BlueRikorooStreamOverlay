@@ -76,6 +76,16 @@ if mode == "normal"{
 		cameraMoveToX = 1920
 		cameraMoveToY = 1032
 	}
+	if keyboard_check_pressed(vk_numpad3){
+		cameraMoving = true
+		cameraMoveToX = 0
+		cameraMoveToY = 1080
+	}
+	if keyboard_check_pressed(vk_numpad4){
+		cameraMoving = true
+		cameraMoveToX = 3840
+		cameraMoveToY = 1080
+	}
 }
 
 #endregion

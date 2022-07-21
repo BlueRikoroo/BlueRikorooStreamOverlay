@@ -34,10 +34,39 @@ function createPlayer(X, Y, element, Name){
 			anim_fly_max = 1
 			break
 		case Element.metal:
+			anim_idle = spr_player_metal
+			anim_idle_speed = 0.05
+			anim_idle_max = 1
+			anim_idleRandom = spr_player_metal_idleRandom
+			anim_flyType = AnimFly.animation
 			break
 		case Element.storm:
+			anim_idle = spr_player_storm_idle
+			anim_idle_speed = 0.1
+			anim_idle_max = 6
+			anim_idleRandom = spr_player_storm_idle
+			anim_idleRandom_speed = 0.1
+			anim_idleRandom_max = 6
+			anim_run = spr_player_storm_run
+			anim_run_speed = 0.1
+			anim_run_max = 6
+			anim_flyType = AnimFly.gradual
+			anim_fly = spr_player_storm_fly
 			break
 		case Element.nature:
+			anim_idle = spr_player_nature_idle
+			anim_idle_speed = 0.1
+			anim_idle_max = 45
+			anim_idleRandom = spr_player_nature
+			anim_idleRandom_speed = 0.01
+			anim_idleRandom_max = 1
+			anim_run = spr_player_nature_run
+			anim_run_speed = 0.2
+			anim_run_max = 10
+			anim_flyType = AnimFly.rotate
+			anim_fly = spr_player_nature_center
+			anim_fly_speed = 6
+			anim_fly_max = 360
 			break
 		case Element.water:
 			break
