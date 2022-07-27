@@ -144,7 +144,7 @@ if url == webhook_url{
 				notifCount = notifID
 				var notifType = notif[|1]
 				switch(notifType){
-				case "message":
+				case "message":  #region Message
 					var username = notif[| 2]
 					var element = userToElement[? username]
 					if is_undefined(element){
@@ -169,14 +169,27 @@ if url == webhook_url{
 						alarm[0] = 72000  // Reset Timer
 					}
 					create_chat_message(username, notif[| 3], element)
-					break					
-				case "raid":
+					show_nametags = ds_map_size(userToObj) < 5
+					break #endregion	
+				case "newCheerKing":  #region Cheer King
+					var username = notif[| 2]
+					// var amount = notif[| 3]
+					
+					with(obj_player){
+						isKing = false	
+						if self.username = username{
+							isKing = true	
+						}
+					}
+					
+					break #endregion
+				case "raid":  #region Raid
 					var obj = instance_create_layer(0, 0, getLayer(-1000), obj_notif_raid)
 					obj.username = notif[|2]
 					obj.raidAmount = notif[|3]
 					ds_list_add(obj_notifHandler.newNotifs, obj)
 					instance_deactivate_object(obj)
-					break
+					break  #endregion
 				}
 			}
 		}

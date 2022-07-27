@@ -72,7 +72,7 @@ if isKing{
 #endregion
 #region Name
 
-if obj_main.show_nametags{
+if obj_main.show_nametags or isKing{
 	draw_set_font(fnt_playerName)
 	draw_set_halign(fa_middle)
 	draw_set_valign(fa_center)
@@ -81,13 +81,13 @@ if obj_main.show_nametags{
 	draw_set_color(c_black)
 	for(var X = -1; X <= 1; X++){
 		for(var Y = -1; Y <= 1; Y++){
-			draw_text(x+X,y-45+Y-32*isKing-nameHeight,username)
+			draw_text(x+X,y-45+Y-nameHeight,username)
 		}
 	}
 
 	//Draw Text
 	draw_set_color(c_white)
-	draw_text(x,y-45-32*isKing-nameHeight,username)
+	draw_text(x,y-45-nameHeight,username)
 }
 
 #endregion

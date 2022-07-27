@@ -163,10 +163,10 @@ if on_ground{
 #endregion
 #region Nameplate
 
-if obj_main.show_nametags{
+if obj_main.show_nametags or isKing{
 	with(nameObj){
 		x = other.x
-		y = other.y
+		y = other.y+32*other.isKing
 		var i = 0
 		while place_meeting(x, y, obj_player_namePlate){
 			y += 15
