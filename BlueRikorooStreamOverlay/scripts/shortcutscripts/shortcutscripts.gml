@@ -22,3 +22,9 @@ function getBlockshape(grid, X, Y){
 		return obj.blockShape	
 	return -1
 }
+
+function getRandomElement(){
+	return choose(Element.neutral, Element.fire, Element.earth,
+	Element.metal, Element.storm, Element.nature, Element.water,
+	Element.ice, Element.light, Element.shadow)
+}

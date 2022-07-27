@@ -1,5 +1,6 @@
-ini_open("Config/config.ini")
+randomize()
 
+ini_open("Config/config.ini")
 webhook_url = ini_read_string("Website", "url", "")
 currentMap = ini_read_string("Carryover", "lastMap", "")
 
@@ -33,8 +34,17 @@ cameraMoveToX = 1920
 cameraMoveToY = 1080
 testing = false
 show_nametags = true
-userList = ds_list_create()  // Add and remove player objects from this list
+userToObj = ds_map_create()  // Add and remove player objects from this list
+userToElement = ds_map_create()
 
+var width = 1920
+var height = 1080
+display_set_gui_size(width, height)
+chat_surface_height = ceil(height/3)
+chat_surface_width = ceil(width/3)
+chat_surface = noone
+chat_surface_x = 0
+chat_surface_y = height-chat_surface_height-55
 #endregion
 
 enum Element{

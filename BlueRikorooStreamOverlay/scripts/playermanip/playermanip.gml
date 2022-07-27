@@ -148,5 +148,7 @@ function createPlayer(X, Y, element, Name){
 		nameObj = instance_create_layer(x, y, layer, obj_player_namePlate)
 		nameObj.image_yscale = 0.45
 		nameObj.image_xscale = string_width(username)/60
+		alarm[0] = 72000  // 20*60*60 = 20minutes to despawn
 	}
+	return obj
 }

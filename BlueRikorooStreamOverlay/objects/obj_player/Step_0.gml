@@ -52,6 +52,16 @@ case Movement.leftHurry:
 }
 
 #endregion
+#region Leaving
+
+if leaving{
+	hspeed -= accel
+	if x < camera_get_view_x(view_camera[0])-400{
+		instance_destroy()	
+	}
+}	
+
+#endregion
 #region Collisions and Automated Movement
 
 #region Movement Check

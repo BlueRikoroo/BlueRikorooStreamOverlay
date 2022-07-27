@@ -34,7 +34,12 @@ isKing = false
 nameObj = noone
 nameHeight = 0    // Where it is currently
 nameHeightTo = 0  // Where it is going to
+username = ""
+
 shiney = -1
+
+leaving = false
+chatterRep = false  // Represents a chatter
 
 enum Anim{
 	idle,

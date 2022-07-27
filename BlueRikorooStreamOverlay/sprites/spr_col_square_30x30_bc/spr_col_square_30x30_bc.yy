@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "BlueRikorooStreamOverlay",
-    "path": "BlueRikorooStreamOverlay.yyp",
+    "name": "Collision Masks",
+    "path": "folders/Collision Masks.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_col_square_30x30_bc",

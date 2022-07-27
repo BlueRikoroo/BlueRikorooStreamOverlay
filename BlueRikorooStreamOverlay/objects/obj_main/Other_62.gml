@@ -1,7 +1,11 @@
 var url = ds_map_find_value(async_load, "url")
 
 if url == webhook_url{
-	var result = ds_map_find_value(async_load, "url")
+	var result = ds_map_find_value(async_load, "result")
+	if is_undefined(result){
+		show_debug_message("Undefined Result Detected")
+		exit
+	}
 	var json = json_decode(result)
 	
 	#region Obtain viewers (MvT specific Mode)
@@ -127,6 +131,9 @@ if url == webhook_url{
 		/
 	ds_list_clear(currentCommandIDs)
 	*/
+	#endregion
+	#region Notifications
+	
 	var notifications = json[? "Notifications"]
 	if !is_undefined(notifications){
 		var l = ds_list_size(notifications)
@@ -137,6 +144,32 @@ if url == webhook_url{
 				notifCount = notifID
 				var notifType = notif[|1]
 				switch(notifType){
+				case "message":
+					var username = notif[| 2]
+					var element = userToElement[? username]
+					if is_undefined(element){
+						element = getRandomElement()
+						if irandom(1000) == 0{
+							element = Element.ai	
+						}
+						if irandom(5000) == 0{
+							element = Element.time	
+						}
+						userToElement[? username] = element
+					}
+					var playerObj = userToObj[? username]
+					if is_undefined(playerObj){
+						playerObj = createPlayer(960, 540, element, username)
+						with(playerObj){
+							chatterRep = true	
+						}
+						userToObj[? username] = playerObj
+					}
+					with(playerObj){
+						alarm[0] = 72000  // Reset Timer
+					}
+					create_chat_message(username, notif[| 3], element)
+					break					
 				case "raid":
 					var obj = instance_create_layer(0, 0, getLayer(-1000), obj_notif_raid)
 					obj.username = notif[|2]
@@ -148,4 +181,6 @@ if url == webhook_url{
 			}
 		}
 	}
+	
+	#endregion
 }
