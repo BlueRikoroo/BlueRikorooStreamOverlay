@@ -105,7 +105,7 @@
   },
   "parent": {
     "name": "Tiles",
-    "path": "folders/Tiles.yy",
+    "path": "folders/Blocks/Tiles.yy",
   },
   "resourceVersion": "1.0",
   "name": "tile_wall_grass_fall",

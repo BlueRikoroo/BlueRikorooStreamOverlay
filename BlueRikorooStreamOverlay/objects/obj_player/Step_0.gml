@@ -6,6 +6,8 @@ function TryJump(){
 }
 #region Decisions
 
+#region Which one?
+
 var camx = camera_get_view_x(view_camera[0])
 if x < camx{
 	decision = Movement.rightHurry
@@ -25,6 +27,19 @@ else if x > camx + 1770{
 	case 4: decision = Movement.right break
 	}
 }
+
+#endregion
+#region Leaving
+
+if leaving{
+	decision = Movement.left
+	if x < camera_get_view_x(view_camera[0])-400{
+		instance_destroy()	
+	}
+}	
+
+#endregion
+#region Action
 
 switch(decision){
 case Movement.idle:
@@ -50,16 +65,7 @@ case Movement.leftHurry:
 	TryJump()
 	break
 }
-
 #endregion
-#region Leaving
-
-if leaving{
-	hspeed -= accel
-	if x < camera_get_view_x(view_camera[0])-400{
-		instance_destroy()	
-	}
-}	
 
 #endregion
 #region Collisions and Automated Movement
@@ -166,19 +172,18 @@ if on_ground{
 if obj_main.show_nametags or isKing{
 	with(nameObj){
 		x = other.x
-		y = other.y+32*other.isKing
-		var i = 0
+		y = other.y-32*other.isKing
 		while place_meeting(x, y, obj_player_namePlate){
-			y += 15
-			if i >= 6{
-				y = other.y
-				break
-			}
+			y -= 15
 		}
 	}
 
-	nameHeightTo = nameObj.y-y
-	nameHeight += sign(nameHeightTo-nameHeight)
+	nameHeightTo = y-nameObj.y
+	if abs(nameHeightTo-nameHeight) <= 1{
+		nameHeight = nameHeightTo
+	}else{
+		nameHeight += sign(nameHeightTo-nameHeight)*2
+	}
 }
 
 #endregion

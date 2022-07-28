@@ -28,8 +28,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "BlueRikorooStreamOverlay",
-    "path": "BlueRikorooStreamOverlay.yyp",
+    "name": "Blocks",
+    "path": "folders/Blocks.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_block",

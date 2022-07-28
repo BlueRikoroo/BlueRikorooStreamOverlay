@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Tiles",
-    "path": "folders/Tiles.yy",
+    "path": "folders/Blocks/Tiles.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_tile_wall_grass_winer",

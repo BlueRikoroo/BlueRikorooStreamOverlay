@@ -1,4 +1,5 @@
 // Returns a layer based on the depth you want to use
+
 function getLayer(Depth) {
 	if ds_map_exists(global.layerMap,Depth){
 		var l = ds_map_find_value(global.layerMap,Depth)

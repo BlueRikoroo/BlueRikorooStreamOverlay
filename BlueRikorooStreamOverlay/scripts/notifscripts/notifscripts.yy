@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "BlueRikorooStreamOverlay",
-    "path": "BlueRikorooStreamOverlay.yyp",
+    "name": "Notifications",
+    "path": "folders/Notifications.yy",
   },
   "resourceVersion": "1.0",
   "name": "notifScripts",

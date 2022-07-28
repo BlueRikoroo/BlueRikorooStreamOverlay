@@ -169,7 +169,7 @@ if url == webhook_url{
 						alarm[0] = 72000  // Reset Timer
 					}
 					create_chat_message(username, notif[| 3], element)
-					show_nametags = ds_map_size(userToObj) < 5
+					show_nametags = ds_map_size(userToObj) <= 200
 					break #endregion	
 				case "newCheerKing":  #region Cheer King
 					var username = notif[| 2]
@@ -184,11 +184,27 @@ if url == webhook_url{
 					
 					break #endregion
 				case "raid":  #region Raid
-					var obj = instance_create_layer(0, 0, getLayer(-1000), obj_notif_raid)
+					var X = camera_get_view_x(view_camera[0])+1600
+					var Y = camera_get_view_y(view_camera[0])+180
+					var obj = instance_create_layer(X, Y, getLayer(Layer.item), obj_notif_raid)
 					obj.username = notif[|2]
 					obj.raidAmount = notif[|3]
 					ds_list_add(obj_notifHandler.newNotifs, obj)
 					instance_deactivate_object(obj)
+					break  #endregion
+				case "sub":  #region Subs
+					var X = camera_get_view_x(view_camera[0])+1600
+					var Y = camera_get_view_y(view_camera[0])+180
+					var obj = instance_create_layer(X, Y, getLayer(Layer.item), obj_notif_sub)
+					obj.username = notif[|2]
+					obj.tier = floor(notif[|3]/1000)
+					var list = userToSubBlocks[? username]
+					if is_undefined(list){
+						list = ds_list_create()
+						userToSubBlocks[? username] = list
+					}
+					ds_list_add(list, tier)
+					instance_deactivate_object(obj)					
 					break  #endregion
 				}
 			}
