@@ -28,3 +28,10 @@ function getRandomElement(){
 	Element.metal, Element.storm, Element.nature, Element.water,
 	Element.ice, Element.light, Element.shadow)
 }
+
+function audio_play_sfx(audio,audio_priority=0,loop=false,pitch=1,gain=1){
+	var snd = audio_play_sound(audio,audio_priority,loop);
+	audio_sound_gain(snd,gain*audio_sound_get_gain(audio),0);
+	audio_sound_pitch(snd,pitch);
+	return snd
+}

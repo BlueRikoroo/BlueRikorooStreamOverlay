@@ -1,1 +1,2 @@
 part_system_destroy(part_system)
+audio_stop_sound(looping_sound)

@@ -2,6 +2,8 @@
 
 if timer == 180{  // 60*3
 	path_start(path_raidPortalTraversal, 20, path_action_stop, false)
+	audio_play_sfx(snd_fire_shotgun, 0, false, 1, 0.9)
+	looping_sound = audio_play_sfx(snd_rockthrust_rocks, 0, true, 1, 0.7)
 }
 if timer >= 180 and !portalActive and deathTimer <= 0{
 	part_emitter_region(part_system, part_emitter_main, x, x, y, y, ps_shape_line, ps_distr_linear)
@@ -20,12 +22,13 @@ if portalActive{
 		var obj = createPlayer(x, y, getRandomElement(), username + " Raid")
 		obj.hspeed = random(10)+5
 		obj.vspeed = -random(10)-5
-		obj.alarm[0] = 36000 - irandom(3000) // 10 minutes to despawn - some randomness
+		obj.alarm[0] = 18000 - irandom(3600) // 5 minutes to despawn - some random minute
 		raidAmountCurrent++
 		if raidAmountCurrent >= raidAmount{
 			portalActive = false
 			obj_notifHandler.handlingNotif = false
 			deathTimer = 200
+			audio_sound_gain(looping_sound, 0, 2000)
 		}
 	}
 }
@@ -38,6 +41,13 @@ if deathTimer > 0{
 	if deathTimer <= 0{
 		instance_destroy()	
 	}
+}
+
+#endregion
+#region Play Rikoroo sound
+
+if timer == 1{
+	audio_play_sfx(snd_notification_rikoroooo)	
 }
 
 #endregion
