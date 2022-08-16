@@ -39,7 +39,7 @@ testing = false
 show_nametags = true
 userToObj = ds_map_create()  // Add and remove player objects from this list
 userToElement = ds_map_create()
-userToSubBlocks = ds_map_create()
+userToSubStatue = ds_map_create()
 
 camera_width = 1920
 camera_height = 1080

@@ -51,3 +51,50 @@ function draw_text_setup(font, halign, valign, color=c_black, alpha=1){
 	draw_set_color(color)
 	draw_set_alpha(alpha)
 }
+
+function optomizedHorizontalCol(){
+	if !on_ground or hspeed != 0 or vspeed < 0{
+		if place_meeting(x, y+vspeed, obj_block){
+			var vs = sign(vspeed)
+			while(!place_meeting(x, y+vs, obj_block)){
+				y+=vs	
+			}
+			vspeed = 0
+			if vs > 0{
+				on_ground = true	
+			}
+		}
+	}
+}
+
+function optomizedVerticalCol(){
+	if hspeed != 0{
+		if place_meeting(x+hspeed, y+vspeed, obj_block){
+			var hs = sign(hspeed)
+			while(!place_meeting(x+hs, y+vspeed, obj_block)){
+				x += hs
+			}
+			hspeed = 0
+		}
+	}
+}
+
+function performOptomizedCol(){
+	optomizedHorizontalCol()
+	optomizedVerticalCol()
+}
+
+function getUserElement(username){
+	var element = obj_main.userToElement[? username]
+	if is_undefined(element){
+		element = getRandomElement()
+		if irandom(1000) == 0{
+			element = Element.ai	
+		}
+		if irandom(5000) == 0{
+			element = Element.time	
+		}
+		obj_main.userToElement[? username] = element
+	}	
+	return element
+}

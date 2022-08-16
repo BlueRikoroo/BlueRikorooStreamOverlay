@@ -74,8 +74,8 @@ if isKing{
 
 if obj_main.show_nametags or isKing{
 	draw_set_font(fnt_playerName)
-	draw_set_halign(fa_middle)
-	draw_set_valign(fa_center)
+	draw_set_halign(fa_center)
+	draw_set_valign(fa_middle)
 
 	//Draw Outline
 	draw_set_color(c_black)

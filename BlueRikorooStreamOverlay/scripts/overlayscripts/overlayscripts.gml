@@ -53,7 +53,6 @@ function overlay_draw_empty_script(){
 	overlay_timer++
 }
 
-
 function overlay_main_step(){
 	
 }

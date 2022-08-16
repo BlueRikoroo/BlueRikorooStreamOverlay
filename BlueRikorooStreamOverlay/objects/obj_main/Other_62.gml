@@ -147,17 +147,7 @@ if url == webhook_url{
 					switch(notifType){
 					case "message":  #region Message
 						var username = notif[| 2]
-						var element = userToElement[? username]
-						if is_undefined(element){
-							element = getRandomElement()
-							if irandom(1000) == 0{
-								element = Element.ai	
-							}
-							if irandom(5000) == 0{
-								element = Element.time	
-							}
-							userToElement[? username] = element
-						}
+						var element = getUserElement(username)
 						var playerObj = userToObj[? username]
 						if is_undefined(playerObj){
 							playerObj = createPlayer(960, 540, element, username)
@@ -185,7 +175,7 @@ if url == webhook_url{
 					
 						break #endregion
 					case "raid":  #region Raid
-						var X = camera_get_view_x(view_camera[0])+1600
+						var X = camera_get_view_x(view_camera[0])+1400
 						var Y = camera_get_view_y(view_camera[0])+180
 						var obj = instance_create_layer(X, Y, getLayer(Layer.item), obj_notif_raid)
 						obj.username = notif[|2]
@@ -194,17 +184,13 @@ if url == webhook_url{
 						instance_deactivate_object(obj)
 						break  #endregion
 					case "sub":  #region Subs
-						var X = camera_get_view_x(view_camera[0])+1600
+						var username = notif[| 2]
+						var X = camera_get_view_x(view_camera[0])+1400
 						var Y = camera_get_view_y(view_camera[0])+180
 						var obj = instance_create_layer(X, Y, getLayer(Layer.item), obj_notif_sub)
-						obj.username = notif[|2]
+						obj.username = username
 						obj.tier = floor(notif[|3]/1000)
-						var list = userToSubBlocks[? username]
-						if is_undefined(list){
-							list = ds_list_create()
-							userToSubBlocks[? username] = list
-						}
-						ds_list_add(list, tier)
+						ds_list_add(obj_notifHandler.newNotifs, obj)
 						instance_deactivate_object(obj)					
 						break  #endregion
 					}

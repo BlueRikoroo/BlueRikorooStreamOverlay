@@ -112,35 +112,7 @@ if !on_ground{
 }
 
 #endregion
-#region Verticle Collisions
-
-if !on_ground or hspeed != 0 or vspeed < 0{
-	if place_meeting(x, y+vspeed, obj_block){
-		var vs = sign(vspeed)
-		while(!place_meeting(x, y+vs, obj_block)){
-			y+=vs	
-		}
-		vspeed = 0
-		if vs > 0{
-			on_ground = true	
-		}
-	}
-}
-
-#endregion
-#region Horizontal Collisions
-
-if hspeed != 0{
-	if place_meeting(x+hspeed, y+vspeed, obj_block){
-		var hs = sign(hspeed)
-		while(!place_meeting(x+hs, y+vspeed, obj_block)){
-			x += hs
-		}
-		hspeed = 0
-	}
-}
-
-#endregion
+performOptomizedCol()
 
 #endregion
 #region Animation Switching

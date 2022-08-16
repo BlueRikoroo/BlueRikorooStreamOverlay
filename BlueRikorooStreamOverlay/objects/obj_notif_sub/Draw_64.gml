@@ -11,7 +11,10 @@ if timer < 60*6{
 	var Ypos = gui_ypos+100
 	var OW = 4 //Outline Width
 	draw_set_color(c_white)
-	var S = username + " raided\nwith " + string(raidAmount) + " viewers"
+	if tier == 1
+		var S = username + " subscribed!\nClick to drop your statue"
+	else
+		var S = username + " subscribed with tier " + string(tier) + "!\nClick to drop your statue"
 	for (var X = Xpos - OW; X <= Xpos + OW; X++){
 		for (var Y = Ypos - OW; Y <= Ypos + OW; Y++){
 			draw_text(X, Y, S)

@@ -1,43 +1,40 @@
-#region Shoot off to spot for portal
+#region Shoot off 
 
 if timer == 180{  // 60*3
-	path_start(path_raidPortalTraversal, 20, path_action_stop, false)
-}
-if timer >= 180 and !portalActive and deathTimer <= 0{
-	part_emitter_region(part_system, part_emitter_main, x, x, y, y, ps_shape_line, ps_distr_linear)
-	part_emitter_burst(part_system, part_emitter_main, obj_main.particle_portalRocket, 5)
+	var X = camera_get_view_x(view_camera[0]) + gui_xpos
+	var Y = camera_get_view_y(view_camera[0]) + gui_ypos
+	var obj = instance_create_layer(X, Y, getLayer(Layer.player), obj_subStatue)
+	obj.hspeed = -random(15) + 5
+	obj.vspeed = -random(10)
+	obj.username = username
+	obj_notifHandler.handlingNotif = false
+	var element = getUserElement(username)
+	switch(element){
+	case Element.fire: obj.elementalSpr = spr_subStatue_fire break
+	case Element.earth: obj.elementalSpr = spr_subStatue_earth break
+	case Element.metal: obj.elementalSpr = spr_subStatue_metal break
+	case Element.storm: obj.elementalSpr = spr_subStatue_storm break
+	case Element.nature: obj.elementalSpr = spr_subStatue_nature break
+	case Element.water: obj.elementalSpr = spr_subStatue_water break
+	case Element.ice: obj.elementalSpr = spr_subStatue_ice break
+	case Element.light: obj.elementalSpr = spr_subStatue_light break
+	case Element.shadow: obj.elementalSpr = spr_subStatue_shadow break
+	}
+	obj.tier = tier
+	switch(tier){
+	case 1: obj.font = fnt_subStatueUsername_tier1 break
+	case 2: obj.font = fnt_subStatueUsername_tier2 break
+	case 3: obj.font = fnt_subStatueUsername_tier3 break
+	}
+	instance_destroy()
 }
 
 #endregion
-#region Spawn Peeps
 
-if portalActive{
-	part_emitter_region(part_system, part_emitter_portal, x-25, x+25, y-125,y+125,ps_shape_ellipse,ps_distr_gaussian)
-	part_emitter_burst(part_system, part_emitter_portal, obj_main.particle_raidPortal, 5)
-	playerSpawnDelay--
-	if playerSpawnDelay <= 0{
-		playerSpawnDelay = 3
-		var obj = createPlayer(x, y, getRandomElement(), username + " Raid")
-		obj.hspeed = random(10)+5
-		obj.vspeed = -random(10)-5
-		obj.alarm[0] = 36000 - irandom(3000) // 10 minutes to despawn - some randomness
-		raidAmountCurrent++
-		if raidAmountCurrent >= raidAmount{
-			portalActive = false
-			obj_notifHandler.handlingNotif = false
-			deathTimer = 200
-		}
-	}
-}
+#region Play Rikoroo sound
 
-#endregion
-#region Death Timer
-
-if deathTimer > 0{
-	deathTimer--
-	if deathTimer <= 0{
-		instance_destroy()	
-	}
+if timer == 1{
+	audio_play_sfx(snd_notification_rikoroooo)	
 }
 
 #endregion
