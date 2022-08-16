@@ -7,7 +7,7 @@ if timer == 180{  // 60*3
 	obj.hspeed = -random(15) + 5
 	obj.vspeed = -random(10)
 	obj.username = username
-	obj_notifHandler.handlingNotif = false
+	obj_main.userToObj[? username] = id
 	var element = getUserElement(username)
 	switch(element){
 	case Element.fire: obj.elementalSpr = spr_subStatue_fire break
@@ -26,7 +26,6 @@ if timer == 180{  // 60*3
 	case 2: obj.font = fnt_subStatueUsername_tier2 break
 	case 3: obj.font = fnt_subStatueUsername_tier3 break
 	}
-	instance_destroy()
 }
 
 #endregion

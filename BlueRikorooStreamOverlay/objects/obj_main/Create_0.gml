@@ -4,7 +4,7 @@ randomize()
 ini_open("Config/config.ini")
 webhook_url = ini_read_string("Website", "url", "")
 currentMap = ini_read_string("Carryover", "lastMap", "")
-
+currentOverlay = ini_read_real("Carryover", "lastOverlay", 0)
 ini_close()
 
 // Start recieving data if a website it inputted
@@ -57,6 +57,7 @@ overlay_timer = 0
 overlay_step = empty_script
 overlay_draw = overlay_draw_empty_script
 overlay_surface = noone
+load_overlay(currentOverlay)
 
 #endregion
 #region Enums

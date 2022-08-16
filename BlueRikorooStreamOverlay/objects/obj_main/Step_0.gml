@@ -71,6 +71,7 @@ if keyboard_check_pressed(vk_rshift){
 			var num = real(keyboard_string)
 			keyboard_string = ""
 			load_overlay(num)
+			currentOverlay = num
 		}
 		catch(error){
 			show_debug_message(error)

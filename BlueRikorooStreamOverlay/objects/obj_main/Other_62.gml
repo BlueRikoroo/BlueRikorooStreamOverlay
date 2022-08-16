@@ -193,6 +193,15 @@ if url == webhook_url{
 						ds_list_add(obj_notifHandler.newNotifs, obj)
 						instance_deactivate_object(obj)					
 						break  #endregion
+					case "follow":  #region Follows
+						var username = notif[| 2]
+						var X = camera_get_view_x(view_camera[0])+1400
+						var Y = camera_get_view_y(view_camera[0])+180
+						var obj = instance_create_layer(X, Y, getLayer(Layer.item), obj_notif_follow)
+						obj.username = username
+						ds_list_add(obj_notifHandler.newNotifs, obj)
+						instance_deactivate_object(obj)			
+						break #endregion
 					}
 				}
 			}
