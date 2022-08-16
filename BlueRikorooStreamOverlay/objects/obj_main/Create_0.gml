@@ -1,5 +1,6 @@
 randomize()
 
+
 ini_open("Config/config.ini")
 webhook_url = ini_read_string("Website", "url", "")
 currentMap = ini_read_string("Carryover", "lastMap", "")
@@ -14,6 +15,7 @@ if webhook_url != ""
 
 notifCount = -1  // Keeps track of which notification ID we are on so as not to repeat notifications
 global.layerMap = ds_map_create()
+layer = getLayer(Layer.UI)
 switch(date_get_month(date_current_datetime())){
 case 1: case 2: case 12:
 	global.season = 2 break
@@ -26,6 +28,7 @@ case 9: case 10: case 11:
 }
 global.tileMap = ds_map_create()
 mode = "normal"
+window_toggle = false
 if currentMap != ""{
 	load_map(currentMap)
 }
@@ -38,14 +41,22 @@ userToObj = ds_map_create()  // Add and remove player objects from this list
 userToElement = ds_map_create()
 userToSubBlocks = ds_map_create()
 
-var width = 1920
-var height = 1080
+camera_width = 1920
+camera_height = 1080
+var width = camera_width
+var height = camera_height
+window_set_size(width, height)
 display_set_gui_size(width, height)
 chat_surface_height = ceil(height/3)
 chat_surface_width = ceil(width/3)
 chat_surface = noone
 chat_surface_x = 0
 chat_surface_y = height-chat_surface_height-55
+
+overlay_timer = 0
+overlay_step = empty_script
+overlay_draw = overlay_draw_empty_script
+overlay_surface = noone
 
 #endregion
 #region Enums
@@ -68,6 +79,7 @@ enum Element{
 #endregion
 #region Particle Effects
 
+global.particle_system = part_system_create()
 #region Raid Bullet Particle
 
 particle_portalRocket = part_type_create()

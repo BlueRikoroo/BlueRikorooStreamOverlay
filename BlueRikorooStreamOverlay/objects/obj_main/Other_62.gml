@@ -134,78 +134,80 @@ if url == webhook_url{
 	#endregion
 	#region Notifications
 	
-	var notifications = json[? "Notifications"]
-	if !is_undefined(notifications){
-		var l = ds_list_size(notifications)
-		for (var i = 0; i < l; i++){
-			var notif = notifications[|i]
-			var notifID = notif[|0]
-			if notifCount < notifID{
-				notifCount = notifID
-				var notifType = notif[|1]
-				switch(notifType){
-				case "message":  #region Message
-					var username = notif[| 2]
-					var element = userToElement[? username]
-					if is_undefined(element){
-						element = getRandomElement()
-						if irandom(1000) == 0{
-							element = Element.ai	
+	if ds_map_exists(json, "Notifications"){
+		var notifications = json[? "Notifications"]
+		if !is_undefined(notifications){
+			var l = ds_list_size(notifications)
+			for (var i = 0; i < l; i++){
+				var notif = notifications[|i]
+				var notifID = notif[|0]
+				if notifCount < notifID{
+					notifCount = notifID
+					var notifType = notif[|1]
+					switch(notifType){
+					case "message":  #region Message
+						var username = notif[| 2]
+						var element = userToElement[? username]
+						if is_undefined(element){
+							element = getRandomElement()
+							if irandom(1000) == 0{
+								element = Element.ai	
+							}
+							if irandom(5000) == 0{
+								element = Element.time	
+							}
+							userToElement[? username] = element
 						}
-						if irandom(5000) == 0{
-							element = Element.time	
+						var playerObj = userToObj[? username]
+						if is_undefined(playerObj){
+							playerObj = createPlayer(960, 540, element, username)
+							with(playerObj){
+								chatterRep = true	
+							}
+							userToObj[? username] = playerObj
 						}
-						userToElement[? username] = element
-					}
-					var playerObj = userToObj[? username]
-					if is_undefined(playerObj){
-						playerObj = createPlayer(960, 540, element, username)
 						with(playerObj){
-							chatterRep = true	
+							alarm[0] = 72000  // Reset Timer
 						}
-						userToObj[? username] = playerObj
-					}
-					with(playerObj){
-						alarm[0] = 72000  // Reset Timer
-					}
-					create_chat_message(username, notif[| 3], element)
-					show_nametags = ds_map_size(userToObj) <= 200
-					break #endregion	
-				case "newCheerKing":  #region Cheer King
-					var username = notif[| 2]
-					// var amount = notif[| 3]
+						create_chat_message(username, notif[| 3], element)
+						show_nametags = ds_map_size(userToObj) <= 200
+						break #endregion	
+					case "newCheerKing":  #region Cheer King
+						var username = notif[| 2]
+						// var amount = notif[| 3]
 					
-					with(obj_player){
-						isKing = false	
-						if self.username = username{
-							isKing = true	
+						with(obj_player){
+							isKing = false	
+							if self.username = username{
+								isKing = true	
+							}
 						}
-					}
 					
-					break #endregion
-				case "raid":  #region Raid
-					var X = camera_get_view_x(view_camera[0])+1600
-					var Y = camera_get_view_y(view_camera[0])+180
-					var obj = instance_create_layer(X, Y, getLayer(Layer.item), obj_notif_raid)
-					obj.username = notif[|2]
-					obj.raidAmount = notif[|3]
-					ds_list_add(obj_notifHandler.newNotifs, obj)
-					instance_deactivate_object(obj)
-					break  #endregion
-				case "sub":  #region Subs
-					var X = camera_get_view_x(view_camera[0])+1600
-					var Y = camera_get_view_y(view_camera[0])+180
-					var obj = instance_create_layer(X, Y, getLayer(Layer.item), obj_notif_sub)
-					obj.username = notif[|2]
-					obj.tier = floor(notif[|3]/1000)
-					var list = userToSubBlocks[? username]
-					if is_undefined(list){
-						list = ds_list_create()
-						userToSubBlocks[? username] = list
+						break #endregion
+					case "raid":  #region Raid
+						var X = camera_get_view_x(view_camera[0])+1600
+						var Y = camera_get_view_y(view_camera[0])+180
+						var obj = instance_create_layer(X, Y, getLayer(Layer.item), obj_notif_raid)
+						obj.username = notif[|2]
+						obj.raidAmount = notif[|3]
+						ds_list_add(obj_notifHandler.newNotifs, obj)
+						instance_deactivate_object(obj)
+						break  #endregion
+					case "sub":  #region Subs
+						var X = camera_get_view_x(view_camera[0])+1600
+						var Y = camera_get_view_y(view_camera[0])+180
+						var obj = instance_create_layer(X, Y, getLayer(Layer.item), obj_notif_sub)
+						obj.username = notif[|2]
+						obj.tier = floor(notif[|3]/1000)
+						var list = userToSubBlocks[? username]
+						if is_undefined(list){
+							list = ds_list_create()
+							userToSubBlocks[? username] = list
+						}
+						ds_list_add(list, tier)
+						instance_deactivate_object(obj)					
+						break  #endregion
 					}
-					ds_list_add(list, tier)
-					instance_deactivate_object(obj)					
-					break  #endregion
 				}
 			}
 		}

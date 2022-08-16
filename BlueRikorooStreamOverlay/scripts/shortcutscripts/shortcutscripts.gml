@@ -35,3 +35,19 @@ function audio_play_sfx(audio,audio_priority=0,loop=false,pitch=1,gain=1){
 	audio_sound_pitch(snd,pitch);
 	return snd
 }
+
+function empty_script(){
+	
+}
+
+function draw_setup(color=c_white,alpha=1){
+	draw_set_color(color)
+	draw_set_alpha(alpha)
+}
+function draw_text_setup(font, halign, valign, color=c_black, alpha=1){
+	draw_set_font(font)
+	draw_set_halign(halign)
+	draw_set_valign(valign)
+	draw_set_color(color)
+	draw_set_alpha(alpha)
+}

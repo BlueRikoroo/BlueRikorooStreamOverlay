@@ -12,6 +12,14 @@ if keyboard_check(vk_anykey) and mode == "normal"{
 		testing = !testing
 		keyboard_string = ""
 		break
+	case "window":
+		window_toggle = !window_toggle
+		if window_toggle
+			window_set_size(camera_width*0.5, camera_height*0.5)
+		else
+			window_set_size(camera_width, camera_height)
+		keyboard_string = ""
+		break
 	case "player":
 		if testing{
 			keyboard_string = ""
@@ -34,7 +42,7 @@ if keyboard_check_pressed(vk_lshift){
 		mode = "mapLoading"
 	}else if mode == "mapLoading"{
 		try{
-			num = real(keyboard_string)
+			var num = real(keyboard_string)
 			keyboard_string = ""
 			ini_open("MapBinds.ini")
 			currentMap = ini_read_string("MapBinds", string(num), "")
@@ -47,6 +55,29 @@ if keyboard_check_pressed(vk_lshift){
 		}
 		mode = "normal"
 	}
+}
+
+#endregion
+#region Overlay Loading
+
+overlay_step()
+
+if keyboard_check_pressed(vk_rshift){
+	if mode == "normal"{
+		keyboard_string = ""
+		mode = "overlayLoading"
+	}else if mode == "overlayLoading"{
+		try{
+			var num = real(keyboard_string)
+			keyboard_string = ""
+			load_overlay(num)
+		}
+		catch(error){
+			show_debug_message(error)
+		}
+		mode = "normal"	
+	}
+	
 }
 
 #endregion

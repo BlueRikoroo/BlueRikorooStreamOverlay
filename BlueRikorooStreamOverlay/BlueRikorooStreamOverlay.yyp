@@ -7,6 +7,7 @@
     {"id":{"name":"spr_tile_wall_grass_spring","path":"sprites/spr_tile_wall_grass_spring/spr_tile_wall_grass_spring.yy",},"order":1,},
     {"id":{"name":"spr_chatSymbol_water","path":"sprites/spr_chatSymbol_water/spr_chatSymbol_water.yy",},"order":12,},
     {"id":{"name":"spr_chatSymbol_light","path":"sprites/spr_chatSymbol_light/spr_chatSymbol_light.yy",},"order":7,},
+    {"id":{"name":"OverlayScripts","path":"scripts/OverlayScripts/OverlayScripts.yy",},"order":0,},
     {"id":{"name":"spr_player_metal_idleRandom","path":"sprites/spr_player_metal_idleRandom/spr_player_metal_idleRandom.yy",},"order":1,},
     {"id":{"name":"fnt_chatText","path":"fonts/fnt_chatText/fnt_chatText.yy",},"order":0,},
     {"id":{"name":"fnt_notification","path":"fonts/fnt_notification/fnt_notification.yy",},"order":6,},
@@ -136,6 +137,7 @@
     {"folderPath":"folders/Notifications/Raid.yy","order":5,"resourceVersion":"1.0","name":"Raid","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Notifications/Raid/Sound Effects.yy","order":0,"resourceVersion":"1.0","name":"Sound Effects","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Notifications/Subs.yy","order":7,"resourceVersion":"1.0","name":"Subs","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Overlays.yy","order":37,"resourceVersion":"1.0","name":"Overlays","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},

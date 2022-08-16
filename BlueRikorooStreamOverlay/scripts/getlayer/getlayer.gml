@@ -24,5 +24,6 @@ enum Layer{
 	player = 0,
 	wild = 5,
 	attackB = 10,
+	UI = 500,
 	background = 1000
 }
