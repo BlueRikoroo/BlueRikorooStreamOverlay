@@ -9,6 +9,10 @@ function load_overlay(ID){
 		overlay_step = overlay_main_step
 		overlay_draw = overlay_mainSpooky_draw
 		break
+	case 3:
+		overlay_step = overlay_main_step
+		overlay_draw = overlay_mainCustom_draw
+		break
 	default:
 		overlay_step = empty_script
 		overlay_draw = overlay_draw_empty_script
@@ -77,6 +81,22 @@ function overlay_mainSpooky_draw(){
 	
 	if overlay_timer > 120 and overlay_timer <= 480{
 		draw_set_color(make_color_hsv(0, 0, 125 - irandom(120)))
+		overaly_main_draw_brushDown()
+	}
+	
+	#endregion
+	overlay_draw_surfaceCleanup()
+	overlay_draw_empty_script()
+}
+
+function overlay_mainCustom_draw(){
+	overlay_draw_surfaceSetup()
+	#region Draw Code
+	
+	if overlay_timer > 120 and overlay_timer <= 480{
+		var H = (mouse_x-camera_get_view_x(view_camera[0]))/obj_main.camera_width * 255
+		var SV = (mouse_y-camera_get_view_y(view_camera[0]))/obj_main.camera_height * 255
+		draw_set_color(make_color_hsv(H, SV, SV))
 		overaly_main_draw_brushDown()
 	}
 	
