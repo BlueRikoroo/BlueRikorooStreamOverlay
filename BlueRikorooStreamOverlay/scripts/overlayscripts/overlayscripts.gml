@@ -1,17 +1,25 @@
 function load_overlay(ID){
 	overlay_timer = 0
+	chat_surface_x = 0
+	chat_surface_y = 0
 	switch(ID){
 	case 1:
 		overlay_step = overlay_main_step
 		overlay_draw = overlay_main_draw
+		chat_surface_x = 30
+		chat_surface_y = 40
 		break
 	case 2:
 		overlay_step = overlay_main_step
 		overlay_draw = overlay_mainSpooky_draw
+		chat_surface_x = 30
+		chat_surface_y = 40
 		break
 	case 3:
 		overlay_step = overlay_main_step
 		overlay_draw = overlay_mainCustom_draw
+		chat_surface_x = 30
+		chat_surface_y = 40
 		break
 	default:
 		overlay_step = empty_script
@@ -80,7 +88,7 @@ function overlay_mainSpooky_draw(){
 	#region Draw Code
 	
 	if overlay_timer > 120 and overlay_timer <= 480{
-		draw_set_color(make_color_hsv(0, 0, 125 - irandom(120)))
+		draw_set_color(make_color_hsv(0, 0, 115 - irandom(80)))
 		overaly_main_draw_brushDown()
 	}
 	

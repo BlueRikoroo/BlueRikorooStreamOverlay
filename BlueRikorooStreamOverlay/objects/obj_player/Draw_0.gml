@@ -76,18 +76,23 @@ if obj_main.show_nametags or isKing{
 	draw_set_font(fnt_playerName)
 	draw_set_halign(fa_center)
 	draw_set_valign(fa_middle)
+	
+	var name = username
+	if cheerAmount >= 50{
+		name = username + " - " + string(cheerAmount)	
+	}
 
 	//Draw Outline
 	draw_set_color(c_black)
 	for(var X = -1; X <= 1; X++){
 		for(var Y = -1; Y <= 1; Y++){
-			draw_text(x+X,y-45+Y-nameHeight,username)
+			draw_text(x+X,y-45+Y-nameHeight,name)
 		}
 	}
 
 	//Draw Text
 	draw_set_color(c_white)
-	draw_text(x,y-45-nameHeight,username)
+	draw_text(x,y-45-nameHeight,name)
 }
 
 #endregion

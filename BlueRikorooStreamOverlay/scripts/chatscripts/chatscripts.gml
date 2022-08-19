@@ -1,5 +1,5 @@
 function create_chat_message(author, Content, element){
-	var obj = instance_create_layer(25, obj_main.chat_surface_height+10, getLayer(-1000), obj_chatMessage)
+	var obj = instance_create_layer(25, 10, getLayer(-1000), obj_chatMessage)
 	switch(element){
 	case Element.neutral:
 		obj.elementSpr = spr_chatSymbol_neutral
@@ -62,6 +62,16 @@ function create_chat_message(author, Content, element){
 	
 	var moveAmount = (string_count("\n", obj.content)+1)*25
 	with(obj_chatMessage){
-		y-=moveAmount
+		if id != obj.id{
+			y+=moveAmount
+			if y + boxHeight > obj_main.chat_surface_height
+				instance_destroy()
+		}
 	}
+	
+	draw_set_font(fnt_chatText)
+	obj.boxWidth = string_width(author + ": " + obj.content)
+	obj.boxHeight = moveAmount
+	
+	obj.backgroundColor = make_color_hsv((color_get_hue(obj.nameColor)+64) mod 255, color_get_saturation(obj.nameColor), color_get_value(obj.nameColor))
 }

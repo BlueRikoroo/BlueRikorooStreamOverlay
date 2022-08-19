@@ -190,8 +190,13 @@ if url == webhook_url{
 						var obj = instance_create_layer(X, Y, getLayer(Layer.item), obj_notif_sub)
 						obj.username = username
 						obj.tier = floor(notif[|3]/1000)
+						switch(obj.tier){
+						case 1: addCheerAmount(username, 250) break
+						case 2: addCheerAmount(username, 500) break
+						case 3: addCheerAmount(username, 1250) break
+						}
 						ds_list_add(obj_notifHandler.newNotifs, obj)
-						instance_deactivate_object(obj)					
+						instance_deactivate_object(obj)		
 						break  #endregion
 					case "follow":  #region Follows
 						var username = notif[| 2]
@@ -202,6 +207,23 @@ if url == webhook_url{
 						ds_list_add(obj_notifHandler.newNotifs, obj)
 						instance_deactivate_object(obj)			
 						break #endregion
+					case "cheer":  #region Cheer
+						var username = notif[| 2]
+						var isAnonymous = notif[| 3]
+						//var Message = notif[| 4]
+						var amount = notif[| 5]
+						var X = camera_get_view_x(view_camera[0])+1400
+						var Y = camera_get_view_y(view_camera[0])+180
+						var obj = instance_create_layer(X, Y, getLayer(Layer.item), obj_notif_cheer)
+						obj.username = username
+						obj.bits = amount
+						obj.bitsLeft = amount
+						if isAnonymous == 0
+							addCheerAmount(username, amount)
+						ds_list_add(obj_notifHandler.newNotifs, obj)
+						instance_deactivate_object(obj)			
+						break					
+						#endregion
 					}
 				}
 			}

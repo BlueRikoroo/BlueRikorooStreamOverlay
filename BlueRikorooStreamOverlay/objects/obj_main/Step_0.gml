@@ -121,3 +121,16 @@ if mode == "normal"{
 }
 
 #endregion
+#region Global Keys
+
+if keyboard_check_direct(ord("O")){
+	if !globalKeyDown{
+		if keyboard_check_direct(ord("1")){
+			globalKeyDown = true
+		}
+	}
+}else{
+	globalKeyDown = false	
+}
+
+#endregion

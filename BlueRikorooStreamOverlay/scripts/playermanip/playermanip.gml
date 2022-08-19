@@ -149,6 +149,7 @@ function createPlayer(X, Y, element, Name){
 		nameObj.image_yscale = 0.45
 		nameObj.image_xscale = string_width(username)/60
 		alarm[0] = 72000  // 20*60*60 = 20minutes to despawn
+		cheerAmount = getUserCheerData(username)
 	}
 	return obj
 }

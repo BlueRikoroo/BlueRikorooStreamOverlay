@@ -40,6 +40,7 @@ show_nametags = true
 userToObj = ds_map_create()  // Add and remove player objects from this list
 userToElement = ds_map_create()
 userToSubStatue = ds_map_create()
+userToCheer = ds_map_create()
 
 camera_width = 1920
 camera_height = 1080
@@ -50,14 +51,16 @@ display_set_gui_size(width, height)
 chat_surface_height = ceil(height/3)
 chat_surface_width = ceil(width/3)
 chat_surface = noone
-chat_surface_x = 0
-chat_surface_y = height-chat_surface_height-55
+chat_surface_x = 30
+chat_surface_y = 30 //height-chat_surface_height-55
 
 overlay_timer = 0
 overlay_step = empty_script
 overlay_draw = overlay_draw_empty_script
 overlay_surface = noone
 load_overlay(currentOverlay)
+
+globalKeyDown = false
 
 #endregion
 #region Enums
