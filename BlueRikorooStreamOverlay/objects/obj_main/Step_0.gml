@@ -56,6 +56,9 @@ if keyboard_check_pressed(vk_lshift){
 		mode = "normal"
 	}
 }
+if mode == "mapLoading" and keyboard_check_pressed(vk_backspace){
+	mode = "normal"	
+}
 
 #endregion
 #region Overlay Loading
@@ -79,6 +82,9 @@ if keyboard_check_pressed(vk_rshift){
 		mode = "normal"	
 	}
 	
+}
+if mode == "overlayLoading" and keyboard_check_pressed(vk_backspace){
+	mode = "normal"	
 }
 
 #endregion

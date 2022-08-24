@@ -12,7 +12,7 @@ if timer < 60*6{
 	var OW = 4 //Outline Width
 	draw_set_color(c_white)
 	if tier == 1
-		var S = username + " subscribed!\nClick to drop your statue"
+		var S = username + " subscribed!\nDrag mouse to position your statue"
 	else
 		var S = username + " subscribed with tier " + string(tier) + "!\nClick to drop your statue"
 	for (var X = Xpos - OW; X <= Xpos + OW; X++){

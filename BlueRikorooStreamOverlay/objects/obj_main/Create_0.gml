@@ -109,5 +109,13 @@ part_type_color2(p,10224966,134674)
 part_type_alpha2(p,1,0)
 
 #endregion
+#region Sub Click Particle
 
+particle_subClick = part_type_create()
+var p = particle_subClick
+part_type_shape(p, pt_shape_ring)
+part_type_size(p, 0, 0, 0.03, 0)
+part_type_life(p, 45, 45)
+
+#endregion
 #endregion

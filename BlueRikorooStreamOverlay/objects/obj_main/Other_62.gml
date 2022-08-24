@@ -6,7 +6,7 @@ if url == webhook_url{
 		show_debug_message("Undefined Result Detected")
 		exit
 	}
-	var json = json_decode(result)
+	var json = json_decode(result)  // Change to Parse eventually, need to restructure data structs
 	
 	#region Obtain viewers (MvT specific Mode)
 	
@@ -222,21 +222,21 @@ if url == webhook_url{
 							addCheerAmount(username, amount)
 						ds_list_add(obj_notifHandler.newNotifs, obj)
 						instance_deactivate_object(obj)			
-						break					
-						#endregion
-					case "cordinate":
+						break #endregion
+					case "coordinate":  #region Cordinate
 						var username = notif[| 2]
-						//var event = notif[| 3]
-						var X = notif[| 4]
-						var Y = notif[| 5]
-						var mouseObj = userToMouse[? username]
-						if is_undefined(mouseObj){
-							mouseObj = instance_create_layer(X, Y, getLayer(0), obj_mouse)
-							mouseObj.username = username
-							userToMouse[? username] = mouseObj
-						}
+						var event = notif[| 3]
+						// mousemove, mousedown, mousedrag, mouseup, click
+						show_debug_message(event)
+						var X = real(notif[| 4])
+						var Y = real(notif[| 5])
+						var mouseObj = getUserMouse(username)
 						mouseObj.x = X * camera_width
 						mouseObj.y = Y * camera_height
+						with(mouseObj){
+							mouse_event(event)
+						}
+						break  #endregion
 					}
 				}
 			}

@@ -9,6 +9,10 @@ if timer == 180{  // 60*3
 	obj.username = username
 	obj_main.userToObj[? username] = id
 	var element = getUserElement(username)
+	while element == Element.neutral or element = Element.time or element == Element.ai{
+		element = getRandomElement()	
+	}
+	obj.element = element
 	switch(element){
 	case Element.fire: obj.elementalSpr = spr_subStatue_fire break
 	case Element.earth: obj.elementalSpr = spr_subStatue_earth break

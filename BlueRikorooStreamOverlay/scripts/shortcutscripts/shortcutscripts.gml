@@ -98,3 +98,13 @@ function getUserElement(username){
 	}	
 	return element
 }
+
+function getUserMouse(username){
+	var mouseObj = obj_main.userToMouse[? username]
+	if is_undefined(mouseObj){
+		mouseObj = instance_create_layer(0, 0, getLayer(0), obj_mouse)
+		mouseObj.username = username
+		obj_main.userToMouse[? username] = mouseObj
+	}
+	return mouseObj
+}
