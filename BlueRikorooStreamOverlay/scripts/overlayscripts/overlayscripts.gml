@@ -4,22 +4,46 @@ function load_overlay(ID){
 	chat_surface_y = 0
 	switch(ID){
 	case 1:
-		overlay_step = overlay_main_step
+		overlay_step = empty_script
 		overlay_draw = overlay_main_draw
 		chat_surface_x = 30
-		chat_surface_y = 40
+		chat_surface_y = 35
 		break
 	case 2:
-		overlay_step = overlay_main_step
+		overlay_step = empty_script
 		overlay_draw = overlay_mainSpooky_draw
 		chat_surface_x = 30
-		chat_surface_y = 40
+		chat_surface_y = 35
 		break
 	case 3:
-		overlay_step = overlay_main_step
+		overlay_step = empty_script
 		overlay_draw = overlay_mainCustom_draw
 		chat_surface_x = 30
-		chat_surface_y = 40
+		chat_surface_y = 35
+		break
+	case 4:
+		overlay_step = empty_script
+		overlay_draw = overlay_secondary_draw
+		chat_surface_x = 10
+		chat_surface_y = 25
+		break
+	case 44:
+		overlay_step = empty_script
+		overlay_draw = overlay_secondary_thick_draw
+		chat_surface_x = 22
+		chat_surface_y = 37
+		break
+	case 444:
+		overlay_step = empty_script
+		overlay_draw = overlay_secondary_thicc_draw
+		chat_surface_x = 46
+		chat_surface_y = 61
+		break
+	case 4444:
+		overlay_step = empty_script
+		overlay_draw = overlay_secondary_thiccest_draw
+		chat_surface_x = 94
+		chat_surface_y = 109
 		break
 	default:
 		overlay_step = empty_script
@@ -63,10 +87,6 @@ function overlay_draw_empty_script(){
 		}
 	}
 	overlay_timer++
-}
-
-function overlay_main_step(){
-	
 }
 
 function overlay_main_draw(){
@@ -167,4 +187,83 @@ function overaly_main_draw_brushDown(){
 			draw_circle(X, Y, irandom(12)+15, false)
 		}
 	}	
+}
+
+function overlay_secondary_draw(){
+	overlay_draw_surfaceSetup()
+	#region Draw Code
+	
+	if overlay_timer > 120 and overlay_timer <= 132{
+		var H = (mouse_x-camera_get_view_x(view_camera[0]))/obj_main.camera_width * 255
+		draw_set_color(make_color_hsv(H, 191, 50 + (overlay_timer-120)*15))
+		overaly_secondary_draw_brushDown()
+	}
+	
+	#endregion
+	overlay_draw_surfaceCleanup()
+	overlay_draw_empty_script()
+}
+
+function overlay_secondary_thick_draw(){
+	overlay_draw_surfaceSetup()
+	#region Draw Code
+	
+	if overlay_timer > 120 and overlay_timer <= 144{
+		var H = (mouse_x-camera_get_view_x(view_camera[0]))/obj_main.camera_width * 255
+		draw_set_color(make_color_hsv(H, 191, 50 + (overlay_timer-120)*7))
+		overaly_secondary_draw_brushDown()
+	}
+	
+	#endregion
+	overlay_draw_surfaceCleanup()
+	overlay_draw_empty_script()
+}
+
+function overlay_secondary_thicc_draw(){
+	overlay_draw_surfaceSetup()
+	#region Draw Code
+	
+	if overlay_timer > 120 and overlay_timer <= 168{
+		var H = (mouse_x-camera_get_view_x(view_camera[0]))/obj_main.camera_width * 255
+		draw_set_color(make_color_hsv(H, 191, 50 + (overlay_timer-120)*4))
+		overaly_secondary_draw_brushDown()
+	}
+	
+	#endregion
+	overlay_draw_surfaceCleanup()
+	overlay_draw_empty_script()
+}
+
+function overlay_secondary_thiccest_draw(){
+	overlay_draw_surfaceSetup()
+	#region Draw Code
+	
+	if overlay_timer > 120 and overlay_timer <= 216{
+		var H = (mouse_x-camera_get_view_x(view_camera[0]))/obj_main.camera_width * 255
+		draw_set_color(make_color_hsv(H, 191, 50 + (overlay_timer-120)*2))
+		overaly_secondary_draw_brushDown()
+	}
+	
+	#endregion
+	overlay_draw_surfaceCleanup()
+	overlay_draw_empty_script()
+}
+
+function overaly_secondary_draw_brushDown(){
+	var oo = overlay_timer-121
+	drawInwardRect(0, 0, 1575, 987, oo)
+	drawInwardRect(1563, 0, 1920, 357, oo)
+	drawInwardRect(1563, 345, 1920, 987, oo)
+}
+
+function drawInwardRect(X1, Y1, X2, Y2, oo){
+	var X, Y
+	X = X1+oo
+	draw_line(X, Y1+oo, X, Y2-oo)
+	X = X2-oo
+	draw_line(X, Y1+oo, X, Y2-oo)
+	Y = Y1+oo
+	draw_line(X1+oo-1, Y, X2-oo, Y)
+	Y = Y2-oo
+	draw_line(X1+oo, Y, X2-oo, Y)
 }

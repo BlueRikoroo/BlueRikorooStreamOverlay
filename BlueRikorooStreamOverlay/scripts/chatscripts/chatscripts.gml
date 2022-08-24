@@ -1,5 +1,5 @@
 function create_chat_message(author, Content, element){
-	var obj = instance_create_layer(25, 10, getLayer(-1000), obj_chatMessage)
+	var obj = instance_create_layer(25, 15, getLayer(-1000), obj_chatMessage)
 	switch(element){
 	case Element.neutral:
 		obj.elementSpr = spr_chatSymbol_neutral
