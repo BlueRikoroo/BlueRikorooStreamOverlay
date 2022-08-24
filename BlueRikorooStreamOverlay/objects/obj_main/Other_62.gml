@@ -224,6 +224,19 @@ if url == webhook_url{
 						instance_deactivate_object(obj)			
 						break					
 						#endregion
+					case "cordinate":
+						var username = notif[| 2]
+						//var event = notif[| 3]
+						var X = notif[| 4]
+						var Y = notif[| 5]
+						var mouseObj = userToMouse[? username]
+						if is_undefined(mouseObj){
+							mouseObj = instance_create_layer(X, Y, getLayer(0), obj_mouse)
+							mouseObj.username = username
+							userToMouse[? username] = mouseObj
+						}
+						mouseObj.x = X * camera_width
+						mouseObj.y = Y * camera_height
 					}
 				}
 			}
