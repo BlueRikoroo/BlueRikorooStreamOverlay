@@ -23,43 +23,37 @@ function mouse_event(event){
 		var Y = y + camera_get_view_y(view_camera[0])
 		subStatue = collision_point(X, Y, obj_subStatue, false, false)
 		if subStatue{
+			var p = obj_main.particle_subClick
+			var color = c_white
+			switch(subStatue.element){
+			case Element.fire: color = merge_color(c_red, c_white, 0.25) break
+			case Element.earth: color = merge_color(c_orange, c_white, 0.25) break
+			case Element.metal: color = c_ltgray break
+			case Element.storm: color = c_yellow break
+			case Element.nature: color = c_lime break
+			case Element.water: color = c_aqua break
+			case Element.ice: color = merge_color(c_aqua, c_white, 0.25) break
+			case Element.light: color = merge_color(c_white, c_yellow, 0.25) break
+			case Element.shadow: color = merge_color(c_purple, c_white, 0.25) break
+			}
+			part_type_color1(p, color)
+			part_particles_create(global.particle_system, subStatue.x, subStatue.y-65, p, 1)
+			
 			var target = obj_main.userToObj[? username]
 			if target{
 				var obj = instance_create_layer(subStatue.x, subStatue.y-60, getLayer(10), obj_subStatue_elementSwitcher)
 				obj.target = target
 				obj.element = subStatue.element
+				obj.color = color
 			}
-			var p = obj_main.particle_subClick
-			switch(subStatue.element){
-			case Element.fire:
-				part_type_color1(p, merge_color(c_red, c_white, 0.25))
-				break
-			case Element.earth:
-				part_type_color1(p, merge_color(c_orange, c_white, 0.25))
-				break
-			case Element.metal:
-				part_type_color1(p, c_ltgray)
-				break
-			case Element.storm:
-				part_type_color1(p, c_yellow)
-				break
-			case Element.nature:
-				part_type_color1(p, c_lime)
-				break
-			case Element.water:
-				part_type_color1(p, c_aqua)
-				break
-			case Element.ice:
-				part_type_color1(p, merge_color(c_aqua, c_white, 0.25))
-				break
-			case Element.light:
-				part_type_color1(p, merge_color(c_white, c_yellow, 0.25))
-				break
-			case Element.shadow:
-				part_type_color1(p, merge_color(c_purple, c_white, 0.25))
-				break
-			}
-			part_particles_create(global.particle_system, subStatue.x, subStatue.y-65, p, 1)
+		}
+	}
+	else if event == "mousedrag"{
+		var subStatue = obj_main.userToSubStatue[? username]
+		if subStatue{  // Special Effects for those that subed
+			subStatue.x = x
+			subStatue.y = camera_get_view_x(view_camera[0]) + 987 
+			subStatue.speed = 0
 		}
 	}
 }
