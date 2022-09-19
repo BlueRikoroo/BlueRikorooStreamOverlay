@@ -2,6 +2,9 @@ function load_overlay(ID){
 	overlay_timer = 0
 	chat_surface_x = 0
 	chat_surface_y = 0
+	allowGame = true
+	activeGamePosX = 1563
+	activeGamePosY = 345
 	switch(ID){
 	case 1:
 		overlay_step = empty_script

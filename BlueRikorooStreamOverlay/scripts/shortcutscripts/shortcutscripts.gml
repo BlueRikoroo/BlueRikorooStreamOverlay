@@ -108,3 +108,18 @@ function getUserMouse(username){
 	}
 	return mouseObj
 }
+
+function checkDirectory(direct){
+	if !directory_exists(direct)
+		directory_create(direct)
+}
+
+function array2Dfill(width, height, fillValue){
+	var array2;
+	for (var i = width-1; i >= 0; i--) {
+	  for (var j = height-1; j >= 0; j--) {
+	    array2[i, j] = fillValue;
+	  }
+	}
+return array2;	
+}

@@ -1,0 +1,65 @@
+⬜
+⬜
+⬜
+⬜
+⬜
+Long Piece
+
+⬜
+⬜
+⬜
+⬜⬜ 
+Long L
+
+⬜
+⬜
+⬜⬜
+⬜
+Awkward TR
+
+⬜
+⬜⬜
+⬜
+⬜
+Awkward TL
+
+⬜⬜
+⬜
+⬜
+⬜
+Long J
+
+⬜
+⬜
+⬜⬜⬜
+Corner
+
+⬜
+⬜⬜
+⬜⬜
+Awkward Square R
+
+⬜⬜
+⬜
+⬜⬜
+Hat
+
+⬜⬜
+⬜⬜
+⬜
+Awkward Square L
+
+⬜
+⬜⬜
+ ⬜⬜
+M R
+
+⬜⬜
+ ⬜⬜
+  ⬜
+M L
+
+ ⬜
+⬜⬜⬜
+ ⬜
+Star

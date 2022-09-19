@@ -55,6 +55,17 @@ chat_surface = noone
 chat_surface_x = 30
 chat_surface_y = 30 //height-chat_surface_height-55
 
+allowGame = true
+activeGame = noone  // Object that is controlling the active game space
+activeGameTransition = 0
+activeGameSwapSpeed = 0.02
+activeGamePosX = 0
+activeGamePosY = 0
+activeGameSwap = -1 // What to swap game to (Alarm 0)
+activeGameSurface = noone
+activeGameSurfaceWidth = 356
+activeGameSurfaceHeight = 642
+
 overlay_timer = 0
 overlay_step = empty_script
 overlay_draw = overlay_draw_empty_script

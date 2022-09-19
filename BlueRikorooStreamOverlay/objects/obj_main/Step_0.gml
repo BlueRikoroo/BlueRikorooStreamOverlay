@@ -30,6 +30,13 @@ if keyboard_check(vk_anykey) and mode == "normal"{
 				createPlayer(camera_get_view_x(view_camera[0])+480 + 64*i,camera_get_view_y(view_camera[0])+540,e[i],"BlueRikorooTest")
 			}
 		}
+		break
+	case "game":
+		if testing{
+			mode = "gameSelect"	
+			keyboard_string = ""
+		}
+		break
 	}
 }
 
@@ -150,5 +157,49 @@ if keyboard_string == "mouse"{
 		mouse_event("mousemove")
 	}
 }
+
+#endregion
+#region Game
+
+#region Mode Testing
+
+if mode == "gameSelect"{
+	if keyboard_check_pressed(vk_backspace){
+		mode = "normal"	
+		keyboard_string = ""
+	}else if keyboard_check_pressed(vk_enter){
+		mode = "normal"
+		try{
+			ActivateGame(real(keyboard_string))
+		}catch(e){
+			show_debug_message(e)
+		}
+		keyboard_string = ""
+	}
+}
+
+#endregion
+#region Transition
+
+if activeGameSwap != -1 and activeGameTransition > 0{
+	activeGameTransition -= activeGameSwapSpeed
+	if activeGameTransition <= 0{
+		activeGameTransition = 0
+		instance_destroy(par_game)
+		activeGame = noone
+		if activeGameSwap != -1{
+			ActivateGame(activeGameSwap)
+		}
+		activeGameSwap = -1
+	}
+}
+if activeGameSwap == -1 and activeGame != noone and activeGameTransition < 1{
+	activeGameTransition += activeGameSwapSpeed
+	if activeGameTransition >= 1{
+		activeGameTransition = 1	
+	}
+}
+
+#endregion
 
 #endregion
