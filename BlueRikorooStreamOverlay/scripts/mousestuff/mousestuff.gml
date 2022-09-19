@@ -47,6 +47,24 @@ function mouse_event(event){
 				obj.color = color
 			}
 		}
+		
+		if obj_main.activeGame != noone{
+			switch(obj_main.activeGame.object_index){
+			case obj_korioro:
+				with(obj_main.activeGame){
+					if activePiece != noone and activePiece[1] == other.username{
+						var Yloc = 142 + location[1]*20 + obj_main.activeGamePosY
+						if other.y < Yloc{
+							KorioroPieceRotateL(activePiece)	
+						}
+						if other.y > Yloc{
+							KorioroPieceRotateR(activePiece)	
+						}
+					}	
+				}
+				break
+			}
+		}
 	}
 	else if event == "mousedrag"{
 		var subStatue = obj_main.userToSubStatue[? username]

@@ -1,6 +1,5 @@
 randomize()
 
-
 ini_open("Config/config.ini")
 webhook_url = ini_read_string("Website", "url", "")
 currentMap = ini_read_string("Carryover", "lastMap", "")

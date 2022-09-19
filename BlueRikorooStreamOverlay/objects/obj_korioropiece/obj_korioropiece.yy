@@ -1,7 +1,7 @@
 {
   "spriteId": null,
   "solid": false,
-  "visible": true,
+  "visible": false,
   "managed": true,
   "spriteMaskId": null,
   "persistent": false,
@@ -21,16 +21,15 @@
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":1,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Games",
-    "path": "folders/Games.yy",
+    "name": "Korioro",
+    "path": "folders/Games/Korioro.yy",
   },
   "resourceVersion": "1.0",
-  "name": "par_game",
+  "name": "obj_korioroPiece",
   "tags": [],
   "resourceType": "GMObject",
 }
