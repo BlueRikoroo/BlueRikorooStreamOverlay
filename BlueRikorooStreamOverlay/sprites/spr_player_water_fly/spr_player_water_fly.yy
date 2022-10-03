@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "spr_player_water_fly",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,27 +27,17 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"06e63be9-c526-48d9-99f6-8c62ced6afdb","path":"sprites/spr_player_water_fly/spr_player_water_fly.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"06e63be9-c526-48d9-99f6-8c62ced6afdb","path":"sprites/spr_player_water_fly/spr_player_water_fly.yy",},"LayerId":{"name":"de92b5da-967f-4b27-bf81-709fa3444a87","path":"sprites/spr_player_water_fly/spr_player_water_fly.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_player_water_fly","path":"sprites/spr_player_water_fly/spr_player_water_fly.yy",},"resourceVersion":"1.0","name":"06e63be9-c526-48d9-99f6-8c62ced6afdb","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"8ea4c5d0-ef3c-4857-aabb-a904452508d0","path":"sprites/spr_player_water_fly/spr_player_water_fly.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"8ea4c5d0-ef3c-4857-aabb-a904452508d0","path":"sprites/spr_player_water_fly/spr_player_water_fly.yy",},"LayerId":{"name":"de92b5da-967f-4b27-bf81-709fa3444a87","path":"sprites/spr_player_water_fly/spr_player_water_fly.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_player_water_fly","path":"sprites/spr_player_water_fly/spr_player_water_fly.yy",},"resourceVersion":"1.0","name":"8ea4c5d0-ef3c-4857-aabb-a904452508d0","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"17d29e90-94c2-454e-9243-0ce338151ce3","path":"sprites/spr_player_water_fly/spr_player_water_fly.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"17d29e90-94c2-454e-9243-0ce338151ce3","path":"sprites/spr_player_water_fly/spr_player_water_fly.yy",},"LayerId":{"name":"de92b5da-967f-4b27-bf81-709fa3444a87","path":"sprites/spr_player_water_fly/spr_player_water_fly.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_player_water_fly","path":"sprites/spr_player_water_fly/spr_player_water_fly.yy",},"resourceVersion":"1.0","name":"17d29e90-94c2-454e-9243-0ce338151ce3","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"babf765c-b652-484d-9e75-0cfa6b484016","path":"sprites/spr_player_water_fly/spr_player_water_fly.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"babf765c-b652-484d-9e75-0cfa6b484016","path":"sprites/spr_player_water_fly/spr_player_water_fly.yy",},"LayerId":{"name":"de92b5da-967f-4b27-bf81-709fa3444a87","path":"sprites/spr_player_water_fly/spr_player_water_fly.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_player_water_fly","path":"sprites/spr_player_water_fly/spr_player_water_fly.yy",},"resourceVersion":"1.0","name":"babf765c-b652-484d-9e75-0cfa6b484016","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"181c4bbb-32ff-49aa-b79f-89cd19a0e8ea","path":"sprites/spr_player_water_fly/spr_player_water_fly.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"181c4bbb-32ff-49aa-b79f-89cd19a0e8ea","path":"sprites/spr_player_water_fly/spr_player_water_fly.yy",},"LayerId":{"name":"de92b5da-967f-4b27-bf81-709fa3444a87","path":"sprites/spr_player_water_fly/spr_player_water_fly.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_player_water_fly","path":"sprites/spr_player_water_fly/spr_player_water_fly.yy",},"resourceVersion":"1.0","name":"181c4bbb-32ff-49aa-b79f-89cd19a0e8ea","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"a002d906-5adf-41c9-9bce-9c0fc7e501b8","path":"sprites/spr_player_water_fly/spr_player_water_fly.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"a002d906-5adf-41c9-9bce-9c0fc7e501b8","path":"sprites/spr_player_water_fly/spr_player_water_fly.yy",},"LayerId":{"name":"de92b5da-967f-4b27-bf81-709fa3444a87","path":"sprites/spr_player_water_fly/spr_player_water_fly.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_player_water_fly","path":"sprites/spr_player_water_fly/spr_player_water_fly.yy",},"resourceVersion":"1.0","name":"a002d906-5adf-41c9-9bce-9c0fc7e501b8","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"06e63be9-c526-48d9-99f6-8c62ced6afdb",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"8ea4c5d0-ef3c-4857-aabb-a904452508d0",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"17d29e90-94c2-454e-9243-0ce338151ce3",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"babf765c-b652-484d-9e75-0cfa6b484016",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"181c4bbb-32ff-49aa-b79f-89cd19a0e8ea",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"a002d906-5adf-41c9-9bce-9c0fc7e501b8",},
   ],
   "sequence": {
-    "spriteId": {"name":"spr_player_water_fly","path":"sprites/spr_player_water_fly/spr_player_water_fly.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "spr_player_water_fly",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -55,14 +48,14 @@
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
             {"id":"aa68c734-d721-4c9e-aadf-e2587d5571d0","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"06e63be9-c526-48d9-99f6-8c62ced6afdb","path":"sprites/spr_player_water_fly/spr_player_water_fly.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"424a43b2-33e1-4b8e-a304-e975a0d52724","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"8ea4c5d0-ef3c-4857-aabb-a904452508d0","path":"sprites/spr_player_water_fly/spr_player_water_fly.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"0ac8e2a6-8402-4dbf-b5b2-b017e4e8abea","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"17d29e90-94c2-454e-9243-0ce338151ce3","path":"sprites/spr_player_water_fly/spr_player_water_fly.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"75147565-93b8-44e9-a4f5-461d16a9bcb5","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"babf765c-b652-484d-9e75-0cfa6b484016","path":"sprites/spr_player_water_fly/spr_player_water_fly.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"2e1ba181-c9f5-4492-8333-8c63c9c110e4","Key":4.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"181c4bbb-32ff-49aa-b79f-89cd19a0e8ea","path":"sprites/spr_player_water_fly/spr_player_water_fly.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"3a567461-f41e-4962-b382-5285da35c98e","Key":5.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"a002d906-5adf-41c9-9bce-9c0fc7e501b8","path":"sprites/spr_player_water_fly/spr_player_water_fly.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -78,22 +71,13 @@
     "yorigin": 16,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"spr_player_water_fly","path":"sprites/spr_player_water_fly/spr_player_water_fly.yy",},
-    "resourceVersion": "1.4",
-    "name": "spr_player_water_fly",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"de92b5da-967f-4b27-bf81-709fa3444a87","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"de92b5da-967f-4b27-bf81-709fa3444a87","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Water",
     "path": "folders/Player/Water.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "spr_player_water_fly",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

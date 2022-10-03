@@ -1,6 +1,7 @@
 username = ""
 raidAmount = 0
 raidAmountCurrent = 0
+TTSMessage = ""
 
 gui_xpos = 1400
 gui_ypos = 180

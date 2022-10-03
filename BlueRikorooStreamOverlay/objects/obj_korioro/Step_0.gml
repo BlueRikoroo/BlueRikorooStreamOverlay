@@ -1,3 +1,4 @@
+event_inherited()
 if activePiece == noone and ds_list_size(pieceOrder) > 0{
 	// Pull Out Piece
 	activePiece = pieceOrder[| 0]
@@ -13,16 +14,22 @@ if activePiece == noone and ds_list_size(pieceOrder) > 0{
 	resetTime = 60*5
 }
 if activePiece == noone and ds_list_size(pieceOrder) == 0{
-	KorioroAddPiece(irandom(10), "BlueRikoroo")
+	gameCloseTimer--
+	if gameCloseTimer <= 0{
+		with(obj_main)
+			ActivateGame(1000)
+	}
+}else{
+	gameCloseTimer = 60*20
 }
 
 if activePiece != noone{
 	var mouseObj = getUserMouse(activePiece[1])
 	var Xloc = 60 + location[0]*20 + obj_main.activeGamePosX
-	if mouseObj.x < Xloc-10{
+	if mouseObj.x < Xloc{
 		KorioroPieceMove(activePiece, [-1, 0])	
 	}
-	if mouseObj.x > Xloc+10{
+	if mouseObj.x > Xloc+20{
 		KorioroPieceMove(activePiece, [1, 0])	
 	}
 	var Yloc = 142 + location[1]*20 + obj_main.activeGamePosY
@@ -43,9 +50,8 @@ if activePiece != noone{
 			KorioroPiecePlace(activePiece)	
 			if board[3][0] != noone or board[4][0] != noone or board[5][0] != noone
 			 or board[6][0] != noone or board[7][0] != noone{
-				// End Game Here
+				KorioroFinishGame()
 			}
 		}
 	}
 }
-

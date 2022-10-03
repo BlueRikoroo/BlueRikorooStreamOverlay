@@ -44,7 +44,7 @@ function draw_setup(color=c_white,alpha=1){
 	draw_set_color(color)
 	draw_set_alpha(alpha)
 }
-function draw_text_setup(font, halign, valign, color=c_black, alpha=1){
+function draw_text_setup(font, halign, valign, color=draw_get_color(), alpha=draw_get_alpha()){
 	draw_set_font(font)
 	draw_set_halign(halign)
 	draw_set_valign(valign)
@@ -82,6 +82,19 @@ function optomizedVerticalCol(){
 function performOptomizedCol(){
 	optomizedHorizontalCol()
 	optomizedVerticalCol()
+}
+
+function getUserObj(username){
+	var playerObj = obj_main.userToObj[? username]
+	if is_undefined(playerObj){
+		var element = getUserElement(username)
+		playerObj = createPlayer(960, 540, element, username)
+		with(playerObj){
+			chatterRep = true	
+		}
+		obj_main.userToObj[? username] = playerObj
+	}
+	return playerObj
 }
 
 function getUserElement(username){
@@ -122,4 +135,47 @@ function array2Dfill(width, height, fillValue){
 	  }
 	}
 return array2;	
+}
+
+
+function stringSplit(delimiter, str) {
+	/// @description Splits a string on delimiter given
+	/// @param delimiter - What is seperating the string
+	/// @param str - String to split
+
+	var sub_str = ""
+	var array = undefined
+	var at = 0
+
+	for(var i = 1; i < string_length(str)+1; i++){
+		var next_char = string_char_at(str, i)
+		if next_char != delimiter{
+				sub_str = sub_str + next_char
+		}else{
+				if(sub_str != "") array[at++] = sub_str
+				sub_str = ""
+		}
+	}
+	if(sub_str != "") array[at++] = sub_str
+	return array
+}
+
+function posInRegion(X, Y, X1, Y1, X2, Y2){
+	return X1 <= X and X < X2 and Y1 <= Y and Y < Y2	
+}
+
+function getElementColor(element){
+	var color = c_white
+	switch(element){
+	case Element.fire: color = merge_color(c_red, c_white, 0.25) break
+	case Element.earth: color = merge_color(c_orange, c_white, 0.25) break
+	case Element.metal: color = c_ltgray break
+	case Element.storm: color = c_yellow break
+	case Element.nature: color = c_lime break
+	case Element.water: color = c_aqua break
+	case Element.ice: color = merge_color(c_aqua, c_white, 0.25) break
+	case Element.light: color = merge_color(c_white, c_yellow, 0.25) break
+	case Element.shadow: color = merge_color(c_purple, c_white, 0.25) break
+	}
+	return color
 }

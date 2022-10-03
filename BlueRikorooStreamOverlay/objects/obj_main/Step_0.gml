@@ -1,3 +1,4 @@
+global.time++
 #region Mode Switching
 
 if keyboard_check(vk_anykey) and mode == "normal"{
@@ -43,7 +44,7 @@ if keyboard_check(vk_anykey) and mode == "normal"{
 #endregion
 #region Map Loading
 
-if keyboard_check_pressed(vk_lshift){
+if keyboard_check_pressed(vk_lshift) and !keyboard_check(vk_lcontrol){
 	if mode == "normal"{
 		keyboard_string = ""
 		mode = "mapLoading"
@@ -80,8 +81,8 @@ if keyboard_check_pressed(vk_rshift){
 		try{
 			var num = real(keyboard_string)
 			keyboard_string = ""
-			load_overlay(num)
 			currentOverlay = num
+			load_overlay(num)			
 		}
 		catch(error){
 			show_debug_message(error)
@@ -136,21 +137,88 @@ if mode == "normal"{
 #endregion
 #region Global Keys
 
-if keyboard_check_direct(ord("O")){
-	if !globalKeyDown{
-		if keyboard_check_direct(ord("1")){
-			globalKeyDown = true
+if keyboard_check_direct(vk_lcontrol) and keyboard_check_direct(vk_lshift){
+	if keyboard_check_direct(ord("1")) or 
+	  keyboard_check_direct(ord("2")) or 
+	  keyboard_check_direct(ord("3")) or 
+	  keyboard_check_direct(ord("6"))
+	{
+		if hotKeyOnlyOne{
+			hotKeyOnlyOne = false
+			if sideOverlay{
+				sideOverlay = false
+				if currentOverlay != previousOverlay{
+					load_overlay(previousOverlay)
+				}
+			}
+			streamOver = false
 		}
 	}
-}else{
-	globalKeyDown = false	
+	else if keyboard_check_direct(ord("4"))
+	{
+		if hotKeyOnlyOne {
+			hotKeyOnlyOne = false
+			if !sideOverlay{
+				sideOverlay = true
+				previousOverlay = currentOverlay
+			}
+			if currentOverlay != -1{
+				load_overlay(-1)
+			}
+			streamOver = false
+		}
+	}
+	else if keyboard_check_direct(ord("5"))
+	{
+		if hotKeyOnlyOne{
+			hotKeyOnlyOne = false
+			if !sideOverlay{
+				sideOverlay = true
+				previousOverlay = currentOverlay
+			}
+			if currentOverlay != 99{
+				load_overlay(99)
+			}
+			streamOver = false
+		}
+	}
+	else if keyboard_check_direct(ord("0"))
+	{
+		if hotKeyOnlyOne{
+			hotKeyOnlyOne = false
+			if !sideOverlay{
+				sideOverlay = true
+				previousOverlay = currentOverlay
+			}
+			if currentOverlay != 99{
+				load_overlay(99)
+			}
+			streamOver = true
+		}
+	}else if keyboard_check_direct(ord("C")){
+		if hotKeyOnlyOne{
+			hotKeyOnlyOne = false
+			toggleCursors = !toggleCursors
+			with(obj_mouse){
+				show = other.toggleCursors	
+			}
+		}
+	}else if keyboard_check_direct(ord("N")){
+		if hotKeyOnlyOne{
+			hotKeyOnlyOne = false
+			show_nametags = !show_nametags
+		}
+	}else{
+		hotKeyOnlyOne = true
+	}
 }
+//if keyboard_check
 
 #endregion
 #region Mouse
 
 if keyboard_string == "mouse"{
-	var mouseObj = getUserMouse("BlueRikoroo")
+	var mouseObj = getUserMouse("Bluerikoroo")
 	mouseObj.x = device_mouse_x_to_gui(0)
 	mouseObj.y = device_mouse_y_to_gui(0)
 	with(mouseObj){

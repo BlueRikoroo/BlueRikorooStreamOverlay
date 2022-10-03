@@ -7,7 +7,7 @@ if timer == 180{  // 60*3
 	obj.hspeed = -random(15) + 5
 	obj.vspeed = -random(10)
 	obj.username = username
-	obj_main.userToObj[? username] = id
+	obj_main.userToSubStatue[? username] = obj.id
 	var element = getUserElement(username)
 	while element == Element.neutral or element = Element.time or element == Element.ai{
 		element = getRandomElement()	

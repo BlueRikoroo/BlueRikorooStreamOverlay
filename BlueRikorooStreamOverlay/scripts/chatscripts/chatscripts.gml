@@ -1,4 +1,5 @@
 function create_chat_message(author, Content, element){
+	_processContent(author, Content)
 	var obj = instance_create_layer(25, 15, getLayer(-1000), obj_chatMessage)
 	switch(element){
 	case Element.neutral:
@@ -74,4 +75,52 @@ function create_chat_message(author, Content, element){
 	obj.boxHeight = moveAmount
 	
 	obj.backgroundColor = make_color_hsv((color_get_hue(obj.nameColor)+64) mod 255, color_get_saturation(obj.nameColor), color_get_value(obj.nameColor))
+}
+
+function _processContent(author, Content){
+	var cl = string_lower(Content)
+	
+	var newElement = noone
+	switch(cl){
+	case "!none": case "!neutral": case "!blob": case "!amaranth": case "!gray":
+		newElement = Element.neutral break
+	case "!fire": case "!red": case "!flame":
+		newElement = Element.fire break
+	case "!earth": case "!orange": case "!rock": case "!dirt":
+		newElement = Element.earth break
+	case "!metal": case "!silver": case "!rolly":
+		newElement = Element.metal break
+	case "!storm": case "!yellow": case "!cloud":
+		newElement = Element.storm break
+	case "!nature": case "!green": case "!acorn": case "!leaf":
+		newElement = Element.nature break
+	case "!water": case "!aqua": case "!blue": case "!bubble":
+		newElement = Element.water break
+	case "!ice": case "!sky": case "!icicle": case "!snowcone":
+		newElement = Element.ice break
+	case "!light": case "!cape": case "!white":
+		newElement = Element.light break
+	case "!shadow": case "!purple": case "!ghost":
+		newElement = Element.shadow break
+	case "!leap": case "!jump":
+		var obj = getUserObj(author)
+		obj.vspeed = -10
+		break
+	}
+	
+	if newElement != noone{
+		obj_main.userToElement[? author] = newElement
+		var target = getUserObj(author)
+		if target{
+			var color = getElementColor(newElement)
+			var obj = instance_create_layer(
+			  camera_get_view_x(view_camera[0])+960,
+			  camera_get_view_y(view_camera[0])+1080,
+			  getLayer(10), obj_subStatue_elementSwitcher)
+			obj.target = target
+			obj.element = newElement
+			obj.color = color
+		}
+	}
+	
 }

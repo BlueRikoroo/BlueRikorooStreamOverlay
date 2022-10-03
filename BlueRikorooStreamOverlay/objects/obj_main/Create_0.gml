@@ -2,6 +2,8 @@ randomize()
 
 ini_open("Config/config.ini")
 webhook_url = ini_read_string("Website", "url", "")
+confirmationWebhook_url = ini_read_string("Website", "confirmation_url", "")
+TTS_url = ini_read_string("Website", "TTS_url", "")
 currentMap = ini_read_string("Carryover", "lastMap", "")
 currentOverlay = ini_read_real("Carryover", "lastOverlay", 0)
 ini_close()
@@ -9,9 +11,12 @@ ini_close()
 // Start recieving data if a website it inputted
 if webhook_url != ""
 	alarm[0] = 10
+if confirmationWebhook_url != ""
+	alarm[1] = 120
 	
 #region Variables used to process data
 
+global.time = 0
 notifCount = -1  // Keeps track of which notification ID we are on so as not to repeat notifications
 global.layerMap = ds_map_create()
 layer = getLayer(Layer.UI)
@@ -69,9 +74,14 @@ overlay_timer = 0
 overlay_step = empty_script
 overlay_draw = overlay_draw_empty_script
 overlay_surface = noone
+sideOverlay = false  // If on a side overlay
 load_overlay(currentOverlay)
+previousOverlay = currentOverlay
 
-globalKeyDown = false
+hotKeyOnlyOne = true
+toggleCursors = false
+
+streamOver = false
 
 #endregion
 #region Enums

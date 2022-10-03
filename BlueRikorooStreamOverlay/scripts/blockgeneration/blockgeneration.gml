@@ -43,7 +43,7 @@ function KorioroGenerateBlock(username, piece){
 	return a;
 }
 
-function updatePiece(obj, orientation){
+function updatePiece(obj, orientation, Piece=noone, Username=noone, Num=noone){
 	with obj{
 		switch(orientation){
 		case 0:
@@ -64,6 +64,11 @@ function updatePiece(obj, orientation){
 			break
 		}
 		angle = orientation
+		if Piece != noone{
+			piece = Piece
+			username = Username
+			num = Num
+		}
 	}
 }
 
@@ -337,19 +342,19 @@ function KorioroAddPiece(piece, username){
 	var o = KorioroGetOffset(piece)
 	var a = [noone, noone, noone, noone]
 	a[0] = instance_create_layer(5+s[0]+o[0][0]-100, s[1]+o[1][0], getLayer(-100), obj_korioroPiece)
-	updatePiece(a[0], 0)
+	updatePiece(a[0], 0, piece, username, "1")
 	a[0].spr = sprite[0]
 	a[1] = instance_create_layer(5+s[0]+o[0][1]-100, s[1]+o[1][1], getLayer(-100), obj_korioroPiece)
-	updatePiece(a[1], 0)
+	updatePiece(a[1], 0, piece, username, "2")
 	a[1].spr = sprite[1]
 	a[2] = instance_create_layer(5+s[0]+o[0][2]-100, s[1]+o[1][2], getLayer(-100), obj_korioroPiece)
-	updatePiece(a[2], 0)
+	updatePiece(a[2], 0, piece, username, "3")
 	a[2].spr = sprite[2]
 	a[3] = instance_create_layer(5+s[0]+o[0][3]-100, s[1]+o[1][3], getLayer(-100), obj_korioroPiece)
-	updatePiece(a[3], 0)
+	updatePiece(a[3], 0, piece, username, "4")
 	a[3].spr = sprite[3]
 	a[4] = instance_create_layer(5+s[0]+o[0][4]-100, s[1]+o[1][4], getLayer(-100), obj_korioroPiece)
-	updatePiece(a[4], 0)
+	updatePiece(a[4], 0, piece, username, "5")
 	a[4].spr = sprite[4]
 	ds_list_add(pieceOrder, [piece, username, a, KorioroGetCenter(piece), o])
 }
@@ -360,6 +365,8 @@ function KorioroPiecePlace(array){
 		var Y = round(obja[i].y)
 		if X >= 0 and X < 12 and Y >= 0 and Y < 22{
 			board[X][Y] = obja[i]
+		}else{
+			instance_destroy(obja[i])	
 		}
 	}
 	activePiece = noone
@@ -373,7 +380,10 @@ function KorioroPiecePlace(array){
 			}
 		}
 		if clear{
-			clears += 1
+			clears++
+			if clears == 1{
+				streak++	
+			}
 			for(var X = 0; X < 12; X++){
 				instance_destroy(board[X][Y])
 				board[X][Y] = noone
@@ -390,6 +400,29 @@ function KorioroPiecePlace(array){
 			}
 			Y++
 		}
+	}
+	if clears == 0{
+		streak = 0
+	}else if clears == 1{
+		var scoreInc = 100 * (1 + ((-1 + streak) * .25))
+		currentScore += scoreInc
+		createGamePopup("SINGLE\n" + string(scoreInc))	
+	}else if clears == 2{
+		var scoreInc = 250 * (1 + ((-1 + streak) * .25))
+		currentScore += scoreInc
+		createGamePopup("DOUBLE\n" + string(scoreInc))	
+	}else if clears == 3{
+		var scoreInc = 625 * (1 + ((-1 + streak) * .25))
+		currentScore += scoreInc
+		createGamePopup("TRIPLE\n" + string(scoreInc))	
+	}else if clears == 4{
+		var scoreInc = 1562 * (1 + ((-1 + streak) * .25))
+		currentScore += scoreInc
+		createGamePopup("QUAD\n" + string(scoreInc))	
+	}else if clears == 5{
+		var scoreInc = 3906 * (1 + ((-1 + streak) * .25))
+		currentScore += scoreInc
+		createGamePopup("KORIORO\n" + string(scoreInc))	
 	}
 }
 
@@ -480,4 +513,23 @@ function KorioroPieceRotateL(array){
 	[-1, 2], [1, 2], [-2, 0], [2, 0], [-2, 1], [2, 1], [-2, 2], [2, 2],
 	[0, -1], [0, -2], [-1, -1], [1, -1], [-1, -2], [1, -2], [-2, -1], [2, -1], 
 	[-2, -2], [2, -2]])
+}
+function KorioroFinishGame(){
+	if currentScore > highScore{
+		highScore = currentScore
+		ini_open("Korioro/Data.ini")
+		ini_write_real("Score", "High", highScore)
+		ini_close()
+		createGamePopup("NEW HIGH SCORE\n" + string(highScore))
+	}else{
+		createGamePopup("GAME OVER\nSCORE: " + string(currentScore))
+	}
+	for(var X = 0; X < 12; X++){
+		for(var Y = 0; Y < 22; Y++){
+			if instance_exists(board[X][Y]){
+				instance_destroy(board[X][Y])	
+			}
+		}
+	}
+	board = array2Dfill(12, 22, noone)
 }

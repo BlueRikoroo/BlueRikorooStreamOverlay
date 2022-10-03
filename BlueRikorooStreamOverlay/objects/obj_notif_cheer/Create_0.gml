@@ -1,4 +1,5 @@
 username = ""
+TTSMessage = ""
 
 gui_xpos = 1400
 gui_ypos = 180

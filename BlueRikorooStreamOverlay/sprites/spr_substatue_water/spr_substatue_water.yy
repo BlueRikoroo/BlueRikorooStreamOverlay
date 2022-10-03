@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "spr_subStatue_water",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,12 +27,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"7652a791-3114-4af9-8588-b6125ccc96c7","path":"sprites/spr_subStatue_water/spr_subStatue_water.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"7652a791-3114-4af9-8588-b6125ccc96c7","path":"sprites/spr_subStatue_water/spr_subStatue_water.yy",},"LayerId":{"name":"d6c05772-dedc-4319-b4f8-fd9543d6d1f3","path":"sprites/spr_subStatue_water/spr_subStatue_water.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_subStatue_water","path":"sprites/spr_subStatue_water/spr_subStatue_water.yy",},"resourceVersion":"1.0","name":"7652a791-3114-4af9-8588-b6125ccc96c7","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"7652a791-3114-4af9-8588-b6125ccc96c7",},
   ],
   "sequence": {
-    "spriteId": {"name":"spr_subStatue_water","path":"sprites/spr_subStatue_water/spr_subStatue_water.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "spr_subStatue_water",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -40,9 +43,9 @@
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
             {"id":"e9b39d9e-36bb-4754-bdc2-d84ee86a9a98","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"7652a791-3114-4af9-8588-b6125ccc96c7","path":"sprites/spr_subStatue_water/spr_subStatue_water.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +61,13 @@
     "yorigin": 9,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"spr_subStatue_water","path":"sprites/spr_subStatue_water/spr_subStatue_water.yy",},
-    "resourceVersion": "1.4",
-    "name": "spr_subStatue_water",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"d6c05772-dedc-4319-b4f8-fd9543d6d1f3","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"d6c05772-dedc-4319-b4f8-fd9543d6d1f3","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Subs",
     "path": "folders/Notifications/Subs.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "spr_subStatue_water",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

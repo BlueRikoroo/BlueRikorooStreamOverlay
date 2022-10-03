@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "spr_chatSymbol_fire",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,12 +27,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"0195106c-702f-486f-b3a3-8f720aeab833","path":"sprites/spr_chatSymbol_fire/spr_chatSymbol_fire.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"0195106c-702f-486f-b3a3-8f720aeab833","path":"sprites/spr_chatSymbol_fire/spr_chatSymbol_fire.yy",},"LayerId":{"name":"0c5bd042-1476-490f-91b2-6372686af680","path":"sprites/spr_chatSymbol_fire/spr_chatSymbol_fire.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_chatSymbol_fire","path":"sprites/spr_chatSymbol_fire/spr_chatSymbol_fire.yy",},"resourceVersion":"1.0","name":"0195106c-702f-486f-b3a3-8f720aeab833","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"0195106c-702f-486f-b3a3-8f720aeab833",},
   ],
   "sequence": {
-    "spriteId": {"name":"spr_chatSymbol_fire","path":"sprites/spr_chatSymbol_fire/spr_chatSymbol_fire.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "spr_chatSymbol_fire",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -40,9 +43,9 @@
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
             {"id":"9c7c9613-1456-4c8b-a3e3-8a3446527e1c","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"0195106c-702f-486f-b3a3-8f720aeab833","path":"sprites/spr_chatSymbol_fire/spr_chatSymbol_fire.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +61,13 @@
     "yorigin": 11,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"spr_chatSymbol_fire","path":"sprites/spr_chatSymbol_fire/spr_chatSymbol_fire.yy",},
-    "resourceVersion": "1.4",
-    "name": "spr_chatSymbol_fire",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"0c5bd042-1476-490f-91b2-6372686af680","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"0c5bd042-1476-490f-91b2-6372686af680","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Chat",
     "path": "folders/Chat.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "spr_chatSymbol_fire",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

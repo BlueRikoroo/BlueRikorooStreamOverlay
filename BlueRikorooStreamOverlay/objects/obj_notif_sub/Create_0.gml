@@ -1,4 +1,5 @@
 username = ""
+TTSMessage = ""
 tier = 0
 
 gui_xpos = 1400

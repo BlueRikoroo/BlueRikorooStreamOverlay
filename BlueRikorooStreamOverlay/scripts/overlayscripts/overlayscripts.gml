@@ -1,4 +1,8 @@
 function load_overlay(ID){
+	if !sideOverlay{
+		previousOverlay = currentOverlay
+	}
+	currentOverlay = ID
 	overlay_timer = 0
 	chat_surface_x = 0
 	chat_surface_y = 0
@@ -48,9 +52,24 @@ function load_overlay(ID){
 		chat_surface_x = 94
 		chat_surface_y = 109
 		break
+	case 99:
+		overlay_step = empty_script
+		overlay_draw = overlay_BRB_draw
+		chat_surface_x = 20
+		chat_surface_y= 20
+		activeGamePosX = (1920-activeGameSurfaceWidth)*0.5
+		activeGamePosY = 200
+		overlay_variable1 = 100
+		overlay_variable2 = 1
+		overlay_variable3 = 0
+		overlay_variable4 = 0
+		break
 	default:
 		overlay_step = empty_script
 		overlay_draw = overlay_draw_empty_script
+		allowGame = false
+		activeGamePosX = 0
+		activeGamePosY = 0
 	}
 	
 	if surface_exists(overlay_surface){
@@ -279,4 +298,36 @@ function drawInwardRect(X1, Y1, X2, Y2, oo){
 	draw_line(X1+oo-1, Y, X2-oo, Y)
 	Y = Y2-oo
 	draw_line(X1+oo, Y, X2-oo, Y)
+}
+
+function overlay_BRB_draw(){
+	overlay_draw_surfaceSetup()
+	#region Draw Code
+	
+	var ot = overlay_timer mod 1000
+	if ot == 0{
+		overlay_variable1 = random(150) + 50	
+		overlay_variable2 = 0.1 + random(2)
+		overlay_variable3 = random(20)
+		overlay_variable4 = random(20)
+	}
+	draw_set_color(make_color_hsv(((ot + current_minute*5)*overlay_variable2) mod 255, overlay_variable1, 255))
+	drawInwardRect(782, 200, 1138, 842, -ot)
+	
+	if ot > 500 {
+		draw_set_color(make_color_hsv(irandom(255), 200, 200))
+		var X = random(1920)
+		var Y = random(1080)
+		draw_rectangle(X, Y, X + overlay_variable3, Y+overlay_variable4, false)
+	}
+	
+	// Clean up anything in the way
+	gpu_set_blendmode(bm_subtract);
+	draw_set_color(c_white)
+	draw_rectangle(782, 200, 1137, 841, false)
+	gpu_set_blendmode(bm_normal);
+
+	#endregion	
+	overlay_draw_surfaceCleanup()
+	overlay_draw_empty_script()
 }

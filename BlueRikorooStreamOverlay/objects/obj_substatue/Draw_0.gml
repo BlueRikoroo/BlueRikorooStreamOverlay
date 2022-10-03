@@ -1,4 +1,4 @@
-draw_self()
+draw_sprite(sprite_index, 0, x, y)
 timer+=0.05
 var Y = y - 60 + 5 * sin(timer)
 var tierH = tier*6

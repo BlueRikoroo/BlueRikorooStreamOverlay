@@ -6,3 +6,5 @@ grav = 0.2
 font = fnt_subStatueUsername_tier3
 tier = 3
 element = Element.neutral
+
+image_yscale = 4

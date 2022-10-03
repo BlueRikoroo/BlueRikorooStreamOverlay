@@ -6,6 +6,11 @@ if !handlingNotif{
 			ds_list_delete(newNotifs, 0)
 			instance_activate_object(obj)
 			betweenNotifTimer = betweenNotifMin
+			show_message(obj_main.TTS_url)
+			show_message(obj.TTSMessage)
+			if obj.TTSMessage != "" and obj_main.TTS_url != ""{
+				http_post_string(obj_main.TTS_url + "?message=" + obj.TTSMessage, "")	
+			}
 		}
 	}else{
 		betweenNotifTimer--	

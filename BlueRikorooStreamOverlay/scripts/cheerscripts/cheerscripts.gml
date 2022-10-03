@@ -21,7 +21,7 @@ function addCheerAmount(username, amount){
 	if cheer + amount >= 0{
 		obj_main.userToCheer[? username] += amount
 		saveUserCheerData(username)
-		var player = obj_main.userToObj[? username]
+		var player = getUserObj(username)
 		if !is_undefined(player){
 			player.cheerAmount = obj_main.userToCheer[? username]	
 		}
