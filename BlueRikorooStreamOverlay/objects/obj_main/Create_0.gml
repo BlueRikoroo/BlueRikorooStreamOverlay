@@ -46,6 +46,7 @@ userToElement = ds_map_create()
 userToSubStatue = ds_map_create()
 userToCheer = ds_map_create()
 userToMouse = ds_map_create()
+userToCharModifiers = ds_map_create()
 
 camera_width = 1920
 camera_height = 1080
@@ -82,6 +83,7 @@ hotKeyOnlyOne = true
 toggleCursors = false
 
 streamOver = false
+currentKing = ""
 
 #endregion
 #region Enums

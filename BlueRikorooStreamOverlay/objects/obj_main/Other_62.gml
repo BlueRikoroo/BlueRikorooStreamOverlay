@@ -167,6 +167,9 @@ if url == webhook_url{
 									isKing = true	
 								}
 							}
+							
+							currentKing = username
+							
 					
 							break #endregion
 						case "raid":  #region Raid
@@ -236,6 +239,88 @@ if url == webhook_url{
 								mouse_event(event)
 							}
 							break  #endregion
+						case "paypalDonation":  #region Paypal Donation
+							var username = notif[|2]
+							var X = camera_get_view_x(view_camera[0])+1400
+							var Y = camera_get_view_y(view_camera[0])+180
+							var obj = instance_create_layer(X, Y, getLayer(Layer.item), obj_notif_paypalDonation)
+							obj.username = username
+							obj.amount = notif[|3]
+							obj.bitsLeft = obj.amount
+							obj.tier = 1
+							if obj.amount > 2000{
+								obj.tier = 3	
+							}else if obj.amount > 1000{
+								obj.tier = 2	
+							}
+							var msgCont = notif[|4]
+							obj.t1 = notif[|5][? "t1"]
+							obj.t2 = notif[|5][? "t2"]
+							obj.t5 = notif[|5][? "t5"]
+							obj.t10 = notif[|5][? "t10"]
+							obj.t20 = notif[|5][? "t20"]
+							if !is_undefined(obj.t10)
+							{
+								switch(obj.t10)
+								{
+								case "Make Big":
+									updateCharMod(username, 0, 1.6)
+									var playerObj = getUserObj(username)
+									playerObj.size = 1.5
+									break
+								case "Make Small":
+									updateCharMod(username, 0, 0.4)
+									var playerObj = getUserObj(username)
+									playerObj.size = 0.5
+									break
+								case "Make Flat":
+									updateCharMod(username, 1, 1.6)
+									var playerObj = getUserObj(username)
+									playerObj.squish = 1.2
+									break
+								case "Make Skinny":
+									updateCharMod(username, 1, 0.4)
+									var playerObj = getUserObj(username)
+									playerObj.squish = 0.8
+									break
+								}
+							}
+							if !is_undefined(obj.t20)
+							{
+								var data = stringSplit(";", obj.t20)
+								var r = real(data[0])
+								var g = real(data[1])
+								var b = real(data[2])
+								var playerObj = getUserObj(username)
+								playerObj.shiney = make_color_rgb(r, g, b)
+								updateCharMod(username, 2, playerObj.shiney)
+							}
+							var playerObj = getUserObj(username)
+							if obj.username != ""{
+								addCheerAmount(username, obj.amount)
+							}
+							obj.TTSMessage = notif[|6]
+							
+							var amountDis = string_format(obj.amount * 0.01, 1, 2)
+							if username == ""{
+								if msgCont == ""{
+									msgCont = "Anonymous Donated $" + amountDis
+								}else{
+									msgCont = "Anonymous Donated $" + amountDis + "\n" + msgCont
+								}
+							}else{
+								if msgCont == ""{
+									msgCont = username + " Donated $" + amountDis
+								}else{
+									msgCont = username + " Donated $" + amountDis + "\n" + msgCont
+								}
+							}
+							obj.msgDisplay = wrapString(msgCont, 250)
+							
+							ds_list_add(obj_notifHandler.newNotifs, obj)
+							instance_deactivate_object(obj)
+							
+							break #endregion
 						}
 					}
 				}

@@ -112,6 +112,21 @@ function getUserElement(username){
 	return element
 }
 
+function getCharMods(username){
+	var data = obj_main.userToCharModifiers[? username]
+	if is_undefined(data){
+		//     [Size, Squish, R, G, B]
+		data = [1, 1, -1]
+		obj_main.userToCharModifiers[? username] = data
+	}	
+	return data
+}
+
+function updateCharMod(username, slot, value){
+	var data = getCharMods(username)
+	data[slot] = value
+}
+
 function getUserMouse(username){
 	var mouseObj = obj_main.userToMouse[? username]
 	if is_undefined(mouseObj){
@@ -178,4 +193,25 @@ function getElementColor(element){
 	case Element.shadow: color = merge_color(c_purple, c_white, 0.25) break
 	}
 	return color
+}
+
+function wrapString(str, width){
+	while(string_width(str) > width){
+		var lastSpace = -1
+		for(var i = 1; i <= string_length(str); i++){
+			if string_width(string_copy(str, 1, i)) > width{
+				break	
+			}
+			if string_char_at(str, i) == " "{
+				lastSpace = i
+			}
+		}
+		if lastSpace = -1{
+			str = "<Message Too Long>"
+			break
+		}else{
+			str = string_copy(str, 1, lastSpace-1) + "\n" + string_copy(str, lastSpace+1, 10000000)
+		}
+	}
+	return str
 }

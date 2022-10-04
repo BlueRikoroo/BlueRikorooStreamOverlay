@@ -8,6 +8,14 @@ function createPlayer(X, Y, element, Name){
 		nameObj.image_xscale = string_width(username)/60
 		alarm[0] = 72000  // 20*60*60 = 20minutes to despawn
 		cheerAmount = getUserCheerData(username)
+		isKing = (obj_main.currentKing == username)
+		if irandom(1000) == 0
+			shiney = make_color_rgb(irandom(150)+55, irandom(150)+55, irandom(150)+55)
+		var data = getCharMods(Name)
+		size = data[0]
+		squish = data[1]
+		if data[2] != -1
+			shiney = data[2]
 	}
 	return obj
 }

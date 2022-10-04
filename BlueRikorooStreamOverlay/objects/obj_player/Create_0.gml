@@ -37,6 +37,8 @@ nameHeightTo = 0  // Where it is going to
 username = ""
 cheerAmount = 0
 
+size = 1
+squish = 1
 shiney = -1
 
 leaving = false
