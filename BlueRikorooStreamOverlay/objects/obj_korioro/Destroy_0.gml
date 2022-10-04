@@ -25,3 +25,4 @@ for (var k = ds_map_find_first(pieceSprites); !is_undefined(k); k = ds_map_find_
 }
 ds_map_destroy(pieceSprites)
 ds_list_destroy(pieceOrder)
+ds_list_destroy(pieceOrderPriority)

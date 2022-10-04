@@ -1,5 +1,6 @@
 enum Game{
 	Korioro = 0,
+	RikoDoodle = 1,
 }
 
 function ActivateGame(game){
@@ -9,6 +10,8 @@ function ActivateGame(game){
 			case Game.Korioro:
 				activeGame = instance_create_layer(0, 0, getLayer(-100), obj_korioro)
 				break
+			case Game.RikoDoodle:
+				activeGame = instance_create_layer(0, 0, getLayer(-100), obj_rikoDoodle)
 			}
 			if activeGame != noone{
 				activeGame.gameID = game
@@ -37,4 +40,13 @@ function createGamePopup(text, Time=60*3, offsetPosScale=[1, 1]){
 	obj.surfaceHeight = string_height(obj.text) + 8
 	instance_deactivate_object(obj)
 	ds_list_add(popups, obj)
+}
+
+function draw_startgame_button(str, x1, y1, x2, y2){
+	draw_set_color(c_white)
+	draw_rectangle(x1,  y1,   x2,   y2,   false)
+	draw_set_color(make_color_hsv((global.time*0.25 + string_length(str)*20) mod 255, 150, 255))
+	draw_rectangle(x1+5,y1+5, x2-5, y2-5, false)
+	draw_text_setup(fnt_chatText, fa_center, fa_middle, c_black)
+	draw_text((x2+x1)*0.5, (y2+y1)*0.5, str)
 }

@@ -13,14 +13,10 @@ if allowGame{
 	
 	// Korioro
 	draw_setup()
-	var s = "Korioro!"
-	draw_rectangle(centerX-100,100,centerX+100, 150,false)
-	draw_set_color(make_color_hsv(global.time*0.25 mod 255, 150, 255))
-	draw_rectangle(centerX-95, 105, centerX+95, 145, false)
-	draw_text_setup(fnt_chatText, fa_center, fa_middle, c_black)
-	draw_text(centerX, 125, s)
-	
-	
+	var l = centerX-100
+	var r = centerX+100
+	draw_startgame_button("Korioro!", l, 100, r, 150)
+	draw_startgame_button("Riko Doodle!", l, 175, r, 225)
 	
 	surface_reset_target()
 		

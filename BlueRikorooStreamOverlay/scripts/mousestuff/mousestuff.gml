@@ -54,6 +54,15 @@ function mouse_event(event){
 							addCheerAmount(other.username, -5)
 							KorioroAddPiece(irandom(10), other.username)
 						}
+					}else if posInRegion(X,Y,226,55,356,100) and !obj_main.streamOver{
+						var playerObj = getUserObj(other.username)
+						if not KorioroCheckInPieceOrder(other.username){
+							CreateBitSpawner(playerObj, 
+							  [ X + obj_main.activeGamePosX + camera_get_view_x(view_camera), 
+							    Y + obj_main.activeGamePosY + camera_get_view_y(view_camera)
+							  ], 1)
+							KorioroAddPiece(irandom(10), other.username)
+						}
 					}else if activePiece != noone and activePiece[1] == other.username{
 						var Yloc = 142 + location[1]*20 + obj_main.activeGamePosY
 						if other.y < Yloc{
@@ -73,6 +82,10 @@ function mouse_event(event){
 			if posInRegion(X,Y,centerX-100,100,centerX+100, 150){
 				with(obj_main){
 					ActivateGame(Game.Korioro)
+				}
+			}else if posInRegion(X,Y,centerX-100,175,centerX+100, 225){
+				with(obj_main){
+					ActivateGame(Game.RikoDoodle)
 				}
 			}
 		}

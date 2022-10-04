@@ -4,8 +4,10 @@ checkDirectory("Korioro")
 ini_open("Korioro/Data.ini")
 
 pieceSprites = ds_map_create()
+pieceOrderPriority = ds_list_create()
 pieceOrder = ds_list_create()
 activePiece = noone  // [pieceType, name, [objs], center, offset]
+nextPiece = noone    // same
 orientation = 0
 location = [0, 0]
 board = array2Dfill(12, 22, noone)  // 2D array

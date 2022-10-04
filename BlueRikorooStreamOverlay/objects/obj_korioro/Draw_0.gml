@@ -42,10 +42,14 @@ draw_text(surfaceWidth*0.5, 110, "KORIORO!")
 if !obj_main.streamOver{
 	draw_setup()
 	draw_rectangle(surfaceWidth-130,0,surfaceWidth,55,false)
+	draw_rectangle(surfaceWidth-130,55,surfaceWidth,100,false)
 	draw_set_color(make_color_hsv(global.time*0.25 mod 255, 150, 255))
 	draw_rectangle(surfaceWidth-125, 0, surfaceWidth-5, 50, false)
+	draw_set_color(make_color_hsv((global.time*0.25 + 126) mod 255, 150, 255))
+	draw_rectangle(surfaceWidth-125, 60, surfaceWidth-5, 95, false)
 	draw_text_setup(fnt_chatText, fa_center, fa_middle, c_white)
 	draw_text(surfaceWidth-75, 35, "PLAY (5     )")
+	draw_text(surfaceWidth-75, 77.5, "PLAY FREE")
 	draw_sprite_ext(spr_m_coin1, global.time*0.05, surfaceWidth-50, 45, 0.75, 0.75, 0, -1, 1)
 }
 
@@ -58,8 +62,8 @@ draw_text(40, 50, "Score: " + string(currentScore))
 if activePiece != noone{
 	draw_text(40, 70, "Current: " + activePiece[1])
 }
-if ds_list_size(pieceOrder) > 0{
-	draw_text(40, 90, "Next: " + pieceOrder[| 0][1])
+if nextPiece != noone{
+	draw_text(40, 90, "Next: " + nextPiece[1])
 }
 
 // Popups

@@ -336,7 +336,7 @@ function _SaveKorioroBlock(fp, username, piece){
 		break
 	}
 }
-function KorioroAddPiece(piece, username){
+function KorioroAddPiece(piece, username, priority=false){
 	var sprite = KorioroGenerateBlock(username, piece)
 	var s = KorioroGetStartPos(piece)
 	var o = KorioroGetOffset(piece)
@@ -356,7 +356,22 @@ function KorioroAddPiece(piece, username){
 	a[4] = instance_create_layer(5+s[0]+o[0][4]-100, s[1]+o[1][4], getLayer(-100), obj_korioroPiece)
 	updatePiece(a[4], 0, piece, username, "5")
 	a[4].spr = sprite[4]
-	ds_list_add(pieceOrder, [piece, username, a, KorioroGetCenter(piece), o])
+	if priority{
+		ds_list_add(pieceOrderPriority, [piece, username, a, KorioroGetCenter(piece), o])
+	}else{
+		ds_list_add(pieceOrder, [piece, username, a, KorioroGetCenter(piece), o])
+	}
+}
+function KorioroCheckInPieceOrder(name){
+	for (var i = ds_list_size(pieceOrder)-1; i >=0; i--){
+		if pieceOrder[| i][1] == name{
+			return true			
+		}
+	}
+	if activePiece != noone and activePiece[1] == name or nextPiece != noone and nextPiece[1] == name{
+		return true	
+	}
+	return false
 }
 function KorioroPiecePlace(array){
 	var obja = array[2]	

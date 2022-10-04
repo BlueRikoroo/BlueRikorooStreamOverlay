@@ -1,7 +1,8 @@
 event_inherited()
-if activePiece == noone and ds_list_size(pieceOrder) > 0{
+if activePiece == noone and nextPiece != noone{
 	// Pull Out Piece
-	activePiece = pieceOrder[| 0]
+	activePiece = nextPiece
+	nextPiece = noone
 	ds_list_delete(pieceOrder, 0)	
 	for (var i = 0; i < 5; i++){
 		activePiece[2][i].x += 100
@@ -13,7 +14,17 @@ if activePiece == noone and ds_list_size(pieceOrder) > 0{
 	dropTimer = 0
 	resetTime = 60*5
 }
-if activePiece == noone and ds_list_size(pieceOrder) == 0{
+if nextPiece == noone and (ds_list_size(pieceOrder) > 0 or ds_list_size(pieceOrderPriority) > 0){
+	if ds_list_size(pieceOrderPriority) > 0{
+		nextPiece = pieceOrderPriority[| 0]
+		ds_list_delete(pieceOrderPriority, 0)	
+	}
+	else if ds_list_size(pieceOrder) > 0{
+		nextPiece = pieceOrder[| 0]
+		ds_list_delete(pieceOrder, 0)	
+	}
+}
+if activePiece == noone and ds_list_size(pieceOrder) == 0 and ds_list_size(pieceOrderPriority) == 0{
 	gameCloseTimer--
 	if gameCloseTimer <= 0{
 		with(obj_main)
