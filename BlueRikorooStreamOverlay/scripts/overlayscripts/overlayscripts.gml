@@ -64,6 +64,13 @@ function load_overlay(ID){
 		overlay_variable3 = 0
 		overlay_variable4 = 0
 		break
+	case 11:
+		overlay_step = empty_script
+		overlay_draw = overlay_mvt_draw
+		chat_surface_x = 10
+		chat_surface_y= 15
+		allowGame = false
+		break
 	default:
 		overlay_step = empty_script
 		overlay_draw = overlay_draw_empty_script
@@ -307,9 +314,13 @@ function overlay_BRB_draw(){
 	var ot = overlay_timer mod 1000
 	if ot == 0{
 		overlay_variable1 = random(150) + 50	
-		overlay_variable2 = 0.1 + random(2)
-		overlay_variable3 = random(20)
-		overlay_variable4 = random(20)
+		overlay_variable2 = random(2)
+		overlay_variable3 = random(25)
+		overlay_variable4 = random(25)
+		if irandom(50) == 0{
+			overlay_variable3 = random(200)
+			overlay_variable4 = random(200)
+		}
 	}
 	draw_set_color(make_color_hsv(((ot + current_minute*5)*overlay_variable2) mod 255, overlay_variable1, 255))
 	drawInwardRect(782, 200, 1138, 842, -ot)
@@ -330,4 +341,29 @@ function overlay_BRB_draw(){
 	#endregion	
 	overlay_draw_surfaceCleanup()
 	overlay_draw_empty_script()
+}
+
+function overlay_mvt_draw(){
+	overlay_draw_surfaceSetup()
+	#region Draw Code
+	
+	if overlay_timer == 0{
+		draw_sprite_part_ext(spr_overlay_MvTBackground, 0, 0, 525, 1680, 368, 0, 987, 1.5, 1.5, -1, 1)
+		draw_text_setup(fnt_blockEditor, fa_center, fa_top, c_white, 1)
+		draw_text(1790, 40, "!play\n!whitelist")
+	}
+	if overlay_timer >= 0 and overlay_timer < 12{
+		draw_set_color(make_color_hsv(85, 191, 50 + (overlay_timer)*15))
+		overaly_mvt_draw_brushDown()
+	}
+	
+	#endregion
+	overlay_draw_surfaceCleanup()
+	overlay_draw_empty_script()
+}
+
+function overaly_mvt_draw_brushDown(){
+	var oo = overlay_timer
+	drawInwardRect(0, 0, 1660, 987, oo)
+	drawInwardRect(1660, 0, 1920, 987, oo)
 }

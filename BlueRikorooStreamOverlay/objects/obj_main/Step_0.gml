@@ -195,6 +195,15 @@ if keyboard_check_direct(vk_lcontrol) and keyboard_check_direct(vk_lshift){
 			}
 			streamOver = true
 		}
+	}else if keyboard_check_direct(ord("Q")){
+		if hotKeyOnlyOne{
+			hotKeyOnlyOne = false
+			load_overlay(11)
+			streamOver = false
+			cameraMoving = true
+			cameraMoveToX = 1920
+			cameraMoveToY = 1032
+		}
 	}else if keyboard_check_direct(ord("C")){
 		if hotKeyOnlyOne{
 			hotKeyOnlyOne = false
@@ -222,7 +231,9 @@ if keyboard_string == "mouse"{
 	mouseObj.x = device_mouse_x_to_gui(0)
 	mouseObj.y = device_mouse_y_to_gui(0)
 	with(mouseObj){
-		mouse_event("mousemove")
+		if currentEvent != "mousedrag"{
+			mouse_event("mousemove")
+		}
 	}
 }
 

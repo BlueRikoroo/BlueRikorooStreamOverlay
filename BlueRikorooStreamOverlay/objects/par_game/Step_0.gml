@@ -4,3 +4,8 @@ if !instance_exists(obj_gamePopup) {
 		ds_list_delete(popups, 0)
 	}
 }
+gameCloseTimer--
+if gameCloseTimer <= 0{
+	with(obj_main)
+		ActivateGame(1000)
+}

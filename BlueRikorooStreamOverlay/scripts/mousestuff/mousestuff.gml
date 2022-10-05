@@ -1,4 +1,5 @@
 function mouse_event(event){
+	currentEvent = event
 	if event == "click"{
 		// show = true
 		image_index = 1
@@ -72,6 +73,26 @@ function mouse_event(event){
 							KorioroPieceRotateR(activePiece)	
 						}
 					}	
+				}
+				break
+			case obj_rikoDoodle:
+				with(obj_main.activeGame){
+					gameCloseTimer = 60*20
+					var X = other.x - obj_main.activeGamePosX
+					var Y = other.y - obj_main.activeGamePosY	
+					other.lastPosX = X
+					other.lastPosY = Y
+					// Color Picker
+					if posInRegion(X,Y,canvasPosX,100,canvasPosX+canvasWidth,150){
+						var betweenWidth = canvasWidth / array_length(colorOptions)
+						var s = canvasPosX
+						for(var i = 0; i < array_length(colorOptions); i++){
+							draw_set_color(colorOptions[i])
+							if posInRegion(X, Y, s+i*betweenWidth, 100, s+(i+1)*betweenWidth, 150){
+								colorLookup[? other.username] = colorOptions[i]
+							}
+						}
+					}
 				}
 				break
 			}

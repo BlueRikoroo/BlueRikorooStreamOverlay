@@ -24,13 +24,7 @@ if nextPiece == noone and (ds_list_size(pieceOrder) > 0 or ds_list_size(pieceOrd
 		ds_list_delete(pieceOrder, 0)	
 	}
 }
-if activePiece == noone and ds_list_size(pieceOrder) == 0 and ds_list_size(pieceOrderPriority) == 0{
-	gameCloseTimer--
-	if gameCloseTimer <= 0{
-		with(obj_main)
-			ActivateGame(1000)
-	}
-}else{
+if !(activePiece == noone and ds_list_size(pieceOrder) == 0 and ds_list_size(pieceOrderPriority) == 0){
 	gameCloseTimer = 60*20
 }
 

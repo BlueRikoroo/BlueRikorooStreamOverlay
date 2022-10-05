@@ -215,3 +215,8 @@ function wrapString(str, width){
 	}
 	return str
 }
+
+function surface_reassign_target(newSurface){
+	surface_reset_target()
+	surface_set_target(newSurface)	
+}
