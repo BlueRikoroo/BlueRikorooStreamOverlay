@@ -220,3 +220,28 @@ function surface_reassign_target(newSurface){
 	surface_reset_target()
 	surface_set_target(newSurface)	
 }
+
+function draw_text_outline(X, Y, text, width, colorIn, colorOut)
+{
+	draw_set_color(colorOut)
+	for (var nX = X - width; nX <= X + width; nX++){
+		draw_text(nX, Y-width, text)
+		draw_text(nX, Y+width, text)
+	}
+	for (var nY = Y - width; nY <= Y + width; nY++){
+		draw_text(X-width, nY, text)
+		draw_text(X+width, nY, text)
+	}
+	draw_set_color(colorIn)
+	draw_text(X, Y, text)	
+}
+
+function draw_primitive_shape(){
+	// Args are 2-element arrays
+	draw_primitive_begin(pr_trianglestrip)
+	for(var i = 0; i < argument_count; i++)
+	{
+		draw_vertex(argument[i][0], argument[i][1])			
+	}
+	draw_primitive_end()
+}

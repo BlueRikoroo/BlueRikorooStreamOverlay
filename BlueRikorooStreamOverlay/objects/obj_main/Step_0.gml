@@ -145,6 +145,7 @@ if keyboard_check_direct(vk_lcontrol) and keyboard_check_direct(vk_lshift){
 	{
 		if hotKeyOnlyOne{
 			hotKeyOnlyOne = false
+			create_transition(TransitionType.SwipeLeft)
 			if sideOverlay{
 				sideOverlay = false
 				if currentOverlay != previousOverlay{
@@ -158,6 +159,7 @@ if keyboard_check_direct(vk_lcontrol) and keyboard_check_direct(vk_lshift){
 	{
 		if hotKeyOnlyOne {
 			hotKeyOnlyOne = false
+			create_transition(TransitionType.SwipeRightQuick)
 			if !sideOverlay{
 				sideOverlay = true
 				previousOverlay = currentOverlay
@@ -172,6 +174,7 @@ if keyboard_check_direct(vk_lcontrol) and keyboard_check_direct(vk_lshift){
 	{
 		if hotKeyOnlyOne{
 			hotKeyOnlyOne = false
+			create_transition(TransitionType.SwipeRight)
 			if !sideOverlay{
 				sideOverlay = true
 				previousOverlay = currentOverlay
@@ -186,6 +189,7 @@ if keyboard_check_direct(vk_lcontrol) and keyboard_check_direct(vk_lshift){
 	{
 		if hotKeyOnlyOne{
 			hotKeyOnlyOne = false
+			create_transition(TransitionType.SwipeRight)
 			if !sideOverlay{
 				sideOverlay = true
 				previousOverlay = currentOverlay
@@ -198,6 +202,7 @@ if keyboard_check_direct(vk_lcontrol) and keyboard_check_direct(vk_lshift){
 	}else if keyboard_check_direct(ord("Q")){
 		if hotKeyOnlyOne{
 			hotKeyOnlyOne = false
+			create_transition(TransitionType.SwipeLeftQuick)
 			load_overlay(11)
 			streamOver = false
 			cameraMoving = true
@@ -212,11 +217,37 @@ if keyboard_check_direct(vk_lcontrol) and keyboard_check_direct(vk_lshift){
 				show = other.toggleCursors	
 			}
 		}
-	}else if keyboard_check_direct(ord("N")){
+	}else if keyboard_check_direct(ord("T")){
 		if hotKeyOnlyOne{
 			hotKeyOnlyOne = false
 			show_nametags = !show_nametags
 		}
+	}else if keyboard_check_direct(ord("N")){
+		if keyboard_check_direct(ord("H")){
+			if hotKeyOnlyOne{
+				hotKeyOnlyOne = false
+				notificationEffects = 0
+				create_chat_message("Overlay", "Notifications - 0", Element.neutral)
+			}	
+		}else if keyboard_check_direct(ord("J")){
+			if hotKeyOnlyOne{
+				hotKeyOnlyOne = false
+				notificationEffects = 1 
+				create_chat_message("Overlay", "Notifications - 1", Element.neutral)
+			}	
+		}else if keyboard_check_direct(ord("K")){
+			if hotKeyOnlyOne{
+				hotKeyOnlyOne = false
+				notificationEffects = 2 
+				create_chat_message("Overlay", "Notifications - 2", Element.neutral)
+			}	
+		}else if keyboard_check_direct(ord("L")){
+			if hotKeyOnlyOne{
+				hotKeyOnlyOne = false
+				notificationEffects = 3 
+				create_chat_message("Overlay", "Notifications - 3", Element.neutral)
+			}	
+		}		
 	}else{
 		hotKeyOnlyOne = true
 	}

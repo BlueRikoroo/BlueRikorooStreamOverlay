@@ -27,7 +27,7 @@ for(var X = 0; X < 12; X++){
 }
 
 highScore = ini_read_real("Score", "High", 0)
-currentScore = 0
+currentScore = ini_read_real("Score", "Current", 0)
 streak = 0
 
 ini_close()

@@ -6,9 +6,11 @@ if timer > 180{  // 60*3
 	if bitsLeft > 0{
 		repeat(ceil(bitsLeft/1000)){
 			bitsLeft--
-			var obj = instance_create_layer(X, Y, getLayer(25), obj_bit)
-			obj.hspeed = random(4)-2
-			obj.vspeed = -random(8)-2
+			if obj_main.notificationEffects == 3{
+				var obj = instance_create_layer(X, Y, getLayer(25), obj_bit)
+				obj.hspeed = random(4)-2
+				obj.vspeed = -random(8)-2
+			}
 		}
 	}
 	if bitsLeft <= 0{
@@ -24,7 +26,7 @@ if timer > 180{  // 60*3
 
 #region Play Rikoroo sound
 
-if timer == 1{
+if timer == 1 and obj_main.notificationEffects == 3{
 	audio_play_sfx(snd_notification_rikoroooo)	
 }
 

@@ -1,4 +1,8 @@
 function load_overlay(ID){
+	if transitionHoldOverlay{
+		transitionOverlay = ID
+		return
+	}
 	if !sideOverlay{
 		previousOverlay = currentOverlay
 	}

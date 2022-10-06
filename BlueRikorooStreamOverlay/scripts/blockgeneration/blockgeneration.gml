@@ -422,22 +422,27 @@ function KorioroPiecePlace(array){
 		var scoreInc = 100 * (1 + ((-1 + streak) * .25))
 		currentScore += scoreInc
 		createGamePopup("SINGLE\n" + string(scoreInc))	
+		audio_play_sfx(sfx_tts_single)
 	}else if clears == 2{
 		var scoreInc = 250 * (1 + ((-1 + streak) * .25))
 		currentScore += scoreInc
 		createGamePopup("DOUBLE\n" + string(scoreInc))	
+		audio_play_sfx(sfx_tts_double)
 	}else if clears == 3{
 		var scoreInc = 625 * (1 + ((-1 + streak) * .25))
 		currentScore += scoreInc
 		createGamePopup("TRIPLE\n" + string(scoreInc))	
+		audio_play_sfx(sfx_tts_triple)
 	}else if clears == 4{
 		var scoreInc = 1562 * (1 + ((-1 + streak) * .25))
 		currentScore += scoreInc
-		createGamePopup("QUAD\n" + string(scoreInc))	
+		createGamePopup("QUADRUPLE\n" + string(scoreInc))	
+		audio_play_sfx(sfx_tts_Quad)
 	}else if clears == 5{
 		var scoreInc = 3906 * (1 + ((-1 + streak) * .25))
 		currentScore += scoreInc
 		createGamePopup("KORIORO\n" + string(scoreInc))	
+		audio_play_sfx(sfx_tts_korioro)
 	}
 }
 
@@ -486,7 +491,7 @@ function KorioroPieceRotate(array, orientationOffset, roptions){
 		for (var Pi = 0; Pi < 5; Pi++){
 			var X = Px[Pi] + roptions[i][0]	
 			var Y = Py[Pi] + roptions[i][1]
-			if X < 0 or X >= 12 or Y >= 22 or (Y >= 0 and board[X, Y] != noone){
+			if X < 0 or X >= 12 or Y >= 22 or (Y >= 0 and board[X, Y] != noone) or Y < -2{
 				works = false
 				break	
 			}

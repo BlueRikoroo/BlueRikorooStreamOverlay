@@ -71,6 +71,9 @@ activeGameSurface = noone
 activeGameSurfaceWidth = 356
 activeGameSurfaceHeight = 642
 
+transitionHoldOverlay = false
+transitionOverlay = noone
+
 overlay_timer = 0
 overlay_step = empty_script
 overlay_draw = overlay_draw_empty_script
@@ -81,9 +84,12 @@ previousOverlay = currentOverlay
 
 hotKeyOnlyOne = true
 toggleCursors = false
+notificationEffects = 3  // 0 None, 1 Just Message top right, 2 More centered message, 3 All effects
+
 
 streamOver = false
 currentKing = ""
+
 
 #endregion
 #region Enums

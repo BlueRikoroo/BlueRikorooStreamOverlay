@@ -13,6 +13,7 @@ for(var X = 0; X < 12; X++){
 			ini_write_string("Board", cord, "noone")
 	}
 }
+ini_write_real("Score", "Current", currentScore)
 
 ini_close()
 
