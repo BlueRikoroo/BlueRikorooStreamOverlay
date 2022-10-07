@@ -37,7 +37,7 @@ function draw_transition_swipeLeft(){
 		}
 		if timer mod 5 == 0{
 			var pos = 1920 - (timer - 30) * 35
-			draw_set_color(make_color_hsv(irandom(255), 255, 175))
+			draw_set_color(make_color_hsv(irandom(255), 215, 175))
 			var size = 30 + random(100)
 			draw_circle(pos, 100 + random(880), size, false)
 			audio_play_sfx(sfx_waterBubble, 0, 0, size/65)
@@ -79,7 +79,7 @@ function draw_transition_swipeRight(){
 		}
 		if timer mod 5 == 0{
 			var pos = (timer - 30) * 35
-			draw_set_color(make_color_hsv(irandom(255), 255, 175))
+			draw_set_color(make_color_hsv(irandom(255), 215, 175))
 			var size = 30 + random(100)
 			draw_circle(pos, 100 + random(880), size, false)
 			audio_play_sfx(sfx_waterBubble, 0, 0, size/65)

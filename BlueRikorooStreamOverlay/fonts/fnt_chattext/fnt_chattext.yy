@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMFont",
+  "resourceVersion": "1.0",
+  "name": "fnt_chatText",
   "hinting": 0,
   "glyphOperations": 0,
   "interpreter": 0,
@@ -132,8 +135,4 @@
     "name": "Chat",
     "path": "folders/Chat.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "fnt_chatText",
-  "tags": [],
-  "resourceType": "GMFont",
 }

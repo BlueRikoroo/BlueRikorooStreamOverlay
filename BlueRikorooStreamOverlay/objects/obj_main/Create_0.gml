@@ -82,10 +82,16 @@ sideOverlay = false  // If on a side overlay
 load_overlay(currentOverlay)
 previousOverlay = currentOverlay
 
+hotKeyJukeKey = ""
+jukeCurrent = noone
 hotKeyOnlyOne = true
+jukeKeyOnlyOne = true
 toggleCursors = false
 notificationEffects = 3  // 0 None, 1 Just Message top right, 2 More centered message, 3 All effects
-
+jukeVolume = 0.25
+jukeTimer = 0
+jukeCredit = ""
+jukePos = 2920
 
 streamOver = false
 currentKing = ""

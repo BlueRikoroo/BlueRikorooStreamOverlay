@@ -26,3 +26,21 @@ surface_reset_target()
 draw_surface(chat_surface, chat_surface_x, chat_surface_y)
 
 #endregion
+#region Juke Pos
+
+if jukePos < 2920{
+	if jukeTimer == 0{
+		jukePos += (2920 - jukePos)*0.1
+		if abs(jukePos - 2920) <= 1{
+			jukePos = 2920	
+		}
+	}
+	draw_text_setup(fnt_subStatueUsername_tier1, fa_right, fa_bottom)
+	draw_text_outline(jukePos, 1080, jukeCredit, 1, c_yellow, c_black)
+}
+if jukeTimer > 0{
+	jukePos += (1920 - jukePos)*0.1
+	jukeTimer--
+}
+
+#endregion
