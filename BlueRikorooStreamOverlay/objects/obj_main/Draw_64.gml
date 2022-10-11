@@ -44,3 +44,53 @@ if jukeTimer > 0{
 }
 
 #endregion
+#region Drawing Board
+
+if drawOverlay{
+	if !surface_exists(drawOverlaySurface){
+		drawOverlaySurface = surface_create(1920, 1080)
+	}
+	var X = mouse_x - camera_get_view_x(view_camera[0])
+	var Y = mouse_y - camera_get_view_y(view_camera[0])
+	if mouse_check_button(mb_left){
+		surface_set_target(drawOverlaySurface)
+		if posInRegion(X, Y, 0, 0, 50, 50){
+			draw_clear_alpha(c_white, 0)
+		}else{
+			draw_set_color(drawOverlayColor)
+			draw_line_width(drawOverlayPrevX, drawOverlayPrevY, X, Y, 10)
+			draw_circle(drawOverlayPrevX, drawOverlayPrevY, 5, false)
+			draw_circle(X, Y, 5, false)
+		}
+		surface_reset_target()
+	}else if mouse_check_button(mb_right){
+		if posInRegion(X, Y, 0, 0, 50, 50){
+			drawOverlayColor = c_white
+		}else if posInRegion(X, Y, 50, 0, 100, 50){
+			drawOverlayColor = c_black
+		}else{
+			drawOverlayColor = make_color_hsv(X mod 255, 200, 255)
+		}
+		draw_set_color(drawOverlayColor)
+		draw_rectangle(0, 0, 50, 50, false)
+	}
+	drawOverlayPrevX = X
+	drawOverlayPrevY = Y
+	draw_surface(drawOverlaySurface, 0, 0)
+}
+
+#endregion
+#region Overlay Text Wiggle
+
+if overlayTextWiggle != ""{
+	var sl = string_length(overlayTextWiggle)
+	draw_text_setup(fnt_overlayMessage, fa_left, fa_middle, c_white, 1)
+	var cp = 0
+	for (var i = 1; i <= sl; i++){
+		var c = string_char_at(overlayTextWiggle, i)
+		draw_text_outline(100+cp, 900+50*sin(global.time*0.01 + 0.1*i), c, 5, c_white, c_black) 
+		cp += string_width(c)+1
+	}
+}
+
+#endregion

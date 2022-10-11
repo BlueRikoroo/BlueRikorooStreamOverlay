@@ -56,7 +56,12 @@ function load_overlay(ID){
 		chat_surface_x = 94
 		chat_surface_y = 109
 		break
-	case 99:
+	case 98:  // Startup Stream
+		overlay_step = empty_script
+		overlay_draw = overlay_startup_draw
+		allowGame = false
+		break
+	case 99:  // End Stream
 		overlay_step = empty_script
 		overlay_draw = overlay_BRB_draw
 		chat_surface_x = 20
@@ -370,4 +375,16 @@ function overaly_mvt_draw_brushDown(){
 	var oo = overlay_timer
 	drawInwardRect(0, 0, 1660, 987, oo)
 	drawInwardRect(1660, 0, 1920, 987, oo)
+}
+function overlay_startup_draw(){
+	overlay_draw_surfaceSetup()
+	#region Draw Code
+	
+	if overlay_timer == 0{
+		draw_sprite_ext(spr_overlay_clearSky, 0, -100, 0, 1.6, 1.6, 0, -1, 1)
+	}
+	
+	#endregion
+	overlay_draw_surfaceCleanup()
+	overlay_draw_empty_script()
 }

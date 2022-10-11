@@ -44,6 +44,11 @@ shiney = -1
 leaving = false
 chatterRep = false  // Represents a chatter
 
+element = Element.neutral
+// Controlling Stuff
+controlTimer = 0
+controlGoto = 0
+
 enum Anim{
 	idle,
 	idleRandom,

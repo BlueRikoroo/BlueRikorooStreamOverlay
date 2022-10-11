@@ -19,8 +19,9 @@ function createPlayer(X, Y, element, Name){
 	}
 	return obj
 }
-function setPlayerAnimations(element){
-	switch(element){
+function setPlayerAnimations(elemenT){
+	element = elemenT
+	switch(elemenT){
 	case Element.fire:
 		anim_idle = spr_player_fire_idle
 		anim_idle_speed = 0.15
@@ -163,4 +164,63 @@ function setPlayerAnimations(element){
 		shiney = 0x8781BE
 		break
 	}	
+}
+function spawnAttack(element, Xs, Ys, Xt, Yt){
+	var obj;
+	var dir = point_direction(Xs, Ys, Xt, Yt)
+	switch(element){
+	case Element.neutral: obj = spawnAttackNeutral(Xs, Ys,dir) break
+	case Element.fire: obj = spawnAttackFire(Xs, Ys,dir) break
+	case Element.earth: obj = spawnAttackEarth(Xs, Ys,dir) break
+	case Element.metal: obj = spawnAttackMetal(Xs, Ys,dir) break
+	case Element.storm: obj = spawnAttackStorm(Xs, Ys,dir) break
+	case Element.nature: obj = spawnAttackNature(Xs, Ys,dir) break
+	case Element.water: obj = spawnAttackWater(Xs, Ys,dir) break
+	case Element.ice: obj = spawnAttackIce(Xs, Ys,dir) break
+	case Element.light: obj = spawnAttackLight(Xs, Ys,dir) break
+	case Element.shadow: obj = spawnAttackShadow(Xs, Ys,dir) break
+	}
+	obj.speed = 20
+	obj.direction = point_direction(Xs, Ys, Xt, Yt)
+	return obj
+}
+function spawnAttackNeutral(X, Y, dir){
+	var obj = instance_create_layer(X, Y, getLayer(Layer.attackF), par_playerAttack)
+	return obj
+}
+function spawnAttackFire(X, Y, dir){
+	var obj = instance_create_layer(X, Y, getLayer(Layer.attackF), par_playerAttack)
+	return obj	
+}
+function spawnAttackEarth(X, Y, dir){
+	var obj = instance_create_layer(X, Y, getLayer(Layer.attackF), par_playerAttack)
+	return obj
+}
+function spawnAttackMetal(X, Y, dir){
+	var obj = instance_create_layer(X, Y, getLayer(Layer.attackF), par_playerAttack)
+	return obj
+}
+function spawnAttackStorm(X, Y, dir){
+	var obj = instance_create_layer(X, Y, getLayer(Layer.attackF), par_playerAttack)
+	return obj
+}
+function spawnAttackNature(X, Y, dir){
+	var obj = instance_create_layer(X, Y, getLayer(Layer.attackF), par_playerAttack)
+	return obj
+}
+function spawnAttackWater(X, Y, dir){
+	var obj = instance_create_layer(X, Y, getLayer(Layer.attackF), par_playerAttack)
+	return obj
+}
+function spawnAttackIce(X, Y, dir){
+	var obj = instance_create_layer(X, Y, getLayer(Layer.attackF), par_playerAttack)
+	return obj
+}
+function spawnAttackLight(X, Y, dir){
+	var obj = instance_create_layer(X, Y, getLayer(Layer.attackF), par_playerAttack)
+	return obj
+}
+function spawnAttackShadow(X, Y, dir){
+	var obj = instance_create_layer(X, Y, getLayer(Layer.attackF), par_playerAttack)
+	return obj
 }

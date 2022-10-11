@@ -110,6 +110,15 @@ function mouse_event(event){
 				}
 			}
 		}
+		if obj_main.startingSoon{
+			if y < 540{
+				var X = x + camera_get_view_x(view_camera[0])
+				var Y = y + camera_get_view_y(view_camera[0])
+				with(getUserObj(username)){
+					spawnAttack(element, x, y, X, Y)
+				}
+			}
+		}
 	}
 	else if event == "mousedrag"{
 		var subStatue = obj_main.userToSubStatue[? username]
@@ -118,6 +127,12 @@ function mouse_event(event){
 			subStatue.y = camera_get_view_y(view_camera[0]) + 987 
 			subStatue.speed = 0
 			subStatue.on_ground = false
+		}
+		var X = x + camera_get_view_x(view_camera[0])
+		// var Y = y + camera_get_view_y(view_camera[0])
+		with(getUserObj(username)){
+			controlTimer = 60*20
+			controlGoto = X
 		}
 	}
 }

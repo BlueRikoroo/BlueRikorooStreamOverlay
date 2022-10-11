@@ -84,6 +84,8 @@ previousOverlay = currentOverlay
 
 hotKeyJukeKey = ""
 jukeCurrent = noone
+jukePlaylist = false
+jukePlaylistArr = []
 hotKeyOnlyOne = true
 jukeKeyOnlyOne = true
 toggleCursors = false
@@ -95,7 +97,17 @@ jukePos = 2920
 
 streamOver = false
 currentKing = ""
+startingSoon = false
 
+drawOverlay = false
+drawOverlaySurface = noone
+drawOverlayColor = c_white
+drawOverlayPrevX = 0
+drawOverlayPrevY = 0
+
+overlayTextWiggle = ""
+
+enemiesDestroyed = 0
 
 #endregion
 #region Enums

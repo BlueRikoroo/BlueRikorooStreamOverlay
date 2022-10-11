@@ -38,6 +38,13 @@ if keyboard_check(vk_anykey) and mode == "normal"{
 			keyboard_string = ""
 		}
 		break
+	case "draw":
+		if drawOverlay{
+			drawOverlay = false
+		}else{
+			drawOverlay = true
+		}
+		keyboard_string = ""
 	}
 }
 
@@ -158,6 +165,10 @@ if keyboard_check_direct(vk_lcontrol){
 					}
 				}
 				streamOver = false
+				startingSoon = false
+				instance_destroy(par_enemy)
+				enemiesDestroyed = 0
+				overlayTextWiggle = ""
 			}
 		}
 		else if keyboard_check_direct(ord("4"))
@@ -173,6 +184,10 @@ if keyboard_check_direct(vk_lcontrol){
 					load_overlay(-1)
 				}
 				streamOver = false
+				startingSoon = false
+				instance_destroy(par_enemy)
+				enemiesDestroyed = 0
+				overlayTextWiggle = ""
 			}
 		}
 		else if keyboard_check_direct(ord("5"))
@@ -188,9 +203,30 @@ if keyboard_check_direct(vk_lcontrol){
 					load_overlay(99)
 				}
 				streamOver = false
+				startingSoon = false
+				instance_destroy(par_enemy)
+				enemiesDestroyed = 0
+				overlayTextWiggle = "Be Back in a few! :D"
 			}
 		}
-		else if keyboard_check_direct(ord("0"))
+		else if keyboard_check_direct(ord("8"))
+		{
+			if hotKeyOnlyOne{
+				hotKeyOnlyOne = false
+				create_transition(TransitionType.SwipeRight)
+				if !sideOverlay{
+					sideOverlay = true
+					previousOverlay = currentOverlay
+				}
+				if currentOverlay != 98{
+					load_overlay(98)
+				}
+				streamOver = false
+				startingSoon = true
+				overlayTextWiggle = "Starting Soon!"
+			}
+		}
+		else if keyboard_check_direct(ord("9"))
 		{
 			if hotKeyOnlyOne{
 				hotKeyOnlyOne = false
@@ -203,6 +239,10 @@ if keyboard_check_direct(vk_lcontrol){
 					load_overlay(99)
 				}
 				streamOver = true
+				startingSoon = false
+				instance_destroy(par_enemy)
+				enemiesDestroyed = 0
+				overlayTextWiggle = "Stream Over! See Y'all Later!"
 			}
 		}else if keyboard_check_direct(ord("Q")){
 			if hotKeyOnlyOne{
@@ -210,9 +250,11 @@ if keyboard_check_direct(vk_lcontrol){
 				create_transition(TransitionType.SwipeLeftQuick)
 				load_overlay(11)
 				streamOver = false
+				startingSoon = false
 				cameraMoving = true
 				cameraMoveToX = 1920
 				cameraMoveToY = 1032
+				overlayTextWiggle = ""
 			}
 		}else if keyboard_check_direct(ord("C")){
 			if hotKeyOnlyOne{
@@ -375,9 +417,24 @@ if keyboard_check_direct(vk_lcontrol){
 		}
 	}else if keyboard_check_direct(vk_subtract){
 		if jukeKeyOnlyOne{
-			jukeKeyOnlyOne = false	
+			jukeKeyOnlyOne = false
+			if hotKeyJukeKey == "2"{
+				jukePlaylistSet([bgm_coastal, bgm_jazzBarTheme, bgm_natureWalk,
+					bgm_plains, bgm_regolith, bgm_sunsetRide])
+			}else if hotKeyJukeKey == "3"{
+				jukePlaylistSet([bgm_graveyard, bgm_mapEditorPercussive,
+				  bgm_sunsetRide])
+			}else if hotKeyJukeKey == "4"{
+				jukePlaylistSet([bgm_barTheme, bgm_encounterOfALifetime,
+				  bgm_startYourJourney])
+			}else if hotKeyJukeKey == "6"{
+				jukePlaylistSet([bgm_diddle, bgm_fallingDepression, bgm_orchestra,
+				 bgm_shadowNightSecond])
+			}else{
+				jukePlaylist = 0
+				jukeSwitch(noone)
+			}
 			hotKeyJukeKey = ""
-			jukeSwitch(noone)
 		}
 	}else{
 		jukeKeyOnlyOne = true	
@@ -400,8 +457,6 @@ if keyboard_string == "mouse"{
 
 #endregion
 #region Game
-
-#region Mode Testing
 
 if mode == "gameSelect"{
 	if keyboard_check_pressed(vk_backspace){
@@ -441,5 +496,19 @@ if activeGameSwap == -1 and activeGame != noone and activeGameTransition < 1{
 }
 
 #endregion
+#region Jukebox 
+
+if jukePlaylist and !audio_is_playing(jukeCurrent){
+	jukePlaylistSwitch()
+}
+
+#endregion
+#region Starting Soon
+
+if startingSoon{
+	if irandom(max(100, 1000 - instance_number(obj_player))) == 0{
+		instance_create_layer(choose(920, 4840), 1180, getLayer(Layer.enemy), obj_enemy_SS)
+	}
+}
 
 #endregion

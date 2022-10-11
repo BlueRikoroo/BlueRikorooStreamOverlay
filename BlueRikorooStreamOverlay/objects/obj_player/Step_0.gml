@@ -8,23 +8,40 @@ function TryJump(){
 
 #region Which one?
 
-var camx = camera_get_view_x(view_camera[0])
-if x < camx{
-	decision = Movement.rightHurry
-}
-else if x > camx + 1920{
-	decision = Movement.leftHurry
-}
-else if x < camx + 150{
-	decision = Movement.right
-}
-else if x > camx + 1770{
-	decision = Movement.left
+if !obj_main.startingSoon or controlTimer == 0{
+	var camx = camera_get_view_x(view_camera[0])
+	if x < camx{
+		decision = Movement.rightHurry
+	}
+	else if x > camx + 1920{
+		decision = Movement.leftHurry
+	}
+	else if x < camx + 150{
+		decision = Movement.right
+	}
+	else if x > camx + 1770{
+		decision = Movement.left
+	}else{
+		switch(irandom(250)){
+		case 0: case 1: case 2: decision = Movement.idle break
+		case 3: decision = Movement.left break
+		case 4: decision = Movement.right break
+		}
+	}
 }else{
-	switch(irandom(250)){
-	case 0: case 1: case 2: decision = Movement.idle break
-	case 3: decision = Movement.left break
-	case 4: decision = Movement.right break
+	var camx = camera_get_view_x(view_camera[0])
+	controlTimer--
+	if x < camx{
+		decision = Movement.rightHurry
+	}
+	else if x > camx + 1920{
+		decision = Movement.leftHurry
+	}else if controlGoto+30 < x{
+		decision = Movement.left
+	}else if controlGoto-30 > x{
+		decision = Movement.right
+	}else{
+		decision = Movement.idle	
 	}
 }
 
