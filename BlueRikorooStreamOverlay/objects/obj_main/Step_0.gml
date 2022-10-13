@@ -32,6 +32,14 @@ if keyboard_check(vk_anykey) and mode == "normal"{
 			}
 		}
 		break
+	case "shoot":
+		if testing{
+			keyboard_string = ""
+			with(obj_player){
+				spawnAttack(element, x, y, x, y-100)
+			}
+		}
+		break
 	case "game":
 		if testing{
 			mode = "gameSelect"	
@@ -294,6 +302,12 @@ if keyboard_check_direct(vk_lcontrol){
 					notificationEffects = 3 
 					create_chat_message("Overlay", "Notifications - 3", Element.neutral)
 				}	
+			}
+		}else if keyboard_check_direct(ord("P")){
+			if hotKeyOnlyOne{
+				hotKeyOnlyOne = false
+				pushUpNum = 0
+				pushUpPos = 1930	
 			}
 		}else{
 			hotKeyOnlyOne = true

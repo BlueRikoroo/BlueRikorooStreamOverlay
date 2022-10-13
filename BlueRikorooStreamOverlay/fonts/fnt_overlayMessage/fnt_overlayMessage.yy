@@ -132,7 +132,7 @@
   "canGenerateBitmap": true,
   "maintainGms1Font": false,
   "parent": {
-    "name": "BlueRikorooStreamOverlay",
-    "path": "BlueRikorooStreamOverlay.yyp",
+    "name": "Overlays",
+    "path": "folders/Overlays.yy",
   },
 }

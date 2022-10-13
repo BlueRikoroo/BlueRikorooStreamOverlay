@@ -381,7 +381,21 @@ function overlay_startup_draw(){
 	#region Draw Code
 	
 	if overlay_timer == 0{
-		draw_sprite_ext(spr_overlay_clearSky, 0, -100, 0, 1.6, 1.6, 0, -1, 1)
+		draw_clear_alpha(0x755E37, 1)
+		draw_sprite_ext(spr_overlay_amaranthAboveTheClouds, 0, 0, 0, 1.42, 1.42, 0, -1, 1)
+		draw_sprite_ext(spr_overlay_natureSummerHillsBack, 0, 0, 144, 1.42, 1.42, 0, -1, 1)
+		draw_sprite_ext(spr_overlay_natureSummerHillsMid, 0, 0, 144, 1.42, 1.42, 0, -1, 1)
+		draw_sprite_ext(spr_overlay_natureSummerHillsFront, 0, 0, 144, 1.42, 1.42, 0, -1, 1)
+		var ow = 4
+		for (var X = -ow; X<=ow; X++){
+			for (var Y = -ow; Y<=ow; Y++){
+				draw_sprite_ext(spr_overlay_amaranthLogoNL, 0, 964+X, 473+Y, 0.47, 0.47, 0, c_black, 1)	
+			}
+		}
+		
+		draw_sprite_ext(spr_overlay_amaranthLogo, 0, 964, 473, 0.47, 0.47, 0, -1, 1)
+		draw_text_setup(fnt_overlayMessage, fa_right, fa_top)
+		draw_text_outline(1900, 20, "Click to Shoot", 3, c_white, c_black)
 	}
 	
 	#endregion

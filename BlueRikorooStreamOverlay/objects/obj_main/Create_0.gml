@@ -109,6 +109,9 @@ overlayTextWiggle = ""
 
 enemiesDestroyed = 0
 
+pushUpNum = 0
+pushUpPos = 1930
+
 #endregion
 #region Enums
 
@@ -128,40 +131,5 @@ enum Element{
 } 
 
 #endregion
-#region Particle Effects
 
-global.particle_system = part_system_create()
-#region Raid Bullet Particle
-
-particle_portalRocket = part_type_create()
-var p = particle_portalRocket
-part_type_shape(p,10)
-part_type_scale(p,0.5,0.5)
-part_type_size(p,0.5,2,0,0.90)
-part_type_life(p,60,60)
-part_type_direction(p,0,360,0,0)
-part_type_speed(p, 0, 2, 0, 0)
-part_type_color2(p,10224966,134674)
-part_type_alpha2(p,1,0)
-particle_raidPortal = part_type_create()
-var p = particle_raidPortal
-part_type_shape(p,10)
-part_type_scale(p,0.5,0.5)
-part_type_size(p,0.5,2,0,0.90)
-part_type_life(p,60,60)
-part_type_direction(p,0,360,0,0)
-part_type_speed(p, 0, 2, 0, 0)
-part_type_color2(p,10224966,134674)
-part_type_alpha2(p,1,0)
-
-#endregion
-#region Sub Click Particle
-
-particle_subClick = part_type_create()
-var p = particle_subClick
-part_type_shape(p, pt_shape_ring)
-part_type_size(p, 0, 0, 0.03, 0)
-part_type_life(p, 45, 45)
-
-#endregion
-#endregion
+scr_createParticles()

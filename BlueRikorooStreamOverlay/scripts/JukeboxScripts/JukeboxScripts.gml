@@ -12,6 +12,7 @@ function jukeSwitch(newAudio, gain=jukeVolume, loop=true){
 		jukeTimer = 60*5
 	}else{
 		jukeCurrent = noone
+		jukePlaylist = false
 	}
 }
 

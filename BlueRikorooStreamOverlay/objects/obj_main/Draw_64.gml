@@ -94,3 +94,24 @@ if overlayTextWiggle != ""{
 }
 
 #endregion
+#region PushUps
+
+if pushUpNum > 0{
+	draw_text_setup(fnt_blockEditor, fa_left, fa_top)
+	
+	var s = "Push Up Counter: " + string(pushUpNum)
+	var w = string_width(s)
+	var newPos = 1920-w-40
+	if abs(pushUpPos-newPos) < 1{
+		pushUpPos = newPos
+	}else{
+		pushUpPos += (newPos - pushUpPos)*0.01
+	}
+	
+	draw_set_color(make_color_rgb(200 + 50*sin(global.time*0.05),0,0))
+	draw_rectangle(pushUpPos, 0, pushUpPos+w+40, 60, false)
+	draw_text_outline(pushUpPos+20, 10, s, 2, c_white, c_black)
+	
+}
+
+#endregion

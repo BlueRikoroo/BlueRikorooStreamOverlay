@@ -38,7 +38,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "BlueRikorooStreamOverlay",
-    "path": "BlueRikorooStreamOverlay.yyp",
+    "name": "Main",
+    "path": "folders/Main.yy",
   },
 }

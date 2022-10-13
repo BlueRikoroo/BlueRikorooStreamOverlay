@@ -143,6 +143,7 @@ if url == webhook_url{
 				for (var i = 0; i < l; i++){
 					var notif = notifications[|i]
 					var notifID = notif[|0]
+					show_debug_message(string(notifID))
 					if notifCount < notifID{
 						notifCount = notifID
 						var notifType = notif[|1]
@@ -321,6 +322,23 @@ if url == webhook_url{
 							instance_deactivate_object(obj)
 							
 							break #endregion
+						case "ChannelPoint":  #region Channel Points
+							var username = notif[|2]
+							var rewardData = notif[|3]
+							var userInput = notif[|4]
+							show_debug_message("ChannelPoint Activated: " + rewardData[? "title"])
+							
+							if rewardData[? "title"] == "Patreon March"{
+								show_debug_message("Patreon March")
+							}
+							if rewardData[? "title"] == "Please exercise. Do a push up."{
+								pushUpNum++
+								audio_play_sfx(sfx_connection_failed,,,,0.5)
+							}
+							
+						
+							break #endregion
+						
 						}
 					}
 				}
