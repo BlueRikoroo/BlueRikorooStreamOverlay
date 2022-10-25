@@ -184,4 +184,15 @@ function scr_createParticles(){
 	part_type_life(p,20,20);
 	
 	#endregion
+	#region EA Standard
+	
+	particle_ea_standard = part_type_create();
+	p = particle_ea_standard
+	part_type_shape(p,pt_shape_disk);
+	part_type_size(p,0.5,0.5,-0.01,0);
+	part_type_color2(p,c_red,c_maroon);
+	part_type_alpha2(p,1, 0);
+	part_type_life(p,50,50);
+	
+	#endregion
 }

@@ -1,5 +1,5 @@
 function TryJump(){
-	if on_ground{
+	if on_ground and !damaged{
 		vspeed = -jumpForce*(1+random(1))
 		on_ground = false
 	}
@@ -56,6 +56,24 @@ if leaving{
 }	
 
 #endregion
+#region Damanged
+
+if damaged{
+	decision = Movement.idle
+	damageTimer++
+	alpha = (damageTimer mod 4 ) / 4
+	if damageTimer >= 600{
+		damageTimer = -60*4
+		damaged = false
+	}
+}else if damageTimer < 0{
+	damageTimer++
+	alpha = -(damageTimer mod 4 ) / 4
+}else{
+	alpha = 1
+}
+
+#endregion	
 #region Action
 
 switch(decision){
@@ -176,3 +194,7 @@ if obj_main.show_nametags or isKing{
 }
 
 #endregion
+
+if keyboard_check_pressed(ord("D")){
+	damaged = true
+}

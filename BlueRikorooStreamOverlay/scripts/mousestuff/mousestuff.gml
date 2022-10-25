@@ -115,7 +115,8 @@ function mouse_event(event){
 				var X = x + camera_get_view_x(view_camera[0])
 				var Y = y + camera_get_view_y(view_camera[0])
 				with(getUserObj(username)){
-					spawnAttack(element, x, y, X, Y)
+					if !damaged
+						spawnAttack(element, x, y, X, Y)
 				}
 			}
 		}
@@ -128,11 +129,13 @@ function mouse_event(event){
 			subStatue.speed = 0
 			subStatue.on_ground = false
 		}
-		var X = x + camera_get_view_x(view_camera[0])
 		// var Y = y + camera_get_view_y(view_camera[0])
-		with(getUserObj(username)){
-			controlTimer = 60*20
-			controlGoto = X
+		if y > 540{
+			var X = x + camera_get_view_x(view_camera[0])
+			with(getUserObj(username)){
+				controlTimer = 60*20
+				controlGoto = X
+			}
 		}
 	}
 }

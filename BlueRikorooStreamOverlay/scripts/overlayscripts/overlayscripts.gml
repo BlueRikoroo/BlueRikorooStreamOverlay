@@ -394,8 +394,10 @@ function overlay_startup_draw(){
 		}
 		
 		draw_sprite_ext(spr_overlay_amaranthLogo, 0, 964, 473, 0.47, 0.47, 0, -1, 1)
-		draw_text_setup(fnt_overlayMessage, fa_right, fa_top)
-		draw_text_outline(1900, 20, "Click to Shoot", 3, c_white, c_black)
+		draw_text_setup(fnt_subStatueUsername_tier3, fa_right, fa_top)
+		draw_text_outline(1900, 72, "Click to Shoot", 3, c_white, c_black)
+		draw_set_valign(fa_bottom)
+		draw_text_outline(1900, 1028, "Click/Drag to Reposition", 3, c_white, c_black)
 	}
 	
 	#endregion

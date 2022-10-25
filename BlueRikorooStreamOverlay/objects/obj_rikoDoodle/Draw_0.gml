@@ -68,7 +68,11 @@ with(obj_mouse){
 		draw_set_color(color)
 		draw_circle(X,  Y, 2, false)
 	}
-	if currentEvent == "mousedrag"{	
+	if currentEvent == "mousemove"{
+		lastPosX = X
+		lastPosY = Y
+	}
+	else if currentEvent == "mousedrag"{	
 		// Draw from Mouse
 		if posInRegion(X,Y,other.canvasPosX,other.canvasPosY,other.canvasPosX+other.canvasWidth,other.canvasPosY+other.canvasHeight){
 			surface_reassign_target(other.canvas)

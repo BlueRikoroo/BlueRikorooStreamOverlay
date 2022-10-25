@@ -46,18 +46,15 @@ function create_chat_message(author, Content, element){
 			var lastSpace = -1
 			for(var i = 1; i <= string_length(content); i++){
 				if string_width(author + ": " + string_copy(content, 1, i)) > width{
+					if lastSpace = -1
+						lastSpace = i-1
 					break	
 				}
 				if string_char_at(content, i) == " "{
 					lastSpace = i
 				}
 			}
-			if lastSpace = -1{
-				content = "<Message Too Long>"
-				break
-			}else{
-				content = string_copy(content, 1, lastSpace-1) + "\n" + string_copy(content, lastSpace+1, 10000000)
-			}
+			content = string_copy(content, 1, lastSpace-1) + "\n" + string_copy(content, lastSpace+1, 10000000)
 		}
 	}
 	
@@ -119,6 +116,8 @@ function _processContent(author, Content){
 			  getLayer(10), obj_subStatue_elementSwitcher)
 			obj.target = target
 			obj.element = newElement
+			with(obj)
+				setPlayerAnimations(element)
 			obj.color = color
 		}
 	}

@@ -1,0 +1,1 @@
+part_emitter_destroy(global.particle_system, emitter)

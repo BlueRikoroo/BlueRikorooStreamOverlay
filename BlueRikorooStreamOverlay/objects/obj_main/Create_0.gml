@@ -1,5 +1,4 @@
 randomize()
-
 ini_open("Config/config.ini")
 webhook_url = ini_read_string("Website", "url", "")
 confirmationWebhook_url = ini_read_string("Website", "confirmation_url", "")
@@ -91,13 +90,14 @@ jukeKeyOnlyOne = true
 toggleCursors = false
 notificationEffects = 3  // 0 None, 1 Just Message top right, 2 More centered message, 3 All effects
 jukeVolume = 0.25
-jukeTimer = 0
 jukeCredit = ""
 jukePos = 2920
 
 streamOver = false
 currentKing = ""
 startingSoon = false
+lastGlobalOverlay = 0
+
 
 drawOverlay = false
 drawOverlaySurface = noone
@@ -108,6 +108,7 @@ drawOverlayPrevY = 0
 overlayTextWiggle = ""
 
 enemiesDestroyed = 0
+nextBoss = 80
 
 pushUpNum = 0
 pushUpPos = 1930

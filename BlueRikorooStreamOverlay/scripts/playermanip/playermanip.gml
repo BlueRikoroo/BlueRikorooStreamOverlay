@@ -32,6 +32,7 @@ function setPlayerAnimations(elemenT){
 		anim_run = spr_player_fire_run
 		anim_run_speed = 0.15
 		anim_run_max = 11
+		anim_flyType = AnimFly.directionalEyes
 		anim_fly = spr_player_fire_fly
 		anim_fly_speed = 0.15
 		anim_fly_max = 11
@@ -140,6 +141,7 @@ function setPlayerAnimations(elemenT){
 		anim_run = spr_player_shadow_run
 		anim_run_speed = 0.1
 		anim_run_max = 7
+		anim_flyType = AnimFly.directionalEyes
 		anim_fly = spr_player_shadow_fly
 		anim_fly_speed = 0.1
 		anim_fly_max = 7
@@ -199,14 +201,13 @@ function spawnAttackNeutral(X, Y, dir){
 function spawnAttackFire(X, Y, dir){
 	var obj = instance_create_layer(X, Y, getLayer(Layer.attackF), par_playerAttack)
 	with(obj){
-		stepFunct = emitterFollowStep
+		stepFunct = emitterBurstStep10
 		destroyFunct = emitterDestroy
 		
 		partType = obj_main.particle_fireBullet
 		
 		emitter = part_emitter_create(global.particle_system);
 		part_emitter_region(global.particle_system,emitter,x,x,y,y,0,0);
-		part_emitter_stream(global.particle_system,emitter,partType,10);
 	}
 	
 	return obj	
@@ -228,7 +229,7 @@ function spawnAttackEarth(X, Y, dir){
 function spawnAttackMetal(X, Y, dir){
 	var obj = instance_create_layer(X, Y, getLayer(Layer.attackF), par_playerAttack)
 	with(obj){
-		stepFunct = emitterFollowStep
+		stepFunct = emitterBurstStep
 		destroyFunct = emitterDestroy
 		sprite_index = 	spr_metal_spike
 		image_angle = dir
@@ -238,14 +239,13 @@ function spawnAttackMetal(X, Y, dir){
 		partType = obj_main.particle_metalBullet
 		
 		emitter = part_emitter_create(global.particle_system);
-		part_emitter_stream(global.particle_system,emitter,partType,1);
 	}	
 	return obj
 }
 function spawnAttackStorm(X, Y, dir){
 	var obj = instance_create_layer(X, Y, getLayer(Layer.attackF), par_playerAttack)
 	with(obj){
-		stepFunct = emitterFollowStep
+		stepFunct = emitterBurstStep
 		destroyFunct = emitterDestroy
 		sprite_index = spr_at_elorb
 		image_xscale = 3
@@ -255,14 +255,13 @@ function spawnAttackStorm(X, Y, dir){
 		partType = obj_main.particle_stormBullet
 		
 		emitter = part_emitter_create(global.particle_system);
-		part_emitter_stream(global.particle_system,emitter,partType,1);
 	}	
 	return obj
 }
 function spawnAttackNature(X, Y, dir){
 	var obj = instance_create_layer(X, Y, getLayer(Layer.attackF), par_playerAttack)
 	with(obj){
-		stepFunct = emitterFollowStep
+		stepFunct = emitterBurstStep
 		destroyFunct = emitterDestroy
 		sprite_index = spr_at_leafBoomerang
 		image_angle = dir
@@ -270,7 +269,6 @@ function spawnAttackNature(X, Y, dir){
 		partType = obj_main.particle_natureBullet
 		
 		emitter = part_emitter_create(global.particle_system);
-		part_emitter_stream(global.particle_system,emitter,partType,1);
 	}	
 	return obj
 }
@@ -307,20 +305,19 @@ function spawnAttackIce(X, Y, dir){
 function spawnAttackLight(X, Y, dir){
 	var obj = instance_create_layer(X, Y, getLayer(Layer.attackF), par_playerAttack)
 	with(obj){
-		stepFunct = emitterFollowStep
+		stepFunct = emitterBurstStep
 		destroyFunct = emitterDestroy
 		
 		partType = obj_main.particle_lightBullet
 		
 		emitter = part_emitter_create(global.particle_system);
-		part_emitter_stream(global.particle_system,emitter,partType,1);
 	}	
 	return obj
 }
 function spawnAttackShadow(X, Y, dir){
 	var obj = instance_create_layer(X, Y, getLayer(Layer.attackF), par_playerAttack)
 	with(obj){
-		stepFunct = emitterFollowStep
+		stepFunct = emitterBurstStep
 		destroyFunct = emitterDestroy
 		sprite_index = spr_shadow_knife
 		image_angle = dir
@@ -328,12 +325,21 @@ function spawnAttackShadow(X, Y, dir){
 		partType = obj_main.particle_shadowBullet
 		
 		emitter = part_emitter_create(global.particle_system);
-		part_emitter_stream(global.particle_system,emitter,partType,1);
 	}	
 	return obj
 }
 
 function emitterFollowStep(){
+	part_emitter_region(global.particle_system,emitter,x,x,y,y,0,0);
+}
+function emitterBurstStep(){
+	part_type_orientation(partType, direction, direction, 0, 0, 0)
+	part_emitter_burst(global.particle_system,emitter,partType,1);
+	part_emitter_region(global.particle_system,emitter,x,x,y,y,0,0);
+}
+function emitterBurstStep10(){
+	part_type_orientation(partType, direction, direction, 0, 0, 0)
+	part_emitter_burst(global.particle_system,emitter,partType,10);
 	part_emitter_region(global.particle_system,emitter,x,x,y,y,0,0);
 }
 function emitterDestroy(){

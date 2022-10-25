@@ -7,8 +7,6 @@ function GetCredit(songID){
 	case bgm_melanchonyAndAmbiance: return "Melanchony and Ambiance - Efraim"	
 	case bgm_PVPUndergroundSuugestion: return "PVP Underground Suggestion - Efraim"	
 	case bgm_song2bcutupinloops: return "song2bcutupinloops - Efraim"	
-	case bgm_barTheme: return "Bar Theme - Digitalis"	
-	case bgm_startYourJourney: return "Start Your Journey - Digitalis"	
 	case bgm_dearRival: return "Dear Rival - Digitalis"	
 	case bgm_encounterOfALifetime: return "Encounter of a Lifetime - Digitalis"	
 	case bgm_fallingDepression: return "Falling Depression - Digitalis"	
@@ -28,5 +26,12 @@ function GetCredit(songID){
 	case bgm_plains: return "Plains - ODAE"	
 	case bgm_regolith: return "Regolith - ODAE"	
 	case bgm_shadowNightSecond: return "Shadow Night Second - ODAE"	
+	case bgm_wayOfPebbles: return "Way of Pebbles - AC_Composer"
+	case bgm_theIceCaves: return "The Ice Caves - AC_Composer"
+	case bgm_snowyRidge: return "Snowy Ridge - AC_Composer"
+	case bgm_runeStones: return "Rune Stones - AC_Composer"
+	case bgm_storiesOnTheWall: return "Stories on the Wall - AC_Composer"
+	case bgm_legendOfTheStone: return "Legen of the Stone - AC_Composer"
+	case bgm_theBookOfRocks: return "The Book of Rocks - AC_Composer"
 	}
 }

@@ -200,18 +200,15 @@ function wrapString(str, width){
 		var lastSpace = -1
 		for(var i = 1; i <= string_length(str); i++){
 			if string_width(string_copy(str, 1, i)) > width{
-				break	
+				if lastSpace = -1
+					lastSpace = i-1	
+				break
 			}
 			if string_char_at(str, i) == " "{
 				lastSpace = i
 			}
 		}
-		if lastSpace = -1{
-			str = "<Message Too Long>"
-			break
-		}else{
-			str = string_copy(str, 1, lastSpace-1) + "\n" + string_copy(str, lastSpace+1, 10000000)
-		}
+		str = string_copy(str, 1, lastSpace-1) + "\n" + string_copy(str, lastSpace+1, 10000000)
 	}
 	return str
 }

@@ -1,0 +1,12 @@
+sprite_index = spr_pm_base_default
+asthetics = []
+astheticAmount = 0
+username = "Test"
+image_xscale = 0.2
+image_yscale = 0.2
+offsetPerFrame = 60/7
+timePerFrame = 7
+alarm[0] = timePerFrame
+// Reference: image_speed = 0.1166
+frame = 0
+nameOffset = 0

@@ -3,7 +3,7 @@ var url = ds_map_find_value(async_load, "url")
 if url == webhook_url{
 	var result = ds_map_find_value(async_load, "result")
 	if is_undefined(result){
-		show_debug_message("Undefined Result Detected")
+		//show_debug_message("Undefined Result Detected")
 		exit
 	}
 	var json = json_decode(result)  // Change to Parse eventually, need to restructure data structs
@@ -143,7 +143,7 @@ if url == webhook_url{
 				for (var i = 0; i < l; i++){
 					var notif = notifications[|i]
 					var notifID = notif[|0]
-					show_debug_message(string(notifID))
+					//show_debug_message(string(notifID))
 					if notifCount < notifID{
 						notifCount = notifID
 						var notifType = notif[|1]
@@ -230,7 +230,7 @@ if url == webhook_url{
 							var username = notif[| 2]
 							var event = notif[| 3]
 							// mousemove, mousedown, mousedrag, mouseup, click
-							show_debug_message(event)
+							//show_debug_message(event)
 							var X = real(notif[| 4])
 							var Y = real(notif[| 5])
 							var mouseObj = getUserMouse(username)
@@ -338,7 +338,23 @@ if url == webhook_url{
 							
 						
 							break #endregion
-						
+						case "patron march":  #region Patreon March
+							var data = notif[| 2]	
+							var patrons = stringSplit(",", data)
+							var pl = array_length(patrons)
+							for(var i = 0; i < pl; i++){
+								var data = stringSplit("-", patrons[i])
+								var username = data[0]
+								var base = pmGetBase(data[1])
+								var totalAsthetics = array_length(data)-2
+								var asthetics = []
+								for(var k = totalAsthetics-1; k >= 0; k--){
+									asthetics[k] = pmGetAsthetics(data[k+2])
+								}
+								spawnPatreon(username, base, asthetics, i*142, i mod 2 == 1 ? 15 : 0)
+							}
+							
+							break #endregion
 						}
 					}
 				}

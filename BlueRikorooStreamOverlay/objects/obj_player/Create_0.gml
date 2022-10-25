@@ -49,6 +49,10 @@ element = Element.neutral
 controlTimer = 0
 controlGoto = 0
 
+damaged = false
+damageTimer = 0
+alpha = 1
+
 enum Anim{
 	idle,
 	idleRandom,

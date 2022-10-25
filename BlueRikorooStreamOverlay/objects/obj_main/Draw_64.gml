@@ -29,7 +29,7 @@ draw_surface(chat_surface, chat_surface_x, chat_surface_y)
 #region Juke Pos
 
 if jukePos < 2920{
-	if jukeTimer == 0{
+	if !audio_is_playing(jukeCurrent){
 		jukePos += (2920 - jukePos)*0.1
 		if abs(jukePos - 2920) <= 1{
 			jukePos = 2920	
@@ -38,9 +38,8 @@ if jukePos < 2920{
 	draw_text_setup(fnt_subStatueUsername_tier1, fa_right, fa_bottom)
 	draw_text_outline(jukePos, 1080, jukeCredit, 1, c_yellow, c_black)
 }
-if jukeTimer > 0{
+if audio_is_playing(jukeCurrent){
 	jukePos += (1920 - jukePos)*0.1
-	jukeTimer--
 }
 
 #endregion
@@ -113,5 +112,24 @@ if pushUpNum > 0{
 	draw_text_outline(pushUpPos+20, 10, s, 2, c_white, c_black)
 	
 }
+
+#endregion
+#region Test Patreon March
+
+/*
+// Testing Patreon March
+
+var X = 500
+var Y = 1000
+var S = 0.2
+var h = 1
+var f = 60/7
+var sep = (h/S)*f
+
+for (var i = 0; i < 16; i++){
+	if mouse_x > 1920+i*100
+		draw_sprite(spr_pm_base_default, i, X+i*sep, Y)
+}
+*/
 
 #endregion

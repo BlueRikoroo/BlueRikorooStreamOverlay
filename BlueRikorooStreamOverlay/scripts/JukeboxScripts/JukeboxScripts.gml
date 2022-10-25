@@ -9,7 +9,6 @@ function jukeSwitch(newAudio, gain=jukeVolume, loop=true){
 	if newAudio != noone{
 		jukeCurrent = audio_play_sfx(newAudio, 0, loop, 1, gain)
 		jukeCredit = GetCredit(newAudio)
-		jukeTimer = 60*5
 	}else{
 		jukeCurrent = noone
 		jukePlaylist = false

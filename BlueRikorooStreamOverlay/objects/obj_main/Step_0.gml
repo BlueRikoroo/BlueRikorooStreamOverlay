@@ -1,3 +1,4 @@
+// show_debug_message("(" + string(mouse_x) + ", " + string(mouse_y) + ")")
 global.time++
 #region Mode Switching
 
@@ -38,6 +39,12 @@ if keyboard_check(vk_anykey) and mode == "normal"{
 			with(obj_player){
 				spawnAttack(element, x, y, x, y-100)
 			}
+		}
+		break
+	case "patreon":
+		if testing{
+			keyboard_string = ""
+			spawnPatreon("BlueRikoroo", spr_pm_base_default, [], 0)
 		}
 		break
 	case "game":
@@ -177,6 +184,7 @@ if keyboard_check_direct(vk_lcontrol){
 				instance_destroy(par_enemy)
 				enemiesDestroyed = 0
 				overlayTextWiggle = ""
+				lastGlobalOverlay = 1
 			}
 		}
 		else if keyboard_check_direct(ord("4"))
@@ -196,6 +204,7 @@ if keyboard_check_direct(vk_lcontrol){
 				instance_destroy(par_enemy)
 				enemiesDestroyed = 0
 				overlayTextWiggle = ""
+				lastGlobalOverlay = 4
 			}
 		}
 		else if keyboard_check_direct(ord("5"))
@@ -207,14 +216,15 @@ if keyboard_check_direct(vk_lcontrol){
 					sideOverlay = true
 					previousOverlay = currentOverlay
 				}
-				if currentOverlay != 99{
-					load_overlay(99)
+				if currentOverlay != 98{
+					load_overlay(98)
 				}
 				streamOver = false
-				startingSoon = false
+				startingSoon = true
 				instance_destroy(par_enemy)
 				enemiesDestroyed = 0
 				overlayTextWiggle = "Be Back in a few! :D"
+				lastGlobalOverlay = 5
 			}
 		}
 		else if keyboard_check_direct(ord("8"))
@@ -232,6 +242,7 @@ if keyboard_check_direct(vk_lcontrol){
 				streamOver = false
 				startingSoon = true
 				overlayTextWiggle = "Starting Soon!"
+				lastGlobalOverlay = 8
 			}
 		}
 		else if keyboard_check_direct(ord("9"))
@@ -251,6 +262,7 @@ if keyboard_check_direct(vk_lcontrol){
 				instance_destroy(par_enemy)
 				enemiesDestroyed = 0
 				overlayTextWiggle = "Stream Over! See Y'all Later!"
+				lastGlobalOverlay = 9
 			}
 		}else if keyboard_check_direct(ord("Q")){
 			if hotKeyOnlyOne{
@@ -316,27 +328,38 @@ if keyboard_check_direct(vk_lcontrol){
 
 	if keyboard_check_direct(vk_numpad0){
 		jukeHotkeyAdd("0")	
-	}else if keyboard_check_direct(vk_numpad1){
+	}
+	else if keyboard_check_direct(vk_numpad1){
 		jukeHotkeyAdd("1")	
-	}else if keyboard_check_direct(vk_numpad2){
+	}
+	else if keyboard_check_direct(vk_numpad2){
 		jukeHotkeyAdd("2")	
-	}else if keyboard_check_direct(vk_numpad3){
+	}
+	else if keyboard_check_direct(vk_numpad3){
 		jukeHotkeyAdd("3")	
-	}else if keyboard_check_direct(vk_numpad4){
+	}
+	else if keyboard_check_direct(vk_numpad4){
 		jukeHotkeyAdd("4")	
-	}else if keyboard_check_direct(vk_numpad5){
+	}
+	else if keyboard_check_direct(vk_numpad5){
 		jukeHotkeyAdd("5")	
-	}else if keyboard_check_direct(vk_numpad6){
+	}
+	else if keyboard_check_direct(vk_numpad6){
 		jukeHotkeyAdd("6")	
-	}else if keyboard_check_direct(vk_numpad7){
+	}
+	else if keyboard_check_direct(vk_numpad7){
 		jukeHotkeyAdd("7")	
-	}else if keyboard_check_direct(vk_numpad8){
+	}
+	else if keyboard_check_direct(vk_numpad8){
 		jukeHotkeyAdd("8")	
-	}else if keyboard_check_direct(vk_numpad9){
+	}
+	else if keyboard_check_direct(vk_numpad9){
 		jukeHotkeyAdd("9")	
-	}else if keyboard_check_direct(vk_multiply){
+	}
+	else if keyboard_check_direct(vk_multiply){
 		
-		if keyboard_check_direct(vk_add){
+		if keyboard_check_direct(vk_add)
+		{
 			if jukeKeyOnlyOne{
 				jukeKeyOnlyOne = false	
 				hotKeyJukeKey = ""
@@ -346,7 +369,8 @@ if keyboard_check_direct(vk_lcontrol){
 				}
 			}			
 		}	
-		else if keyboard_check_direct(vk_subtract){
+		else if keyboard_check_direct(vk_subtract)
+		{
 			if jukeKeyOnlyOne{
 				jukeKeyOnlyOne = false	
 				hotKeyJukeKey = ""
@@ -356,7 +380,9 @@ if keyboard_check_direct(vk_lcontrol){
 				}
 			}	
 		}
-	}else if keyboard_check_direct(vk_add){
+	
+	}
+	else if keyboard_check_direct(vk_add){
 		if jukeKeyOnlyOne{
 			jukeKeyOnlyOne = false	
 			if hotKeyJukeKey == "1"
@@ -388,6 +414,22 @@ if keyboard_check_direct(vk_lcontrol){
 				jukeSwitch(bgm_regolith)
 			else if hotKeyJukeKey == "24"
 				jukeSwitch(bgm_sunsetRide)
+			else if hotKeyJukeKey == "25"
+				jukeSwitch(bgm_wayOfPebbles)
+			else if hotKeyJukeKey = "250"
+				jukeSwitch(bgm_theIceCaves)
+			else if hotKeyJukeKey = "251"
+				jukeSwitch(bgm_stoneForest)
+			else if hotKeyJukeKey = "252"
+				jukeSwitch(bgm_snowyRidge)
+			else if hotKeyJukeKey = "253"
+				jukeSwitch(bgm_runeStones)
+			else if hotKeyJukeKey = "254"
+				jukeSwitch(bgm_storiesOnTheWall)
+			else if hotKeyJukeKey = "255"
+				jukeSwitch(bgm_legendOfTheStone)
+			else if hotKeyJukeKey = "256"
+				jukeSwitch(bgm_theBookOfRocks)
 				
 			else if hotKeyJukeKey == "3"
 				jukeSwitch(bgm_natureWalkCaves)
@@ -396,12 +438,9 @@ if keyboard_check_direct(vk_lcontrol){
 			else if hotKeyJukeKey == "31"
 				jukeSwitch(bgm_mapEditorPercussive)
 				
-			else if hotKeyJukeKey == "4"
-				jukeSwitch(bgm_barTheme)
 			else if hotKeyJukeKey == "40"
 				jukeSwitch(bgm_encounterOfALifetime)
-			else if hotKeyJukeKey == "41"
-				jukeSwitch(bgm_startYourJourney)
+			
 				
 			else if hotKeyJukeKey == "50"
 				jukeSwitch(bgm_dearRival)
@@ -429,28 +468,36 @@ if keyboard_check_direct(vk_lcontrol){
 				jukeSwitch(noone)
 			hotKeyJukeKey = ""
 		}
-	}else if keyboard_check_direct(vk_subtract){
+	}
+	else if keyboard_check_direct(vk_subtract){
 		if jukeKeyOnlyOne{
 			jukeKeyOnlyOne = false
-			if hotKeyJukeKey == "2"{
+			if hotKeyJukeKey == "2"
 				jukePlaylistSet([bgm_coastal, bgm_jazzBarTheme, bgm_natureWalk,
-					bgm_plains, bgm_regolith, bgm_sunsetRide])
-			}else if hotKeyJukeKey == "3"{
+					bgm_plains, bgm_regolith, bgm_sunsetRide, bgm_wayOfPebbles, 
+					bgm_stoneForest])
+			else if hotKeyJukeKey == "3"
 				jukePlaylistSet([bgm_graveyard, bgm_mapEditorPercussive,
 				  bgm_sunsetRide])
-			}else if hotKeyJukeKey == "4"{
-				jukePlaylistSet([bgm_barTheme, bgm_encounterOfALifetime,
-				  bgm_startYourJourney])
-			}else if hotKeyJukeKey == "6"{
+			else if hotKeyJukeKey == "4"
+				jukePlaylistSet([bgm_encounterOfALifetime])
+			else if hotKeyJukeKey == "5"
+				jukePlaylistSet([bgm_dearRival])
+			else if hotKeyJukeKey == "6"
 				jukePlaylistSet([bgm_diddle, bgm_fallingDepression, bgm_orchestra,
 				 bgm_shadowNightSecond])
-			}else{
+			else if hotKeyJukeKey == "7"
+				jukePlaylistSet([bgm_amaranthMinigameElevator, bgm_diddleShadowRegion])
+			else if hotKeyJukeKey == "8"
+				jukePlaylistSet([bgm_makingAChoice, bgm_pad])
+			else{
 				jukePlaylist = 0
 				jukeSwitch(noone)
 			}
 			hotKeyJukeKey = ""
 		}
-	}else{
+	}
+	else{
 		jukeKeyOnlyOne = true	
 	}
 }
@@ -520,8 +567,32 @@ if jukePlaylist and !audio_is_playing(jukeCurrent){
 #region Starting Soon
 
 if startingSoon{
-	if irandom(max(100, 1000 - instance_number(obj_player))) == 0{
-		instance_create_layer(choose(920, 4840), 1180, getLayer(Layer.enemy), obj_enemy_SS)
+	if enemiesDestroyed > 0{
+		if lastGlobalOverlay = 8{
+			overlayTextWiggle = "Starting Soon!     Enemies Destroyed: " + string(enemiesDestroyed) 
+		}else if lastGlobalOverlay = 5{
+			overlayTextWiggle = "Be Back in a few! :D     Enemies Destroyed: " + string(enemiesDestroyed) 
+		}else{
+			overlayTextWiggle = "Enemies Destroyed: " + string(enemiesDestroyed) 
+		}
+	}
+	if !instance_exists(obj_enemy_boss1){
+		if (irandom(125) == 0 or instance_number(obj_enemy_SS) == 0) and instance_number(obj_enemy_SS) <= instance_number(obj_player)
+			instance_create_layer(choose(920, 4840), 1180, getLayer(Layer.enemy), obj_enemy_SS)
+		if irandom(625) == 0 and instance_number(obj_enemy_duelShoot) <= instance_number(obj_player)/8 and enemiesDestroyed > 5
+			instance_create_layer(2140 + random(1500), 700, getLayer(Layer.enemy), obj_enemy_duelShoot)
+		if irandom(1250) == 0 and instance_number(obj_enemy_rapidShoot) <= instance_number(obj_player)/16 and enemiesDestroyed > 20
+			instance_create_layer(2140 + random(1500), 700, getLayer(Layer.enemy), obj_enemy_rapidShoot)
+		if enemiesDestroyed > nextBoss
+			instance_create_layer(1920+1920*0.5, 500, getLayer(Layer.enemy), obj_enemy_boss1)
+	}else{
+		if irandom(125) == 0 and instance_number(obj_enemy_SS) <= instance_number(obj_player){
+			var pos = 10 + random(400)
+			var obj = instance_create_layer(920, 1180, getLayer(Layer.enemy), obj_enemy_SS)
+			obj.gotoPos = 1920+pos
+			var obj = instance_create_layer(4840, 1180, getLayer(Layer.enemy), obj_enemy_SS)
+			obj.gotoPos = 3840-pos
+		}
 	}
 }
 
