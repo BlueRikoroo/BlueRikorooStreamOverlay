@@ -176,7 +176,7 @@ if on_ground{
 #endregion
 #region Nameplate
 
-if obj_main.show_nametags or isKing{
+if (obj_main.show_nametags or isKing) and instance_exists(nameObj) {
 	with(nameObj){
 		x = other.x
 		y = other.y-32*other.isKing

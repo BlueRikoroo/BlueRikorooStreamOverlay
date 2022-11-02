@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMFont",
+  "resourceVersion": "1.0",
+  "name": "fnt_notification",
   "hinting": 0,
   "glyphOperations": 0,
   "interpreter": 0,
@@ -132,8 +135,4 @@
     "name": "Notifications",
     "path": "folders/Notifications.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "fnt_notification",
-  "tags": [],
-  "resourceType": "GMFont",
 }

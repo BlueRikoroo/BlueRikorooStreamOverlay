@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMFont",
+  "resourceVersion": "1.0",
+  "name": "fnt_subStatueUsername_tier3",
   "hinting": 0,
   "glyphOperations": 0,
   "interpreter": 0,
@@ -132,8 +135,4 @@
     "name": "Subs",
     "path": "folders/Notifications/Subs.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "fnt_subStatueUsername_tier3",
-  "tags": [],
-  "resourceType": "GMFont",
 }

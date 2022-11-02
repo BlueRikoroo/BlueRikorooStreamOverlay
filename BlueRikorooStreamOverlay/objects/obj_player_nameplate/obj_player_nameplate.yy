@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "obj_player_namePlate",
   "spriteId": null,
   "solid": false,
   "visible": true,
@@ -28,8 +31,4 @@
     "name": "Player",
     "path": "folders/Player.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "obj_player_namePlate",
-  "tags": [],
-  "resourceType": "GMObject",
 }

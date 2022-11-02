@@ -355,6 +355,12 @@ if url == webhook_url{
 							}
 							
 							break #endregion
+						case "sticker":  #region Sticker
+							var username = notif[|2]
+							var sticker = notif[|3]
+							processSticker(username, sticker)
+						
+							break #endregion
 						}
 					}
 				}

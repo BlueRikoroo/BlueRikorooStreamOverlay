@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSound",
+  "resourceVersion": "1.0",
+  "name": "snd_neutral_ult_water_activate",
   "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
@@ -17,8 +20,4 @@
     "name": "Sound Effects",
     "path": "folders/Notifications/Raid/Sound Effects.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "snd_neutral_ult_water_activate",
-  "tags": [],
-  "resourceType": "GMSound",
 }

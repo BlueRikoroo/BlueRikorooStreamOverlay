@@ -134,3 +134,6 @@ enum Element{
 #endregion
 
 scr_createParticles()
+
+// testOffset = [0, 0, 0, 0, 0, 0, 0, 0]
+// testAnimation = 0

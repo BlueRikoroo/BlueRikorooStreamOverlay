@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMFont",
+  "resourceVersion": "1.0",
+  "name": "fnt_blockEditor",
   "hinting": 0,
   "glyphOperations": 0,
   "interpreter": 0,
@@ -252,8 +255,4 @@
     "name": "Blocks",
     "path": "folders/Blocks.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "fnt_blockEditor",
-  "tags": [],
-  "resourceType": "GMFont",
 }

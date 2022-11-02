@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMPath",
+  "resourceVersion": "1.0",
+  "name": "path_raidPortalTraversal",
   "kind": 1,
   "closed": false,
   "precision": 8,
@@ -11,8 +14,4 @@
     "name": "Raid",
     "path": "folders/Notifications/Raid.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "path_raidPortalTraversal",
-  "tags": [],
-  "resourceType": "GMPath",
 }

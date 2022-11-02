@@ -116,6 +116,7 @@ if pushUpNum > 0{
 #endregion
 #region Test Patreon March
 
+
 /*
 // Testing Patreon March
 
@@ -127,9 +128,25 @@ var f = 60/7
 var sep = (h/S)*f
 
 for (var i = 0; i < 16; i++){
-	if mouse_x > 1920+i*100
-		draw_sprite(spr_pm_base_default, i, X+i*sep, Y)
+	if testAnimation > 0{
+		testOffset[testAnimation] = mouse_y-1600	
+	}
+	if mouse_x > 1920+i*100{
+		draw_sprite(spr_pm_base_rikkor, i, X+i*sep + testOffset[i mod 8], Y)
+		draw_sprite(spr_pm_aesth_rikkorBoneHelmet, i, X+i*sep + testOffset[i mod 8], Y)
+		draw_sprite(spr_pm_aesth_rikkorBoneStaff, i, X+i*sep + testOffset[i mod 8], Y)
+	}
+	// show_debug_message(string(mouse_x-3000) + " " + string(mouse_y-1600))
 }
-*/
 
+if mouse_check_button_pressed(mb_right){
+	testAnimation += 1
+	if testAnimation == 8{
+		show_message(testOffset)
+		testAnimation = 0
+	}
+}
+
+
+*/
 #endregion

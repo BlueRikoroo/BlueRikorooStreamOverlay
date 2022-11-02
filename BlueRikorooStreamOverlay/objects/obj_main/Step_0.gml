@@ -44,7 +44,7 @@ if keyboard_check(vk_anykey) and mode == "normal"{
 	case "patreon":
 		if testing{
 			keyboard_string = ""
-			spawnPatreon("BlueRikoroo", spr_pm_base_default, [], 0)
+			spawnPatreon("BlueRikoroo", spr_pm_base_rikkor, [spr_pm_aesth_rikkorBoneHelmet, spr_pm_aesth_rikkorBoneStaff], 0)
 		}
 		break
 	case "game":
@@ -163,12 +163,12 @@ if keyboard_check_direct(vk_lcontrol){
 	if keyboard_check_direct(vk_lshift){
 		if keyboard_check_direct(ord("1")) or 
 		  keyboard_check_direct(ord("2")) or 
-		  keyboard_check_direct(ord("3")) or 
-		  keyboard_check_direct(ord("6"))
+		  keyboard_check_direct(ord("4")) or 
+		  keyboard_check_direct(ord("5"))
 		{
 			if hotKeyOnlyOne{
 				hotKeyOnlyOne = false
-				if keyboard_check_direct(ord("2")){
+				if keyboard_check_direct(ord("5")){
 					create_transition(TransitionType.SwipeRightQuick)
 				}else{
 					create_transition(TransitionType.SwipeLeft)
@@ -187,7 +187,7 @@ if keyboard_check_direct(vk_lcontrol){
 				lastGlobalOverlay = 1
 			}
 		}
-		else if keyboard_check_direct(ord("4"))
+		else if keyboard_check_direct(ord("3"))
 		{
 			if hotKeyOnlyOne {
 				hotKeyOnlyOne = false
@@ -204,10 +204,10 @@ if keyboard_check_direct(vk_lcontrol){
 				instance_destroy(par_enemy)
 				enemiesDestroyed = 0
 				overlayTextWiggle = ""
-				lastGlobalOverlay = 4
+				lastGlobalOverlay = 3
 			}
 		}
-		else if keyboard_check_direct(ord("5"))
+		else if keyboard_check_direct(ord("7"))
 		{
 			if hotKeyOnlyOne{
 				hotKeyOnlyOne = false
@@ -224,7 +224,7 @@ if keyboard_check_direct(vk_lcontrol){
 				instance_destroy(par_enemy)
 				enemiesDestroyed = 0
 				overlayTextWiggle = "Be Back in a few! :D"
-				lastGlobalOverlay = 5
+				lastGlobalOverlay = 7
 			}
 		}
 		else if keyboard_check_direct(ord("8"))
@@ -404,8 +404,6 @@ if keyboard_check_direct(vk_lcontrol){
 				
 			else if hotKeyJukeKey == "2"
 				jukeSwitch(bgm_coastal)
-			else if hotKeyJukeKey == "20"
-				jukeSwitch(bgm_jazzBarTheme)
 			else if hotKeyJukeKey == "21"
 				jukeSwitch(bgm_natureWalk)
 			else if hotKeyJukeKey == "22"
@@ -473,7 +471,7 @@ if keyboard_check_direct(vk_lcontrol){
 		if jukeKeyOnlyOne{
 			jukeKeyOnlyOne = false
 			if hotKeyJukeKey == "2"
-				jukePlaylistSet([bgm_coastal, bgm_jazzBarTheme, bgm_natureWalk,
+				jukePlaylistSet([bgm_coastal, bgm_natureWalk,
 					bgm_plains, bgm_regolith, bgm_sunsetRide, bgm_wayOfPebbles, 
 					bgm_stoneForest])
 			else if hotKeyJukeKey == "3"

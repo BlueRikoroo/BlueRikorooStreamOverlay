@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMTileSet",
+  "resourceVersion": "1.0",
+  "name": "tile_wall_grass_spring",
   "spriteId": {
     "name": "spr_tile_wall_grass_spring",
     "path": "sprites/spr_tile_wall_grass_spring/spr_tile_wall_grass_spring.yy",
@@ -107,8 +110,4 @@
     "name": "Tiles",
     "path": "folders/Blocks/Tiles.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "tile_wall_grass_spring",
-  "tags": [],
-  "resourceType": "GMTileSet",
 }

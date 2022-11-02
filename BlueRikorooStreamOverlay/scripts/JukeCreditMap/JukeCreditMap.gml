@@ -10,7 +10,6 @@ function GetCredit(songID){
 	case bgm_dearRival: return "Dear Rival - Digitalis"	
 	case bgm_encounterOfALifetime: return "Encounter of a Lifetime - Digitalis"	
 	case bgm_fallingDepression: return "Falling Depression - Digitalis"	
-	case bgm_jazzBarTheme: return "Jazz Bar Theme - Digitalis"	
 	case bgm_coastal: return "Coastal - Duke Minus the Groove"	
 	case bgm_sunsetRide: return "Sunset Ride - Duke Minus the Groove"
 	case bgm_amaranthMinigameElevator: return "Amaranth Minigame Elevator - ODAE"
@@ -33,5 +32,7 @@ function GetCredit(songID){
 	case bgm_storiesOnTheWall: return "Stories on the Wall - AC_Composer"
 	case bgm_legendOfTheStone: return "Legen of the Stone - AC_Composer"
 	case bgm_theBookOfRocks: return "The Book of Rocks - AC_Composer"
+	case bgm_stoneForest: return "Stone Forest - AC_Composer"
+	default: return "Not Registered - " + audio_get_name(songID)
 	}
 }
