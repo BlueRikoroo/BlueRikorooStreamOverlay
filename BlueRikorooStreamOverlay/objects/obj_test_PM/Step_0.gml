@@ -1,6 +1,6 @@
 timer++
 if timer > 116{
-	spawnPatreon("Test", base, asthetics, 0)
+	spawnPatreon("", base, asthetics, 0)
 	timer = 0
 }
 

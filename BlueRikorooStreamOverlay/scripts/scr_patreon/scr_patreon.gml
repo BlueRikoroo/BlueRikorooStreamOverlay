@@ -19,11 +19,21 @@ function pmGetBase(name){
 	case "Green": return spr_pm_base_green
 	case "Teal": return spr_pm_base_teal
 	case "Gray": return spr_pm_base_gray
+	case "Original Rikkor": return spr_pm_base_rikkor
+	case "Poly Nugget": return spr_pm_base_polyNugget
+	case "WileyPansexualRoo": return spr_pm_base_wileyPansexualRoo
 	}
 }
 
 function pmGetAsthetics(name){
 	switch(name){
-	default:
+	case "Bone Staff": return spr_pm_aesth_rikkorBoneStaff
+	case "Bone Helmet": return spr_pm_aesth_rikkorBoneHelmet
+	case "Halloween Pumpkin Bucket": return spr_pm_aesth_halloweenPumkinBucket
+	case "Spooky Skull Helmet": return spr_pm_aesth_skullHelmet
+	case "Witches Broom": return spr_pm_aesth_witchBroom
+	case "Pilgrim Hat": return spr_pm_aesth_pilgrimHat
+	case "Wiley Pie": return spr_pm_aesth_wileyPie
+	case "WileyPCOH": return spr_pm_aesth_wileyPCOH
 	}
 }
