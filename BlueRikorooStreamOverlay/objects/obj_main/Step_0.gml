@@ -164,11 +164,12 @@ if keyboard_check_direct(vk_lcontrol){
 		if keyboard_check_direct(ord("1")) or 
 		  keyboard_check_direct(ord("2")) or 
 		  keyboard_check_direct(ord("4")) or 
-		  keyboard_check_direct(ord("5"))
+		  keyboard_check_direct(ord("5")) or
+		  keyboard_check_direct(ord("W"))
 		{
 			if hotKeyOnlyOne{
 				hotKeyOnlyOne = false
-				if keyboard_check_direct(ord("5")){
+				if keyboard_check_direct(ord("5")) or keyboard_check_direct(ord("4")){
 					create_transition(TransitionType.SwipeRightQuick)
 				}else{
 					create_transition(TransitionType.SwipeLeft)
@@ -488,6 +489,9 @@ if keyboard_check_direct(vk_lcontrol){
 				jukePlaylistSet([bgm_amaranthMinigameElevator, bgm_diddleShadowRegion])
 			else if hotKeyJukeKey == "8"
 				jukePlaylistSet([bgm_makingAChoice, bgm_pad])
+			else if hotKeyJukeKey == "9"
+				jukePlaylistSet([bgm_balearicPumping, bgm_beatSaber, bgm_commercialPumping, bgm_countryRounds,
+				  bgm_escape, bgm_legend])
 			else{
 				jukePlaylist = 0
 				jukeSwitch(noone)

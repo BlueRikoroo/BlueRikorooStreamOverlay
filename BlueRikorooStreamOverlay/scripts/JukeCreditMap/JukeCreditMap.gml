@@ -33,6 +33,12 @@ function GetCredit(songID){
 	case bgm_legendOfTheStone: return "Legen of the Stone - AC_Composer"
 	case bgm_theBookOfRocks: return "The Book of Rocks - AC_Composer"
 	case bgm_stoneForest: return "Stone Forest - AC_Composer"
+	case bgm_balearicPumping: return "Beatsaber OST 1 - Baleric Pumping"
+	case bgm_beatSaber: return "Beatsaber OST 1 - Beatsaber"
+	case bgm_commercialPumping: return "Beatsaber OST 1 - Commercial Pumping"
+	case bgm_countryRounds: return "Beatsaber OST 1 - Country Rounds"
+	case bgm_escape: return "Beatsaber OST 1 - Escape"
+	case bgm_legend: return "Beatsaber OST 1 - Legend"
 	default: return "Not Registered - " + audio_get_name(songID)
 	}
 }
